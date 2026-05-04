@@ -5,7 +5,7 @@ def count_good_partitions(nums: list[int]) -> int:  # LeetCode Q.2963.
     for idx, num in enumerate(nums):
         nums_last_indices[num] = idx
 
-    windows_count = 0  # Sliding window by three pointers.
+    windows_count = 0  # Sliding window by two pointers.
     scan_idx, boundary_idx = 0, 0
 
     while boundary_idx < len(nums):
