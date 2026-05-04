@@ -23,12 +23,12 @@ def count_max_robots(charge_times: list[int], running_costs: list[int], budget: 
         while budget < max_charge_time + robots_count * window_total_cost:
             window_total_cost -= running_costs[start_idx]
 
-            start_idx += 1
             robots_count -= 1
+            start_idx += 1
 
             if queue and queue[0][1] < start_idx: queue.popleft()
 
-            if not queue: break
+            if start_idx > end_idx: break  # 0 robots at hand.
 
         if robots_count > max_robots_count: max_robots_count = robots_count
 

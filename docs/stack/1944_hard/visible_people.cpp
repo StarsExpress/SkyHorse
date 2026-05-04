@@ -1,29 +1,26 @@
 #include <vector>
 #include <stack>
-#include <deque>
 using namespace std;
 
 vector<int> countVisibilities(vector<int> &heights) // LeetCode Q.1944.
 {
     stack<int> stack; // A stack of heights.
 
-    deque<int> visibilities;
+    vector<int> visibilities(heights.size(), 0);
 
     for (int idx = heights.size() - 1; idx >= 0; idx--)
     {
         int height = heights[idx];
 
-        visibilities.push_front(0);
-
         while (!stack.empty() && stack.top() < height)
         {
             stack.pop();
-            visibilities.front()++;
+            visibilities[idx]++;
         }
 
         if (!stack.empty())
         {
-            visibilities.front()++;
+            visibilities[idx]++;
 
             if (stack.top() == height)
                 stack.pop();
@@ -32,5 +29,5 @@ vector<int> countVisibilities(vector<int> &heights) // LeetCode Q.1944.
         stack.push(height);
     }
 
-    return vector(visibilities.begin(), visibilities.end());
+    return visibilities;
 }

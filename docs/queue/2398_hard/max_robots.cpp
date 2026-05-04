@@ -33,8 +33,8 @@ int countMaxRobots(vector<int> &chargeTimes, vector<int> &runningCosts, long lon
             if (!queue.empty() && queue.front().second < startIdx)
                 queue.pop_front();
 
-            if (queue.empty())
-                break;
+            if (startIdx > endIdx)
+                break; // 0 robots at hand.
         }
 
         if (robotsCount > maxRobotsCount)
