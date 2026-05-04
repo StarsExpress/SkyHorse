@@ -6,8 +6,9 @@ using namespace std;
 class MaxFrequencyStack // LeetCode Q.895.
 {
 private:
-    // Each idx contains stack of values with frequency = idx + 1.
-    vector<stack<int>> frequencyStack;
+    // Each idx contains stack of values with frequency = idx.
+    // Pad empty stack to adjust for 0-based indexing.
+    vector<stack<int>> frequencyStack = {{}};
 
     unordered_map<int, int> valuesFrequencies;
 
@@ -20,10 +21,10 @@ public:
         int frequency = valuesFrequencies[value];
 
         // Need to add another stack for current frequency.
-        if (frequency > frequencyStack.size())
+        if (frequency == frequencyStack.size())
             frequencyStack.push_back({});
 
-        frequencyStack[frequency - 1].push(value);
+        frequencyStack[frequency].push(value);
     }
 
     int pop()

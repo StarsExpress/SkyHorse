@@ -1,26 +1,28 @@
 
 class MaxFrequencyStack:  # LeetCode Q.895.
     def __init__(self):
-        self.vals2freqs: dict[int, int] = dict()
+        self.vals_freqs: dict[int, int] = dict()
 
-        # Each idx contains stack of values with frequency = idx + 1.
-        self.freqs2stacks: list[list[int]] = []
+        # Each idx contains stack of values w/ frequency = idx.
+        # Pad empty stack to adjust for 0-based indexing.
+        self.freqs_stacks: list[list[int]] = [[]]
     
     def push(self, value: int) -> None:
-        if value not in self.vals2freqs.keys():
-            self.vals2freqs.update({value: 0})
-        self.vals2freqs[value] += 1
-        
+        if value not in self.vals_freqs.keys():
+            self.vals_freqs.update({value: 0})
+        self.vals_freqs[value] += 1
+
         # Need to add another stack for current frequency.
-        if self.vals2freqs[value] > len(self.freqs2stacks):
-            self.freqs2stacks.append([])
-        
-        self.freqs2stacks[self.vals2freqs[value] - 1].append(value)
+        if self.vals_freqs[value] == len(self.freqs_stacks):
+            self.freqs_stacks.append([])
+
+        frequency = self.vals_freqs[value]
+        self.freqs_stacks[frequency].append(value)
 
     def pop(self) -> int:
-        most_freq_val = self.freqs2stacks[-1].pop(-1)
-        self.vals2freqs[most_freq_val] -= 1
-        
-        if not self.freqs2stacks[-1]: self.freqs2stacks.pop(-1)
-        
+        most_freq_val = self.freqs_stacks[-1].pop(-1)
+
+        if not self.freqs_stacks[-1]: self.freqs_stacks.pop(-1)
+
+        self.vals_freqs[most_freq_val] -= 1
         return most_freq_val

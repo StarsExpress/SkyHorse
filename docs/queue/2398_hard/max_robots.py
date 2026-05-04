@@ -1,18 +1,20 @@
+from collections import deque
+
 
 def count_max_robots(charge_times: list[int], running_costs: list[int], budget: int):  # LeetCode Q.2398.
     max_robots_count = 0  # Base case.
 
     window_total_cost = 0
 
-    start_idx = 0
-    queue: list[tuple[int, int]] = []  # Format: (charge time, idx).
+    queue: deque[tuple[int, int]] = deque([])  # Format: (charge time, idx).
 
+    start_idx = 0
     for end_idx, charge_time in enumerate(charge_times):
         window_total_cost += running_costs[end_idx]
-        
+
         while queue and queue[-1][0] <= charge_time:
-            queue.pop(-1)
-        
+            queue.pop()
+
         queue.append((charge_time, end_idx))
 
         robots_count = end_idx + 1 - start_idx
@@ -24,10 +26,10 @@ def count_max_robots(charge_times: list[int], running_costs: list[int], budget: 
             start_idx += 1
             robots_count -= 1
 
-            if queue and queue[0][1] < start_idx: queue.pop(0)
-            
+            if queue and queue[0][1] < start_idx: queue.popleft()
+
             if not queue: break
-        
+
         if robots_count > max_robots_count: max_robots_count = robots_count
 
     return max_robots_count
