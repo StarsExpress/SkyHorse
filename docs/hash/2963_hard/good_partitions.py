@@ -6,21 +6,20 @@ def count_good_partitions(nums: list[int]) -> int:  # LeetCode Q.2963.
         nums_last_indices[num] = idx
 
     windows_count = 0  # Sliding window by three pointers.
-    left_idx, mid_idx, right_idx = 0, 0, 0
+    scan_idx, boundary_idx = 0, 0
 
-    while right_idx < len(nums):
-        num = nums[mid_idx]
-        mid_idx += 1  # Already visited.
+    while boundary_idx < len(nums):
+        num = nums[scan_idx]
+        scan_idx += 1  # Already visited.
 
-        if right_idx < nums_last_indices[num]:  # Num extends current window.
-            right_idx = nums_last_indices[num]
+        if boundary_idx < nums_last_indices[num]:  # Num extends current window.
+            boundary_idx = nums_last_indices[num]
             continue
 
-        if mid_idx >= right_idx:
+        if scan_idx > boundary_idx:
             windows_count += 1  # Current window is finalized.
 
-            left_idx = right_idx + 1  # Search for another window, if possible.
-            mid_idx, right_idx = left_idx, left_idx
+            boundary_idx += 1  # Search for another window, if possible.
 
     good_partitions = 1
     power = windows_count - 1

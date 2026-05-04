@@ -11,7 +11,7 @@ import PyCode from './subarrays_max_min_sum.py?raw';
 
 
 ### [Maximum and Minimum Sums of at Most Size K Subarrays](https://leetcode.com/problems/maximum-and-minimum-sums-of-at-most-size-k-subarrays/description/)
-第3430号题纯看通过率属于 __非常硬的那种档次 才25%上下而已__
+第3430号难题纯看通过率属于 __非常硬的那种档次 才25%上下而已__
 
 不过其实稍加思索会发现这题考的 不过就是两件事：
 

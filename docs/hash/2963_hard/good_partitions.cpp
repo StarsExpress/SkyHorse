@@ -10,25 +10,24 @@ int countGoodPartitions(vector<int> &nums) // LeetCode Q.2963.
         numsLastIndices[nums[idx]] = idx;
 
     int windowsCount = 0; // Sliding window by three pointers.
-    int leftIdx = 0, midIdx = 0, rightIdx = 0;
+    int scanIdx = 0, boundaryIdx = 0;
 
-    while (rightIdx < nums.size())
+    while (boundaryIdx < nums.size())
     {
-        int num = nums[midIdx];
-        midIdx++; // Already visited.
+        int num = nums[scanIdx];
+        scanIdx++; // Already visited.
 
-        if (rightIdx < numsLastIndices[num])
+        if (boundaryIdx < numsLastIndices[num])
         { // Num extends current window.
-            rightIdx = numsLastIndices[num];
+            boundaryIdx = numsLastIndices[num];
             continue;
         }
 
-        if (midIdx >= rightIdx)
+        if (scanIdx > boundaryIdx)
         {
             windowsCount++; // Current window is finalized.
 
-            leftIdx = rightIdx + 1; // Search for another window, if possible.
-            midIdx = leftIdx, rightIdx = leftIdx;
+            boundaryIdx++; // Search for another window, if possible.
         }
     }
 
