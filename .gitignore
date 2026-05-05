@@ -1,14 +1,14 @@
-# Dependencies
+# Dependencies.
 /node_modules/
 
-# Production
+# Production.
 /build
 
-# Generated files
+# Generated files.
 .docusaurus
 .cache-loader
 
-# Misc
+# Misc.
 .DS_Store
 .env.local
 .env.development.local
@@ -18,5 +18,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.idea
+
+__MACOSX/
 
 __pycache__/

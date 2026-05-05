@@ -7,42 +7,33 @@ private:
     vector<int> graph, visitedOrders;
     int currentOrder = 1, maxCycle = -1;
 
-    bool dfsCycle(int node)
+    void dfsCycle(int node)
     {
         visitedOrders[node] = currentOrder;
         currentOrder++; // Increment for the next node.
 
-        int targetNode = graph[node];
-        if (targetNode == -1)
+        int tgtNode = graph[node];
+        if (tgtNode == -1) // No outgoing edge.
         {
-            visitedOrders[node] = -2;
-            return false;
+            visitedOrders[node] = -2; // Current node finalizes DFS.
+            return;
         }
 
-        if (visitedOrders[targetNode] <= -2)
+        if (visitedOrders[tgtNode] == -1) // Unvisited yet.
+            dfsCycle(tgtNode);
+
+        int tgtNodeOrder = visitedOrders[tgtNode];
+
+        // Target node is also still under DFS: a cycle just forms.
+        if (tgtNodeOrder > 0)
         {
-            visitedOrders[node] = -2;
-            return false;
+            // Such a cycle starts at target, and ends at current node.
+            int cycleLen = visitedOrders[node] + 1 - tgtNodeOrder;
+            if (cycleLen > maxCycle)
+                maxCycle = cycleLen;
         }
 
-        if (visitedOrders[targetNode] == -1)
-        {
-            if (dfsCycle(targetNode) == false)
-            {
-                visitedOrders[node] = -2;
-                return false;
-            }
-
-            visitedOrders[node] = -3; // Belongs to a cycle.
-            return true;
-        }
-
-        int cycleLen = visitedOrders[node] + 1 - visitedOrders[targetNode];
-        if (cycleLen > maxCycle)
-            maxCycle = cycleLen;
-
-        visitedOrders[node] = -3; // Belongs to a cycle.
-        return true;
+        visitedOrders[node] = -2; // Current node finalizes DFS.
     }
 
 public:
@@ -50,8 +41,7 @@ public:
     {
         graph = edges;
 
-        // Special marks: -1 = unvisited.
-        // -2 = can't help find a cycle. -3 = belongs to a cycle.
+        // Special marks: -1 = unvisited. -2 = has finalized DFS.
         visitedOrders.assign(edges.size(), -1);
 
         for (int node = 0; node < edges.size(); node++)

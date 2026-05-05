@@ -2,49 +2,43 @@
 class LongestCycle:  # LeetCode Q.2360.
     def __init__(self):
         self.edges: list[int] = []
-
-        # Special marks: -1 = unvisited.
-        # -2 = can't help find a cycle. -3 = belongs to a cycle.
         self.visited_orders: list[int] = []
 
         self.current_order = 1
         self.longest_cycle = -1
 
-    def _dfs_cycle(self, node: int) -> bool:
+    def _dfs_cycle(self, node: int) -> None:
         self.visited_orders[node] = self.current_order
         self.current_order += 1  # Increment for the next node.
 
-        target_node = self.edges[node]
-        if target_node == -1:
-            self.visited_orders[node] = -2
-            return False
+        tgt_node = self.edges[node]
+        if tgt_node == -1:  # No outgoing edge.
+            self.visited_orders[node] = -2  # Current node finalizes DFS.
+            return
 
-        if self.visited_orders[target_node] <= -2:
-            self.visited_orders[node] = -2
-            return False
+        if self.visited_orders[tgt_node] == -1:  # Unvisited yet.
+            self._dfs_cycle(tgt_node)
 
-        if self.visited_orders[target_node] == -1:
-            if not self._dfs_cycle(target_node):
-                self.visited_orders[node] = -2
-                return False
+        tgt_node_order = self.visited_orders[tgt_node]
 
-            self.visited_orders[node] = -3  # Belongs to a cycle.
-            return True
+        # Target node still under DFS: a cycle just forms.
+        if tgt_node_order > 0:
+            # Such a cycle starts at target, and ends at current node.
+            cycle_len = self.visited_orders[node] + 1 - tgt_node_order
+            if cycle_len > self.longest_cycle:
+                self.longest_cycle = cycle_len
 
-        cycle_len = self.visited_orders[node] + 1 - self.visited_orders[target_node]
-        if cycle_len > self.longest_cycle:
-            self.longest_cycle = cycle_len
-
-        self.visited_orders[node] = -3  # Belongs to a cycle.
-        return True
+        self.visited_orders[node] = -2  # Current node finalizes DFS.
 
     def compute_longest_cycle_len(self, edges: list[int]) -> int:
-        self.edges.clear()  # Reset before search.
-        self.visited_orders.clear()
+        self.edges = edges
+
+        # Special marks: -1 = unvisited yet. -2 = has finalized DFS.
+        self.visited_orders = [-1] * len(edges)
+
         self.current_order = 1
         self.longest_cycle = -1
 
-        self.edges.extend(edges)
         for node, _ in enumerate(edges):
             if self.visited_orders[node] == -1:  # Unvisited yet.
                 self._dfs_cycle(node)
