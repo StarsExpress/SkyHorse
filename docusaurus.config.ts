@@ -30,7 +30,7 @@ const config: Config = {
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
+  // useful metadata like HTML lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
@@ -43,10 +43,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           numberPrefixParser: false, // Do not remove number prefixes. Very important.
           routeBasePath: 'docs',
           remarkPlugins: [remarkMath], // For LaTeX.
@@ -58,11 +54,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
+          // Useful options to enforce blogging best practices.
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -100,8 +92,8 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    // Replace with your project's social card.
+    image: 'img/logo.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -119,8 +111,13 @@ const config: Config = {
           label: 'LeetCode Catalog📒',
         },
         {
+          to: '/about',
+          label: 'About Me👀',
+          position: 'left',
+        },
+        {
           // Link to the directory for direct code scripts lookup.
-          href: 'https://github.com/StarsExpress/SkyHorse/tree/main/docs',
+          href: 'https://github.com/StarsExpress/SkyHorse',
           label: 'SkyHorse Repo',
           position: 'right',
         },
@@ -128,25 +125,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/StarsExpress',
-            },
-            {
-              label: 'LinkedIn',
-              href: 'https://www.linkedin.com/in/yuan-jack-yao/',
-            },
-          ],
-        },
-      ],
+      links: [],
       copyright: `Copyright © ${new Date().getFullYear()} 天碼行空 SkyHorse. Built with Docusaurus.`,
     },
     prism: {
