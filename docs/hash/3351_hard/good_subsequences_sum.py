@@ -14,12 +14,13 @@ def sum_good_subsequences(nums: list[int]) -> int:  # LeetCode Q.3351.
 
     for num in nums:
         for validTail in (num - 1, num + 1):
-            subseqCounts[num] += subseqCounts.get(validTail, 0)
+            prev_count = subseqCounts.get(validTail, 0)
+            subseqCounts[num] += prev_count
 
-            subseqSums[num] += num * subseqCounts.get(validTail, 0)
+            prev_sum = subseqSums.get(validTail, 0)
+            subseqSums[num] += prev_sum + num * prev_count
 
-            subseqSums[num] += subseqSums.get(validTail, 0)
-
+        # Counts & sums are O(2^n) so must do modulo for future operations.
         subseqCounts[num] += 1
         if subseqCounts[num] > modulo: subseqCounts[num] %= modulo
 

@@ -12,11 +12,11 @@ int sumGoodSubsequences(vector<int> &nums) // LeetCode Q.3351.
     {
         for (auto validTail : {num - 1, num + 1})
         {
-            subseqCounts[num] += subseqCounts[validTail];
+            long long prevCount = subseqCounts[validTail];
+            subseqCounts[num] += prevCount;
 
-            subseqSums[num] += num * subseqCounts[validTail];
-
-            subseqSums[num] += subseqSums[validTail];
+            long long prevSum = subseqSums[validTail];
+            subseqSums[num] += prevSum + num * prevCount;
         }
 
         // Counts & sums are O(2^n) so must do modulo for future operations.

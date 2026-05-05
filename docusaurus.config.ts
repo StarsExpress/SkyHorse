@@ -126,7 +126,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} 天碼行空 SkyHorse. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} 天码行空 SkyHorse. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
