@@ -10,17 +10,20 @@ class DirectedGraphVisitedNodes:  # LeetCode Q.2876.
         self.visited_orders[node] = self.current_order
         self.current_order += 1
 
+        cycle_start_order = -1
+
         target_node = self.graph[node]
+        if self.visited_orders[target_node] == -1:  # Unvisited target node.
+            cycle_start_order = self._dfs_visited_nodes(target_node)
 
         # A cycle just forms. Current node and its target node are members.
-        if self.visited_orders[target_node] != -1 and self.visited_counts[target_node] == 0:
+        if self.visited_orders[target_node] > 0:
             cycle_size = self.visited_orders[node] + 1 - self.visited_orders[target_node]
             self.visited_counts[node] = cycle_size
-            return self.visited_orders[target_node]  # Where cycle starts.
 
-        cycle_start_order = -1
-        if self.visited_orders[target_node] == -1:
-            cycle_start_order = self._dfs_visited_nodes(target_node)
+            self.visited_orders[node] = -2  # Current node has finalized DFS.
+
+            return self.visited_orders[target_node]  # Where cycle starts.
 
         # Reset: current node is no part of any cycle. Nor are its ascendants.
         if self.visited_orders[node] < cycle_start_order:
@@ -30,14 +33,16 @@ class DirectedGraphVisitedNodes:  # LeetCode Q.2876.
         if cycle_start_order == -1:
             self.visited_counts[node] += 1
 
+        self.visited_orders[node] = -2  # Current node has finalized DFS.
         return cycle_start_order
 
     def count_visited_nodes(self, edges: list[int]) -> list[int]:
         self.graph = edges
+        self.visited_counts = [0] * len(edges)
 
+        # Special marks: -1 = unvisited yet. -2 = has finalized DFS.
         self.visited_orders = [-1] * len(edges)  # -1 means unvisited yet.
         self.current_order = 1
-        self.visited_counts = [0] * len(edges)
 
         for node in range(len(edges)):
             if self.visited_orders[node] == -1:

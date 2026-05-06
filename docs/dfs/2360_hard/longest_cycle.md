@@ -13,7 +13,7 @@ import PyCode from './longest_cycle.py?raw';
 ### [Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/description/)
 经典的环识别题 想当然耳开DFS最直观啰
 
-这道题的好处是 图上$n$个点的标签是$0$到$n - 1$这些整数
+这道题好处是 图上$n$个点标签是$0$到$n - 1$非负整数
 
 直接拿```vector<int>```来做访问顺序的追踪表即可
 
@@ -21,9 +21,9 @@ import PyCode from './longest_cycle.py?raw';
 
 
 ### 环何时成形？先把这个想清楚
-当我们在递归有向图的过程中 来到某个点$u$ 若$u$无出边
+当我们在递归有向图的过程中 来到某个点$u$
 
-自然就是个死胡同了 点$u$不会在环内
+若$u$无出边 自然就是个死胡同了 点$u$不会在环内
 
 那么假如$u$有条指向点$v$的出边呢？目前点$v$有三种可能性：
 
@@ -58,13 +58,13 @@ __$(u, v)$是这个新生的环$C$ 最后的那块拼图🧩__
 我习惯在```visitedOrders```这个整数阵列上 采取几种不同标记：
 
 1. -1：点未被访问过🔴
-2. 正整数：点正在递归栈上还没闪人🟡这正就是点的访问顺序
+2. 正整数：点正在递归栈上还没闪人🟡这正是点的访问顺序
 3. -2：点已经进过且登出递归栈了🟢
 
 ![DFS_Efficiency](2360_efficiency.png)
 每个点和每条边都只会刚好经过一遍 时间复杂度$O(V + E)$
 
-空间复杂度也和点与边数量呈线性关系 复杂度$O(V + E)$
+空间复杂度也和点与边数量呈线性关系 有$O(V + E)$
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>
@@ -75,3 +75,7 @@ __$(u, v)$是这个新生的环$C$ 最后的那块拼图🧩__
     <CodeBlock language="python">{PyCode}</CodeBlock>
   </TabItem>
 </Tabs>
+
+
+### 延伸问题
+[若你想清楚了第2360问，那就来吧😉](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)
