@@ -1,4 +1,4 @@
 ---
-title: "0068. Text Justificator"
+title: "68. Text Justificator"
 ---
 

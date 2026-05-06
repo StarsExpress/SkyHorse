@@ -1,4 +1,4 @@
 ---
-title: "0767. Reorganized String"
+title: "767. Reorganized String"
 ---
 

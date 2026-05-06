@@ -1,4 +1,4 @@
 ---
-title: "min. Min Required Money"
+title: "2412. Min Required Money"
 ---
 

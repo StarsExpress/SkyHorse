@@ -1,4 +1,4 @@
 ---
-title: "0076. Min Window Substring"
+title: "76. Min Window Substring"
 ---
 

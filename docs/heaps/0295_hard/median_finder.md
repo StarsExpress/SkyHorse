@@ -1,4 +1,4 @@
 ---
-title: "0295. Median Finder"
+title: "295. Median Finder"
 ---
 

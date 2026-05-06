@@ -1,4 +1,4 @@
 ---
-title: "0918. Circular Subarray Sum"
+title: "918. Circular Subarray Sum"
 ---
 

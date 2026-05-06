@@ -1,4 +1,4 @@
 ---
-title: "0552. Student Attendance"
+title: "552. Student Attendance"
 ---
 

@@ -1,4 +1,4 @@
 ---
-title: "0895. Max Frequency Stack"
+title: "895. Max Frequency Stack"
 ---
 
