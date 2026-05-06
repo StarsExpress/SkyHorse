@@ -41,7 +41,7 @@ class DirectedGraphVisitedNodes:  # LeetCode Q.2876.
         self.visited_counts = [0] * len(edges)
 
         # Special marks: -1 = unvisited yet. -2 = has finalized DFS.
-        self.visited_orders = [-1] * len(edges)  # -1 means unvisited yet.
+        self.visited_orders = [-1] * len(edges)
         self.current_order = 1
 
         for node in range(len(edges)):

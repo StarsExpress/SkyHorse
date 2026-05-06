@@ -55,7 +55,7 @@ public:
         vector<string> justifiedSentences;
         int charsCount = 0; // Characters only. Not counting interval spaces.
 
-        for (auto word : words)
+        for (const auto &word : words)
         {
             // Current sentence is finalized.
             if (charsCount + queue.size() - 1 + word.size() + 1 > maxWidth)

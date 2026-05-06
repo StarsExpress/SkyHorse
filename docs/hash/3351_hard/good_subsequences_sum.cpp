@@ -8,9 +8,9 @@ int sumGoodSubsequences(vector<int> &nums) // LeetCode Q.3351.
 
     unordered_map<int, long long> subseqCounts, subseqSums;
 
-    for (auto num : nums)
+    for (const auto &num : nums)
     {
-        for (auto validTail : {num - 1, num + 1})
+        for (const auto &validTail : {num - 1, num + 1})
         {
             long long prevCount = subseqCounts[validTail];
             subseqCounts[num] += prevCount;
@@ -30,7 +30,7 @@ int sumGoodSubsequences(vector<int> &nums) // LeetCode Q.3351.
     }
 
     long long goodSubseqSum = 0;
-    for (auto &pair : subseqSums)
+    for (const auto &pair : subseqSums)
         goodSubseqSum += pair.second;
 
     return goodSubseqSum % modulo; // Control value size.

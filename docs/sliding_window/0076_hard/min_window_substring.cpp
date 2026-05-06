@@ -6,7 +6,7 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
 {
     unordered_map<char, int> tgtCharsCounts;
 
-    for (auto character : targetString)
+    for (const auto &character : targetString)
         tgtCharsCounts[character]++;
 
     int uniqueTgtCharsCount = tgtCharsCounts.size();

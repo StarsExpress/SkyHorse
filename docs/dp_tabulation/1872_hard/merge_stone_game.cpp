@@ -5,7 +5,7 @@ using namespace std;
 int maximizeScoresDifference(vector<int> &stones) // LeetCode Q.1872.
 {
     int prefixSum = 0;
-    for (auto stone : stones)
+    for (const auto &stone : stones)
         prefixSum += stone;
 
     // Base case: Alice merges everything as the only attempt.

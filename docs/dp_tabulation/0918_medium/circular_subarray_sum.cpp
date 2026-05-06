@@ -10,9 +10,8 @@ int computeCircularMaxSubarraySum(vector<int> &nums)
 
     int negSubarraySum = 0, minNegSum = 0;
 
-    for (int idx = 0; idx < nums.size(); idx++)
+    for (const auto &num : nums)
     {
-        int num = nums[idx];
         if (num > maxNum)
             maxNum = num;
 

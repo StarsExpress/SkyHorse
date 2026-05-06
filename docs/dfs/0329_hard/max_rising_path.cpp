@@ -22,7 +22,7 @@ private:
             {rowIdx, colIdx - 1}  // West.
         };
 
-        for (auto [neighborRowIdx, neighborColIdx] : neighbors)
+        for (const auto &[neighborRowIdx, neighborColIdx] : neighbors)
         {
             // Inbound checks on row & col indices.
             if (0 > neighborRowIdx || neighborRowIdx >= entries.size())

@@ -19,10 +19,10 @@ string reorganizeString(string originalString) // LeetCode Q.767.
 
     while (maxHeap.size() > 1)
     {
-        auto [topOneCount, topOneChar] = maxHeap.top();
+        const auto [topOneCount, topOneChar] = maxHeap.top();
         maxHeap.pop();
 
-        auto [topTwoCount, topTwoChar] = maxHeap.top();
+        const auto [topTwoCount, topTwoChar] = maxHeap.top();
         maxHeap.pop();
 
         reshapedString += topOneChar;

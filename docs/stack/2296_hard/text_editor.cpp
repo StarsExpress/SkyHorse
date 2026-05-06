@@ -27,7 +27,7 @@ public:
 
     void addText(string text)
     {
-        for (auto letter : text)
+        for (const auto &letter : text)
             cursorLeftSide.push_back(letter);
     }
 

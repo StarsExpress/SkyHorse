@@ -5,7 +5,7 @@ using namespace std;
 int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
 {
     long long totalSum = 0; // Prevents overflow.
-    for (auto num : nums)
+    for (const auto &num : nums)
         totalSum += num;
 
     // Key: diff = prefix sum - suffix sum.
