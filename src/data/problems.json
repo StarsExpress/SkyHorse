@@ -48,6 +48,14 @@
     "img": "/SkyHorse/img/efficiency/2444_efficiency.png"
   },
   {
+    "number": 2412,
+    "title": "min. Min Required Money",
+    "topic": "Greedy",
+    "difficulty": "Hard",
+    "docId": "greedy/2412_hard/min_required_money",
+    "img": "/SkyHorse/img/efficiency/2412_efficiency.png"
+  },
+  {
     "number": 2398,
     "title": "2398. Max Robots",
     "topic": "Queue",
