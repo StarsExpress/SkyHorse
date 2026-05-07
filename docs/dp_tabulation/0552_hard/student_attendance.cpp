@@ -4,63 +4,56 @@ using namespace std;
 
 int countPossibilities(int recordLen) // LeetCode Q.552.
 {
-    long long modulo = pow(10, 9) + 7; // Long long prevents overflow.
+    // Possible ends: "P", "L", "LL".
+    long long noAbsEndP = 1, noAbsEndL = 1, noAbsEndLL = 0;
 
-    // Possible suffixes: "a", "p", "l", "ll".
-    long long oneAbsenceSuffixA = 1;
-    long long oneAbsenceSuffixP = 0, oneAbsenceSuffixL = 0, oneAbsenceSuffixLL = 0;
-
-    // Possible suffixes: "p", "l", "ll".
-    long long noAbsenceSuffixP = 1, noAbsenceSuffixL = 1;
-    long long noAbsenceSuffixLL = 0;
+    // Possible ends: "P", "L", "LL", "A".
+    long long oneAbsEndP = 0, oneAbsEndL = 0, oneAbsEndLL = 0, oneAbsEndA = 1;
 
     // Helper variables: help each day's branch counts update values.
-    long long newOneAbsenceSuffixA = 0, newOneAbsenceSuffixP = 0;
-    long long newOneAbsenceSuffixL = 0, newOneAbsenceSuffixLL = 0;
+    long long newNoAbsEndP = 0, newNoAbsEndL = 0, newNoAbsEndLL = 0;
 
-    long long newNoAbsenceSuffixP = 0;
-    long long newNoAbsenceSuffixL = 0, newNoAbsenceSuffixLL = 0;
+    long long newOneAbsEndP = 0, newOneAbsEndL = 0, newOneAbsEndLL = 0, newOneAbsEndA = 0;
+
+    long long modulo = pow(10, 9) + 7; // Long long prevents overflow.
 
     for (int day = 2; day <= recordLen; day++)
     {
-        // Update counts of those w/ one absence suffix "a".
-        newOneAbsenceSuffixA = (noAbsenceSuffixL + noAbsenceSuffixLL + noAbsenceSuffixP) % modulo;
+        long long noAbsSum = noAbsEndP + noAbsEndL + noAbsEndLL;
+        noAbsSum %= modulo;
 
-        // Update counts of those w/ one absence suffix "p".
-        newOneAbsenceSuffixP = (oneAbsenceSuffixL + oneAbsenceSuffixLL + oneAbsenceSuffixA + oneAbsenceSuffixP) % modulo;
+        newNoAbsEndP = noAbsSum % modulo; // No.1: all 0 absence ends are now "P".
 
-        // Update counts of those w/ 1 absence and suffix "l".
-        newOneAbsenceSuffixL = (oneAbsenceSuffixA + oneAbsenceSuffixP) % modulo;
+        newNoAbsEndL = noAbsEndP;  // No.2: 0 absence end "P" => "L".
+        newNoAbsEndLL = noAbsEndL; // No.3: 0 absence end "L" => "LL".
 
-        // Update counts of those w/ 1 absence and suffix "ll".
-        newOneAbsenceSuffixLL = oneAbsenceSuffixL;
+        long long oneAbsSum = oneAbsEndP + oneAbsEndL + oneAbsEndLL + oneAbsEndA;
+        oneAbsSum %= modulo;
 
-        // Update counts of those w/o absence and has suffix "l" or "ll".
-        newNoAbsenceSuffixL = noAbsenceSuffixP;
-        newNoAbsenceSuffixLL = noAbsenceSuffixL;
+        newOneAbsEndP = oneAbsSum % modulo; // No.4: all 1 absence ends are now "P".
 
-        // Update counts of those w/o absence and has suffix "p".
-        newNoAbsenceSuffixP = (noAbsenceSuffixP + noAbsenceSuffixL + noAbsenceSuffixLL) % modulo;
+        // No.5: 1 absence end from "P" or "A" to "L".
+        newOneAbsEndL = (oneAbsEndP + oneAbsEndA) % modulo;
+
+        newOneAbsEndLL = oneAbsEndL; // No.6: 1 absence end "l" => "ll".
+
+        newOneAbsEndA = noAbsSum % modulo; // No.7: from 0 to 1 absence.
 
         // Transit updated counts.
-        oneAbsenceSuffixA = newOneAbsenceSuffixA;
-        oneAbsenceSuffixP = newOneAbsenceSuffixP;
-        oneAbsenceSuffixL = newOneAbsenceSuffixL;
-        oneAbsenceSuffixLL = newOneAbsenceSuffixLL;
+        noAbsEndP = newNoAbsEndP, noAbsEndL = newNoAbsEndL, noAbsEndLL = newNoAbsEndLL;
 
-        noAbsenceSuffixP = newNoAbsenceSuffixP;
-        noAbsenceSuffixL = newNoAbsenceSuffixL;
-        noAbsenceSuffixLL = newNoAbsenceSuffixLL;
+        oneAbsEndP = newOneAbsEndP, oneAbsEndL = newOneAbsEndL;
+        oneAbsEndLL = newOneAbsEndLL, oneAbsEndA = newOneAbsEndA;
 
         // Reset helper variables for next day's usage.
-        newOneAbsenceSuffixA = 0, newOneAbsenceSuffixP = 0;
-        newOneAbsenceSuffixL = 0, newOneAbsenceSuffixLL = 0;
-        newNoAbsenceSuffixP = 0, newNoAbsenceSuffixL = 0, newNoAbsenceSuffixLL = 0;
+        newNoAbsEndP = 0, newNoAbsEndL = 0, newNoAbsEndLL = 0;
+
+        newOneAbsEndP = 0, newOneAbsEndL = 0, newOneAbsEndLL = 0, newOneAbsEndA = 0;
     }
 
-    long long validCombinations = (oneAbsenceSuffixA + oneAbsenceSuffixP + oneAbsenceSuffixL + oneAbsenceSuffixLL) % modulo;
+    long long validCounts = (noAbsEndP + noAbsEndL + noAbsEndLL) % modulo;
 
-    validCombinations += (noAbsenceSuffixP + noAbsenceSuffixL + noAbsenceSuffixLL) % modulo;
+    validCounts += (oneAbsEndP + oneAbsEndL + oneAbsEndLL + oneAbsEndA) % modulo;
 
-    return validCombinations % modulo;
+    return validCounts % modulo;
 }

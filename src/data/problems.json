@@ -49,7 +49,7 @@
   },
   {
     "number": 2412,
-    "title": "min. Min Required Money",
+    "title": "2412. Min Required Money",
     "topic": "Greedy",
     "difficulty": "Hard",
     "docId": "greedy/2412_hard/min_required_money",
@@ -134,6 +134,14 @@
     "difficulty": "Hard",
     "docId": "stack/0895_hard/max_frequency_stack",
     "img": "/SkyHorse/img/efficiency/0895_efficiency.png"
+  },
+  {
+    "number": 768,
+    "title": "768. Max Chunks",
+    "topic": "Greedy",
+    "difficulty": "Hard",
+    "docId": "greedy/0768_hard/max_chunks",
+    "img": "/SkyHorse/img/efficiency/0768_efficiency.png"
   },
   {
     "number": 767,

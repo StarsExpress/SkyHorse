@@ -64,7 +64,7 @@ __$(u, v)$是这个新生的环$C$ 最后的那块拼图🧩__
 ![DFS_Efficiency](2360_efficiency.png)
 每个点和每条边都只会刚好经过一遍 时间复杂度$O(V + E)$
 
-空间复杂度也和点与边数量呈线性关系 有$O(V + E)$
+空间复杂度也是有$O(V + E)$这么多
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

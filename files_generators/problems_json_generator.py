@@ -21,7 +21,6 @@ for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):
 
         number_str = parts[0]  # Has left padded zeros.
         number = int(parts[0])
-        padded_zeros_count = len(number_str) - len(str(number))
 
         title, doc_id = None, None  # Find .md to get title.
 
@@ -62,7 +61,7 @@ for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):
         problems.append(
             {
                 "number": number,
-                "title": title[padded_zeros_count:],  # Remove left padded zeros from title.
+                "title": title,
                 "topic": topic_label,
                 "difficulty": difficulty.capitalize(),
                 "docId": doc_id,
