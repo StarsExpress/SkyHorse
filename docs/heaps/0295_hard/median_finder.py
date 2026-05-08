@@ -10,25 +10,20 @@ class MedianFinder:  # LeetCode Q.295.
 
     def add_num(self, num: int):
         if len(self.max_heap) == len(self.min_heap):
-            if self.min_heap and self.min_heap[0] > num:
-                heapq.heappush(self.max_heap, -num)  # Max heap negates.
-
-                former_max_heap_top = -heapq.heappop(self.max_heap)
-                heapq.heappush(self.min_heap, former_max_heap_top)  # Max heap negates.
-                return
-
             heapq.heappush(self.min_heap, num)
-            return
 
-        heapq.heappush(self.max_heap, -num)  # Max heap negates.
+        else:
+            heapq.heappush(self.max_heap, -num)  # Max heap negates.
 
-        # -Max heap top > min heap top: mismatch so must switch.
-        if -self.max_heap[0] > self.min_heap[0]:  # Max heap negates.
-            former_max_heap_top = -heapq.heappop(self.max_heap)
+        while self.max_heap and self.min_heap:
+            if -self.max_heap[0] <= self.min_heap[0]: break  # No need to adjust.
+
+            # -Max heap top > min heap top: mismatch so must switch.
+            former_max_heap_top = -heapq.heappop(self.max_heap)  # Max heap negates.
             heapq.heappush(self.min_heap, former_max_heap_top)
 
             former_min_heap_top = heapq.heappop(self.min_heap)
-            heapq.heappush(self.max_heap, -former_min_heap_top)
+            heapq.heappush(self.max_heap, -former_min_heap_top)  # Max heap negates.
 
     def find_median(self):
         if len(self.min_heap) > len(self.max_heap):

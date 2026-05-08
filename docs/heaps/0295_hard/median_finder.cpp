@@ -14,26 +14,19 @@ public:
     void addNum(int num)
     {
         if (maxHeap.size() == minHeap.size())
-        {
-            if (!minHeap.empty() && -minHeap.top() > num)
-            { // Min heap negates.
-                maxHeap.push(num);
-                minHeap.push(-maxHeap.top()); // Min heap negates.
-                maxHeap.pop();
-                return;
-            }
-
             minHeap.push(-num); // Min heap negates.
-            return;
-        }
 
-        maxHeap.push(num);
+        else
+            maxHeap.push(num);
 
-        // Max heap top > -min heap top: mismatch so must switch.
-        if (maxHeap.top() > -minHeap.top())
-        { // Min heap negates.
-            minHeap.push(-maxHeap.top());
-            maxHeap.push(-minHeap.top());
+        while (!maxHeap.empty() && !minHeap.empty())
+        {
+            if (maxHeap.top() <= -minHeap.top()) // Min heap negates.
+                break;                           // No need to adjust.
+
+            // Max heap top > -min heap top: mismatch so must switch.
+            minHeap.push(-maxHeap.top()); // Min heap negates.
+            maxHeap.push(-minHeap.top()); // Min heap negates.
 
             minHeap.pop();
             maxHeap.pop();

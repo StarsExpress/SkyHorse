@@ -199,5 +199,21 @@ __那就没需要还写递归cache 搞到O(n)空间复杂度了__
 
 因为这题无需绝对值 我就把abs当做absence缩写 然后要时不时Modulo控制大小 避免天文数字炸裂
 
+然后我的```recordLen```/```record_len```变量名
+
+其实就是LeetCode官网上的```n```参数
+
 ![Bottom Up Efficiency](0552_efficiency.png)
 __第552道难题 一旦想明白了 写Bottom Up便非常轻松呢～～__
+
+
+### 延伸问题
+从常理想 第二天结束的时候
+
+肯定不会有出勤记录是尾部"LL"且还缺席过一次的
+
+然而第六道状态转移方程的代码长这样
+
+```new_one_abs_table["ll"] = one_abs_table["l"]  # No.6: 1 absence end "l" => "ll".```
+
+__为什么这边不用先加上是否正在第二天的if判别 依然能有正确性呢😌__
