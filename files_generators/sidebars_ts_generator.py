@@ -50,9 +50,6 @@ def generate_sidebars() -> None:
                     md_path = os.path.join(problem_path, file)
                     title = get_md_title(md_path, fallback)
 
-                    leading_zeros_count = len(number) - len(str(int(number)))
-                    title = title[leading_zeros_count:]  # Remove leading zeros.
-
                     groups.setdefault(difficulty, []).append(
                         {
                             "type": "doc",

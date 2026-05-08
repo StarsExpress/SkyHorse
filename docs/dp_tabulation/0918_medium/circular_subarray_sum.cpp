@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-int computeCircularMaxSubarraySum(vector<int> &nums)
+int computeMaxCircularSubarraySum(vector<int> &nums)
 { // LeetCode Q.918.
     int arrayTotalSum = 0;
     int maxNum = nums.front();
@@ -34,9 +34,6 @@ int computeCircularMaxSubarraySum(vector<int> &nums)
 
     if (maxPosSum == 0) // All numbers are non-positive.
         return maxNum;
-
-    if (minNegSum == 0) // All numbers are non-negative.
-        return arrayTotalSum;
 
     return max(arrayTotalSum - minNegSum, maxPosSum);
 }

@@ -74,6 +74,30 @@ const sidebars: SidebarsConfig = {
   },
   {
     "type": "category",
+    "label": "Greedy",
+    "collapsed": true,
+    "items": [
+      {
+        "type": "category",
+        "label": "Hard",
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "greedy/0768_hard/max_chunks",
+            "label": "768. Max Chunks"
+          },
+          {
+            "type": "doc",
+            "id": "greedy/2412_hard/min_required_money",
+            "label": "2412. Min Required Money"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
     "label": "Hash",
     "collapsed": true,
     "items": [
@@ -218,6 +242,11 @@ const sidebars: SidebarsConfig = {
             "type": "doc",
             "id": "stack/1944_hard/visible_people",
             "label": "1944. Visible People"
+          },
+          {
+            "type": "doc",
+            "id": "stack/2296_hard/text_editor",
+            "label": "2296. Text Editor"
           },
           {
             "type": "doc",
