@@ -6,7 +6,7 @@ def calculate_min_required_money(transactions: list[list[int]]) -> int:  # LeetC
     winning_trade_max_cost = -1
 
     for cost, cashback in transactions:
-        if cashback > cost:
+        if cashback >= cost:
             if cost > winning_trade_max_cost:
                 winning_trade_max_cost = cost
             continue

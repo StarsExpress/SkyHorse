@@ -3,7 +3,7 @@ using namespace std;
 
 long long calculateMinRequiredMoney(vector<vector<int>> &transactions)
 { // LeetCode Q.2412.
-    // Max cumulated losses <= min required money.
+  // Max cumulated losses <= min required money.
     long long totalAbsLoss = 0;
 
     int winningTradeMaxCost = -1;
@@ -14,7 +14,7 @@ long long calculateMinRequiredMoney(vector<vector<int>> &transactions)
     {
         int cost = transaction[0], cashback = transaction[1];
 
-        if (cashback > cost)
+        if (cashback >= cost)
         {
             if (cost > winningTradeMaxCost)
                 winningTradeMaxCost = cost;
