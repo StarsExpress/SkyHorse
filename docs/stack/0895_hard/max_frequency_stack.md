@@ -6,8 +6,8 @@ title: "895. Max Frequency Stack"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import CppCode from './circular_subarray_sum.cpp?raw';
-import PyCode from './circular_subarray_sum.py?raw';
+import CppCode from './max_frequency_stack.cpp?raw';
+import PyCode from './max_frequency_stack.py?raw';
 
 ### [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/description/)
 这种题的关键 通常都看```pop()```方法想干嘛
