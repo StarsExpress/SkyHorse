@@ -8,7 +8,7 @@ class MedianFinder:  # LeetCode Q.295.
         self.min_heap: list[int] = []
         self.max_heap: list[int] = []
 
-    def add_num(self, num: int):
+    def add_num(self, num: int) -> None:
         if len(self.max_heap) == len(self.min_heap):
             heapq.heappush(self.min_heap, num)
 
@@ -25,7 +25,7 @@ class MedianFinder:  # LeetCode Q.295.
             former_min_heap_top = heapq.heappop(self.min_heap)
             heapq.heappush(self.max_heap, -former_min_heap_top)  # Max heap negates.
 
-    def find_median(self):
+    def find_median(self) -> float:
         if len(self.min_heap) > len(self.max_heap):
             return self.min_heap[0]
 

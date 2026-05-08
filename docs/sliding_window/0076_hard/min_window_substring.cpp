@@ -12,7 +12,7 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
     int uniqueTgtCharsCount = tgtCharsCounts.size();
 
     // Must not exceed unique target chars count during sliding window.
-    int coverage = 0;
+    int uniqueTgtCharsCoverage = 0;
 
     int minWindowLeftIdx = -1;
     int minLen = sourceString.size() + 1; // Source length + 1: symbol of not found yet.
@@ -26,10 +26,10 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
             tgtCharsCounts[character]--;
 
             if (tgtCharsCounts[character] == 0) // Becomes covered.
-                coverage++;
+                uniqueTgtCharsCoverage++;
         }
 
-        while (coverage == uniqueTgtCharsCount) // Can try to shrink window.
+        while (uniqueTgtCharsCoverage == uniqueTgtCharsCount) // Can shrink window.
         {
             int windowLen = rightIdx + 1 - leftIdx;
 
@@ -42,7 +42,7 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
                 tgtCharsCounts[removedChar]++;
 
                 if (tgtCharsCounts[removedChar] > 0) // Becomes uncovered.
-                    coverage--;
+                    uniqueTgtCharsCoverage--;
             }
 
             leftIdx += 1;

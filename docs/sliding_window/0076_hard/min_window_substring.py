@@ -10,7 +10,7 @@ def find_min_window_substring(source_str: str, target_str: str) -> str:  # LeetC
     unique_tgt_chars_count = len(tgt_chars_counts)
 
     # Must not exceed unique target chars count during sliding window.
-    coverage = 0
+    unique_tgt_chars_coverage = 0
 
     min_window_left_idx = -1
     min_len = len(source_str) + 1  # Source length + 1: symbol of not found yet.
@@ -21,9 +21,9 @@ def find_min_window_substring(source_str: str, target_str: str) -> str:  # LeetC
             tgt_chars_counts[char] -= 1
 
             if tgt_chars_counts[char] == 0:  # Becomes covered.
-                coverage += 1
+                unique_tgt_chars_coverage += 1
 
-        while coverage == unique_tgt_chars_count:  # Can try to shrink window.
+        while unique_tgt_chars_coverage == unique_tgt_chars_count:  # Can shrink window.
             window_len = right_idx + 1 - left_idx
 
             if window_len < min_len:
@@ -35,7 +35,7 @@ def find_min_window_substring(source_str: str, target_str: str) -> str:  # LeetC
                 tgt_chars_counts[removed_char] += 1
 
                 if tgt_chars_counts[removed_char] > 0:  # Becomes uncovered.
-                    coverage -= 1
+                    unique_tgt_chars_coverage -= 1
 
             left_idx += 1
 
