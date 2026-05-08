@@ -12,7 +12,7 @@ def reorganize_string(string: str) -> str:  # LeetCode Q.767.
     max_heap: list[tuple[int, str]] = []  # Format: (count, char).
 
     for char, count in chars_counts.items():
-        heapq.heappush(max_heap, [-count, char])  # Negate count to fit max heap.
+        heapq.heappush(max_heap, (-count, char))  # Negate count to fit max heap.
 
     reshaped_string = ""
 
