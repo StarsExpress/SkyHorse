@@ -9,12 +9,13 @@ import CodeBlock from '@theme/CodeBlock';
 import CppCode from './max_frequency_stack.cpp?raw';
 import PyCode from './max_frequency_stack.py?raw';
 
+
 ### [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/description/)
 这种题的关键 通常都看```pop()```方法想干嘛
 
 要我们移除且返回栈中频率最高的元素
 
-__如果频率最高的元素有多个并列 选最接近栈顶的那个__
+__如果频率最高的元素有多个并列 选最接近栈顶的__
 
 最接近栈顶的翻译：__最晚被纳入的__
 
@@ -31,7 +32,7 @@ __其所含元素被清光 这个频率就不再是最高__
 
 需要挪出栈 让栈顶留给下一个频率体现变化
 
-(2). __元素栈__：这是 __内层__ 结构 每个频率要有自己的元素栈
+(2). __元素栈__：这是 __内层__ 结构 每个频率有专属元素栈
 
 同样频率下 __越晚升上来这频率的元素__ 越靠近栈顶
 
@@ -86,3 +87,5 @@ __这便是频率最高的元素中最接近栈顶的__
 
 ![Stack of Stacks_Efficiency](0895_efficiency.png)
 时间复杂度在```push(int value)```和```pop()```都是$O(1)$ 空间则是有$O(n)$
+
+可别像[Algo Monster](https://algo.monster/liteproblems/895)搞heaps弄成$O(logn)$时间复杂度欸
