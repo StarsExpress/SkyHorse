@@ -110,8 +110,8 @@ export default function About() {
           width: '100%',
         }}>
           <img
-            src="/SkyHorse/img/4699_submissions.png"
-            alt="4699 submissions in 2024"
+            src="/SkyHorse/img/submissions_history.png"
+            alt="4699 Submissions In 2024"
             style={{
               flex: '1 1 400px',
               maxWidth: '65%',
