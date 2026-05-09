@@ -26,8 +26,8 @@ export default function Home() {
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
             🐴天马行空的思路 天天专注想代码🧑🏻‍💻
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'var(--ifm-color-emphasis-600)', margin: 0 }}>
-            ⏳单年度4699次提交的那些轨迹🧠
+          <p style={{ fontSize: '2.0rem', margin: 0 }}>
+            ⌛️单年度4,699次提交的那些轨迹🛣️
           </p>
         </div>
 
