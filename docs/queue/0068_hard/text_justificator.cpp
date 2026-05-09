@@ -28,8 +28,8 @@ private:
         {
             sentence += queue[idx];
 
-            if (idx < queue.size() - 1)
-            { // Not the last word.
+            if (idx < queue.size() - 1) // Not the last word.
+            {
                 if (leftJustify)
                 {
                     sentence += " "; // Left-justification.

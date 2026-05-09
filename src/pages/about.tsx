@@ -65,12 +65,12 @@ export default function About() {
           {/* Right: intro + social media. */}
           <div style={{flex: 1, minWidth: 260}}>
 
-            {/* Zhi Mang Xing: title. */}
+            {/* Title. */}
             <h1 className={styles.zhiMangXing} style={{marginBottom: '0.5rem', fontSize: '3.5rem'}}>
               远在天边 近在眼前
             </h1>
 
-            {/* Zhi Mang Xing: intro. */}
+            {/* Intro. */}
             <p className={styles.zhiMangXing} style={{marginBottom: '1.5rem'}}>
               莫听穿林打叶声 不随流水即随风
             </p>
@@ -120,7 +120,7 @@ export default function About() {
             }}
           />
 
-          {/* Ma Shan Zheng: words for submissions history. */}
+          {/* Words for submissions history. */}
           <div className={styles.maShanZheng} style={{
             flex: '1 1 260px',
             lineHeight: 2,
@@ -130,7 +130,7 @@ export default function About() {
             <p style={{margin: 0}}>回首过往 连自己也没想到从前</p>
             <p style={{margin: 0}}>沉思后拿下难题AC只是第一步</p>
             <p style={{margin: 0}}>不停思索要怎么节省代码行数</p>
-            <p style={{margin: 0}}>同时升级可读性 提速 省空间</p>
+            <p style={{margin: 0}}>同时升级可读性 大幅提速 花更少空间</p>
             <p style={{margin: 0}}>多少朝夕默默地沉浸于程序中</p>
           </div>
         </div>

@@ -31,11 +31,10 @@ class TextJustificator:  # LeetCode Q.68.
         self.queue.clear()  # Reset for future usage.
 
         # Right end padding only runs for left-justification.
-        sentence += " " * (max_width - len(sentence))
-        return sentence
+        return sentence + " " * (max_width - len(sentence))
 
     def justify_text(self, words: list[str], max_width: int) -> list[str]:
-        self.queue.clear()
+        self.queue = []
 
         justified_sentences: list[str] = []
         chars_count = 0  # Characters only. Not counting interval spaces.

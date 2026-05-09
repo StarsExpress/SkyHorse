@@ -99,7 +99,7 @@ __(1)中的机器人总数算式 会让此刻```endIdx``` + 1 - ```startIdx``` =
 于是剩下的就是比较目前得出的机器人总数 有无胜过历史最大值 最后返回历史最大值即结案啰～～
 
 ![Triplets_Efficiency](2398_efficiency.png)
-__真的就是好好看清题目的Constraints 联想到在如此限制下 哪些数据结构能最快地保证正确性 时空复杂度双双O(n)__
+__真的就是好好看清题目的Constraints 联想到在如此限制下 哪些数据结构能最快地保证正确性 时空复杂度双双$O(n)$__
 
 <Tabs>
   <TabItem value="cpp" label="C++">
