@@ -119,9 +119,9 @@ __判断环何时成形的逻辑 也与第2360号题一样__
 
 ![DFS Efficiency](2876_efficiency.png)
 
-每个点每条边各经历一遍 时间复杂度O(V + E)
+每个点每条边各经历一遍 时间复杂度$O(V + E)$
 
-空间复杂度也呈线性关系 是O(V + E)
+空间复杂度也呈线性关系 是$O(V + E)$
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

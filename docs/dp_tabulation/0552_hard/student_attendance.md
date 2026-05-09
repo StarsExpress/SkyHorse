@@ -182,10 +182,10 @@ __与你同样数量的"A"的所有合法组合数__
 __『与你同样数量的"A"』正是『内部』的意思__
 
 
-## 如果能Bottom Up做到O(1)空间
-__那就没需要还写递归cache 搞到O(n)空间复杂度了__
+## 如果能Bottom Up做到$O(1)$空间
+__那就没需要还写递归cache 搞到$O(n)$空间复杂度了__
 
-[Algo Monster](https://algo.monster/liteproblems/552) 其实不用如此cache的 纯Bottom Up亦是O(n)时间复杂度
+[Algo Monster](https://algo.monster/liteproblems/552) 其实不用如此cache的 纯Bottom Up亦是$O(n)$时间复杂度
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

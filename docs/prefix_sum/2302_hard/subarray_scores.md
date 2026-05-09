@@ -77,7 +77,7 @@ __面试做Live Coding Test时 提前问清楚边界约束 就是必备的素养
 
 我的第2302道难题就是这样 把时空复杂度
 
-从Algo Monster的O(nlogn)与O(n) 各自降到O(n)与O(1)滴😃
+从Algo Monster的$O(nlogn)$与$O(n)$ 各自降到$O(n)$与$O(1)$滴😃
 
 <Tabs>
   <TabItem value="cpp" label="C++">

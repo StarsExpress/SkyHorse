@@ -149,6 +149,6 @@ __```tgt_chars_counts[removed_char]```从0变大于0那瞬间 才要调低覆盖
 </Tabs>
 
 ![Sliding Window_Coverage Efficiency](0076_efficiency.png)
-时间复杂度：O(|source_str| + |target_str|)
+时间复杂度：$O(|\text{source_str}| + |\text{target_str}|)$
 
-空间复杂度：O(|target_str|)
+空间复杂度：$O(|\text{target_str}|)$

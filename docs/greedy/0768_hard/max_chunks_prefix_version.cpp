@@ -19,13 +19,13 @@ int findMaxSortableChunks(vector<int> &nums) // LeetCode Q.768 & 769.
     int maxChunks = 1;           // Base case.
     int suffixMin = nums.back(); // Min of arr[ith idx:].
 
-    for (int idx = nums.size() - 2; idx >= 0; idx--)
+    for (int idx = nums.size() - 1; idx >= 1; idx--)
     {
-        if (prefixMaxs[idx] <= suffixMin)
-            maxChunks++;
-
         if (nums[idx] < suffixMin)
             suffixMin = nums[idx];
+
+        if (prefixMaxs[idx - 1] <= suffixMin)
+            maxChunks++;
     }
 
     return maxChunks;

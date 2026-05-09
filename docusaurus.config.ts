@@ -112,7 +112,7 @@ const config: Config = {
         },
         {
           to: '/about',
-          label: '码主小故事👀',
+          label: '码主二三事👀',
           position: 'left',
         },
         {
