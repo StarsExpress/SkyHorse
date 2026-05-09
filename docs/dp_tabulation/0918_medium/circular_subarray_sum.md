@@ -10,7 +10,7 @@ import CppCode from './circular_subarray_sum.cpp?raw';
 import PyCode from './circular_subarray_sum.py?raw';
 
 
-### Quick Review
+## Quick Review
 [Max Subarray Sum](https://leetcode.com/problems/maximum-subarray/)
 👈这是非常经典的Bottom Up动态规划问题
 
@@ -23,7 +23,7 @@ import PyCode from './circular_subarray_sum.py?raw';
 拿捏好第53道题 那就来更奇葩的第918道题吧🤪
 
 
-### [Circular Subarray Sum](https://leetcode.com/problems/maximum-sum-circular-subarray/description/)
+## [Circular Subarray Sum](https://leetcode.com/problems/maximum-sum-circular-subarray/description/)
 第53号题只接受我们在长度$n$的数组$nums$中
 
 找到两个索引$i$和$j$ 满足$0 \leq i \leq j < n$
@@ -43,7 +43,7 @@ __最大化$sum(nums[:i] + nums[j: ])$__
 前提是 __不能有任一元素被重复使用__
 
 
-### 天真的冤枉路🫨
+## 天真的冤枉路🫨
 有一说一 我当时拿下第53号题时
 
 本来打算直接搞『阵列拼接模式』
@@ -55,7 +55,7 @@ __最大化$sum(nums[:i] + nums[j: ])$__
 结果两个半月连续错了五遍🤣
 
 
-### 逆向思考时间😌
+## 逆向思考时间😌
 又过了快三个月后 某一天我家门口
 
 适逢施工🚧 有挖土机在挖土🪏
@@ -79,7 +79,7 @@ __把这最负的子数组从$sum(nums)$扣掉__
 加了负号这样子 逆向一波🫵
 
 
-### 挖土机可不能随便挖的
+## 挖土机可不能随便挖的
 好比施工时 要先确保不会挖到水管或电线
 
 挖除最负子数组时 先要确保不会『一丝不挂』

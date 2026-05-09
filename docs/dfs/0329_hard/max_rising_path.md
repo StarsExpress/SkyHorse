@@ -10,7 +10,7 @@ import CppCode from './max_rising_path.cpp?raw';
 import PyCode from './max_rising_path.py?raw';
 
 
-### [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/)
+## [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/)
 __必学的矩阵DFS题型 大概就是像329号这题__
 
 要求找出最长的严格递增路径
@@ -22,7 +22,7 @@ __必学的矩阵DFS题型 大概就是像329号这题__
 当然 也不能跑离矩阵 因此边界管制是首要操作
 
 
-### 轻松扫描全局答案
+## 轻松扫描全局答案
 对于矩阵的每个元素```matrix[i][j]```
 
 我们都要尝试由它为起点 寻找最长的递增路径长度

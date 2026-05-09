@@ -10,7 +10,7 @@ import CppCode from './max_frequency_stack.cpp?raw';
 import PyCode from './max_frequency_stack.py?raw';
 
 
-### [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/description/)
+## [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/description/)
 这种题的关键 通常都看```pop()```方法想干嘛
 
 要我们移除且返回栈中频率最高的元素
@@ -24,8 +24,8 @@ __如果频率最高的元素有多个并列 选最接近栈顶的__
 才好在Tiebreaker下 拿到最晚被纳入的元素
 
 
-### 栈中栈
-#### 架构描绘
+## 栈中栈
+### 架构描绘
 (1). __频率栈__：这是 __外层__ 结构 每当本来最高的频率
 
 __其所含元素被清光 这个频率就不再是最高__
@@ -44,7 +44,7 @@ __其所含元素被清光 这个频率就不再是最高__
 
 每个频率$i$上又内栈 储存频率为$i$的元素
 
-#### 方法实现
+### 方法实现
 一、```push(int value)```：一旦被呼叫
 
 先在哈希表给```value```的出场频率+1

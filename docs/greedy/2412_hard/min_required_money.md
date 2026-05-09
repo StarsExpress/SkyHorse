@@ -10,13 +10,13 @@ import CppCode from './min_required_money.cpp?raw';
 import PyCode from './min_required_money.py?raw';
 
 
-### [Minimum Money Required Before Transactions](https://leetcode.com/problems/minimum-money-required-before-transactions/description/)
+## [Minimum Money Required Before Transactions](https://leetcode.com/problems/minimum-money-required-before-transactions/description/)
 本题被标记成Hard的原因 我后来注意到了
 
 是因为破题关键在于 __阅读测验__
 
 
-### "Regardless of the order" of the transactions
+## "Regardless of the order" of the transactions
 题目中说我们得找出 __在任何交易执行顺序下__
 
 都永远 __『兵来将挡 水来土掩』__ 的最小金额
@@ -34,7 +34,7 @@ __某笔交易结束后 手上剩馀的钱没法再去交易？__
 把初始资金不停蚕食鲸吞光 一点一点消耗
 
 
-### 绝对安全感的防弹衣🪖
+## 绝对安全感的防弹衣🪖
 由前一段叙述来看 至少必须能够撑得住
 
 __所有赔钱交易的净亏损总额 因此我们__
@@ -52,11 +52,11 @@ __且最后一笔亏损交易__ 的cashback恰恰是$x$
 本金累积被扣幅度最凶的时刻 便是 __拿回$x$前的瞬间__
 
 
-### 可是还有赚钱的交易呢？
-#### A. 若没任何赚钱的交易
+## 可是还有赚钱的交易呢？
+### A. 若没任何赚钱的交易
 题目要的100%最小安全金额 肯定就是上面说的 __$L + x$__
 
-#### B. 而要是有赚钱的交易 就稍微要小心了
+### B. 而要是有赚钱的交易 就稍微要小心了
 __毕竟赔本的交易了结后 现在还有赚钱交易得干__
 
 赚钱交易的特性是每次结案 本金必不降
@@ -71,7 +71,7 @@ __还有足够的钱来付任何赚钱交易的入场费嘛？__
 
 __要先给出cost__ 才有cashback返还的
 
-#### 如何赚钱：🌫️守得云开见月明🌕
+### 如何赚钱：🌫️守得云开见月明🌕
 看到这儿 大家大概有猜到我们亦需要
 
 __$L + y$这个数字 $y$是所有赚钱交易中的最大cost__

@@ -1,13 +1,16 @@
 import heapq
 
 
-def reorganize_string(string: str) -> str:  # LeetCode Q.767.
+def reorganize_string(init_string: str) -> str:  # LeetCode Q.767.
     chars_counts: dict[str, int] = dict()
 
-    for char in string:
+    for char in init_string:
         if char not in chars_counts.keys():
             chars_counts.update({char: 0})
         chars_counts[char] += 1
+
+        # Sanity check.
+        if chars_counts[char] > (len(init_string) + 1) / 2: return ""
 
     max_heap: list[tuple[int, str]] = []  # Format: (count, char).
 
@@ -31,9 +34,6 @@ def reorganize_string(string: str) -> str:  # LeetCode Q.767.
         if top_2_count > 1:  # Negate count to fit max heap.
             heapq.heappush(max_heap, (1 - top_2_count, top_2_char))
 
-    if max_heap:
-        if -max_heap[-1][0] > 1: return ""  # Negate back to original value.
-
-        reshaped_string += max_heap[-1][1]
+    if max_heap: reshaped_string += max_heap[-1][1]
 
     return reshaped_string

@@ -10,10 +10,22 @@ import CppCode from './reorganized_string.cpp?raw';
 import PyCode from './reorganized_string.py?raw';
 
 
-### [Reorganize String](https://leetcode.com/problems/reorganize-string/description/)
+## [原题在这边](https://leetcode.com/problems/reorganize-string/description/)
+### Sanity Check非常重要的
 思路不难 我们先把每个字符出现的次数统计出来
 
-然后放在一个Max Heap里 这大堆中每个元素都是
+好好地来一个 __节省未来时间的防呆检查__ ：
+
+若某个字符出现的次数超过字串长度的一半
+
+说明该字符的出现频率 $\geq$ 其他字符出现频率之和
+
+__那这绝对就没招了__
+
+只能回个""说明没法重组出相邻字符不重复的字串了
+
+### 确认Sanity Check没事后
+把全部字符放在一个Max Heap里 这大堆中每个元素都是
 
 __(剩馀次数, 字符)这样的格式 只要大堆还有起码两元素__
 
@@ -32,16 +44,14 @@ __毕竟大堆是拿来给还没耗光的字符啰__
 $(Count_2 - 1, Char_2)$同理
 
 
-### 何时收手呢✋🏻
+## 何时收手呢✋🏻
 就是大堆内只剩下 __零或一个__ 元素时：
 
 I. 没剩元素肯定能立刻回传```reshapedString```
 
-II. 要是还有剩 这时先看元素上的字符剩馀次数
+II. 要是还有剩 肯定等于1 __因为上方有通过Sanity Check啦__
 
-__如果大于1那就没招了__ 只能回个""说明没法重组出相邻字符不重复的字串了
-
-__等于1的话__ 那就把元素上这字符拼接到```reshapedString```末尾即可回传
+把元素上这字符拼接到```reshapedString```末尾即可回传
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

@@ -10,7 +10,7 @@ import CppCode from './visited_nodes.cpp?raw';
 import PyCode from './visited_nodes.py?raw';
 
 
-### [Prerequisites](https://starsexpress.github.io/SkyHorse/docs/dfs/2360_hard/longest_cycle/)
+## [Prerequisites](https://starsexpress.github.io/SkyHorse/docs/dfs/2360_hard/longest_cycle/)
 __我平时不算正经的人 但这次我正经点说__
 
 如果2360号这道识别环计算环长的题没掌握好
@@ -18,7 +18,7 @@ __我平时不算正经的人 但这次我正经点说__
 直接来2876号题 可能被『环』搞到没法生『还』
 
 
-### [Count Visited Nodes in a Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/description/)
+## [Count Visited Nodes in a Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/description/)
 本难题是这样的 有个总共$n$个且点$n$条边的有向图 点标号是$0$到$n-1$
 
 $n$条边信息都存在名叫```edges```的阵列
@@ -36,7 +36,7 @@ $n$条边信息都存在名叫```edges```的阵列
 __一路上能访问多少不同的点__
 
 
-### 每个点恰好一条出边......那么
+## 每个点恰好一条出边......那么
 相信大家已经能猜到 在这样的先决条件下
 
 站在任何一个环$C$的点上启动DFS
@@ -52,7 +52,7 @@ __都仅能网内互打📲 访问$k$个自家人而已__
 因此一旦识别♻️ 就能整团环的答案一网打尽☑️
 
 
-### 非环点又是如何拿捏呢
+## 非环点又是如何拿捏呢
 显而易见 从任何非环点出发 都能访问自己
 
 还有所有儿子能访问到的点
@@ -62,7 +62,7 @@ __因为老子把唯一的出边留给儿子__
 __儿子唯一的出边留给孙子 没回来找老子🤪__
 
 
-### 仅剩的难『关』：环的边界感
+## 仅剩的难『关』：环的边界感
 读到这边 我们自然从前面的解说
 
 意识到 环点和非环点的计数逻辑有差
@@ -110,7 +110,7 @@ __是把守关内关外界线的山海关__
 __告诉上层说自己不是环的一份子__
 
 
-### 别忘了登出递归栈啊
+## 别忘了登出递归栈啊
 就和第2360号题一样 每个点结束DFS即将return时
 
 __得把自己的访问顺序改成-2 象徵已确实出递归栈__

@@ -3,12 +3,18 @@
 #include <unordered_map>
 using namespace std;
 
-string reorganizeString(string originalString) // LeetCode Q.767.
+string reorganizeString(string initString) // LeetCode Q.767.
 {
     unordered_map<char, int> charsCounts;
 
-    for (char character : originalString)
+    for (const char &character : initString)
+    {
         charsCounts[character]++;
+
+        // Sanity check.
+        if (charsCounts[character] > (initString.size() + 1) / 2)
+            return "";
+    }
 
     priority_queue<pair<int, char>> maxHeap; // Format: {count, char}.
 
@@ -36,12 +42,7 @@ string reorganizeString(string originalString) // LeetCode Q.767.
     }
 
     if (!maxHeap.empty())
-    {
-        if (maxHeap.top().first > 1)
-            return "";
-
         reshapedString += maxHeap.top().second;
-    }
 
     return reshapedString;
 }

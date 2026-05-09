@@ -21,6 +21,16 @@ export default function Home() {
     <Layout title="天码行空 SkyHorse" description="LeetCode 题解">
       <main style={{maxWidth: 1200, margin: '0 auto', padding: '2rem 1rem'}}>
 
+        {/* Welcome 文字區 */}
+        <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+            Welcome to SkyHorse🐴
+          </h1>
+          <p style={{ fontSize: '1.1rem', color: 'var(--ifm-color-emphasis-600)', margin: 0 }}>
+            {problems.length} 全职工作时的岁月 单年度4699次提交的轨迹
+          </p>
+        </div>
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)', // 3 per row.

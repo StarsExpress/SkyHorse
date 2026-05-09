@@ -10,7 +10,7 @@ import CppCode from './longest_cycle.cpp?raw';
 import PyCode from './longest_cycle.py?raw';
 
 
-### [Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/description/)
+## [Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/description/)
 经典的环识别题 想当然耳开DFS最直观啰
 
 这道题好处是 图上$n$个点标签是$0$到$n - 1$非负整数
@@ -20,7 +20,7 @@ import PyCode from './longest_cycle.py?raw';
 用```unordered_map<int, int>```会慢很多......🐢
 
 
-### 环何时成形？先把这个想清楚
+## 环何时成形？先把这个想清楚
 当我们在递归有向图的过程中 来到某个点$u$
 
 若$u$无出边 自然就是个死胡同了 点$u$不会在环内
@@ -52,7 +52,7 @@ __$(u, v)$是这个新生的环$C$ 最后的那块拼图🧩__
 青出于蓝的话便更新历史新高值
 
 
-### 方便管理的小技巧
+## 方便管理的小技巧
 当然有个小细节可注意下 __就是为了快速区分前面说的II.和III.俩状态__
 
 我习惯在```visitedOrders```这个整数阵列上 采取几种不同标记：
@@ -77,5 +77,5 @@ __$(u, v)$是这个新生的环$C$ 最后的那块拼图🧩__
 </Tabs>
 
 
-### 延伸问题
-[若你想清楚了第2360问，那就来吧😉](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)
+## 延伸问题
+__[若你想清楚了第2360问，那就来吧😉](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)__
