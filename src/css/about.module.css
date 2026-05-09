@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Ma+Shan+Zheng&display=swap');
+
+/* Zhi Mang Xing: title & intro. */
+.zhiMangXing {
+  font-family: 'Zhi Mang Xing', serif;
+  font-size: 1.5rem;
+}
+
+/* Ma Shan Zheng: words next to submissions history. */
+.maShanZheng {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+}
+
+/* Standard: GitHub & LinkedIn buttons. */
+.standard {
+  font-family: inherit;
+  font-size: 1rem;
+}

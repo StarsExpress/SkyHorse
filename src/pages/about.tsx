@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import styles from '../css/about.module.css';
 
 const socials = [
   {
@@ -26,12 +27,24 @@ const socials = [
 export default function About() {
   return (
     <Layout title="About Me" description="Personal Profile">
-      <main style={{maxWidth: 900, margin: '4rem auto', padding: '0 1.5rem'}}>
+      <main style={{
+        maxWidth: 1500,
+        margin: '4rem auto',
+        padding: '0 1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
+
+        {/* Top: avatar + intro. Placed at center. */}
         <div style={{
           display: 'flex',
           gap: '3rem',
           alignItems: 'flex-start',
           flexWrap: 'wrap',
+          justifyContent: 'center',
+          maxWidth: 700,
+          width: '100%',
         }}>
 
           {/* Left: photo. */}
@@ -51,22 +64,24 @@ export default function About() {
 
           {/* Right: intro + social media. */}
           <div style={{flex: 1, minWidth: 260}}>
-            <h1 style={{marginBottom: '0.5rem'}}>远在天边 近在眼前</h1>
-            <p style={{color: 'var(--ifm-color-emphasis-600)', marginBottom: '1.5rem'}}>
+
+            {/* Zhi Mang Xing: title. */}
+            <h1 className={styles.zhiMangXing} style={{marginBottom: '0.5rem', fontSize: '3.5rem'}}>
+              远在天边 近在眼前
+            </h1>
+
+            {/* Zhi Mang Xing: intro. */}
+            <p className={styles.zhiMangXing} style={{marginBottom: '1.5rem'}}>
               莫听穿林打叶声 不随流水即随风
             </p>
 
-            {/* Introduction. */}
-            <p>
-              Add sparkles to your sky.
-            </p>
-
-            {/* 社群連結 */}
+            {/* Social media: standard. */}
             <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem'}}>
               {socials.map(s => (
                 <Link
                   key={s.label}
                   href={s.href}
+                  className={styles.standard}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -84,6 +99,42 @@ export default function About() {
           </div>
 
         </div>
+
+        {/* Bottom: photo + description side by side w/ full length. */}
+        <div style={{
+          display: 'flex',
+          gap: '2rem',
+          alignItems: 'center',
+          marginTop: '2.5rem',
+          flexWrap: 'wrap',
+          width: '100%',
+        }}>
+          <img
+            src="/SkyHorse/img/4699_submissions.png"
+            alt="4699 submissions in 2024"
+            style={{
+              flex: '1 1 400px',
+              maxWidth: '65%',
+              borderRadius: 12,
+              border: '1px solid var(--ifm-color-emphasis-200)',
+            }}
+          />
+
+          {/* Ma Shan Zheng: words for submissions history. */}
+          <div className={styles.maShanZheng} style={{
+            flex: '1 1 260px',
+            lineHeight: 2,
+          }}>
+            <p style={{margin: 0}}>仔细想想 对外显得爱玩 说话甚至搞笑</p>
+            <p style={{margin: 0}}>可能是闭门练功后 自然的能量再平衡吧</p>
+            <p style={{margin: 0}}>回首过往 连自己也没想到从前</p>
+            <p style={{margin: 0}}>沉思后拿下难题AC只是第一步</p>
+            <p style={{margin: 0}}>不停思索要怎么节省代码行数</p>
+            <p style={{margin: 0}}>同时升级可读性 提速 省空间</p>
+            <p style={{margin: 0}}>多少朝夕默默地沉浸于程序中</p>
+          </div>
+        </div>
+
       </main>
     </Layout>
   );

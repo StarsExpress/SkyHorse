@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
   title: '天码行空 SkyHorse',
-  tagline: '天马行空的思路  天天敲出好代码',
+  tagline: '天马行空的思路 天天专注想代码',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

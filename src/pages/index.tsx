@@ -24,10 +24,10 @@ export default function Home() {
         {/* Welcome 文字區 */}
         <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            Welcome to SkyHorse🐴
+            🐴天马行空的思路 天天专注想代码🧑🏻‍💻
           </h1>
           <p style={{ fontSize: '1.1rem', color: 'var(--ifm-color-emphasis-600)', margin: 0 }}>
-            {problems.length} 全职工作时的岁月 单年度4699次提交的轨迹
+            ⏳单年度4699次提交的那些轨迹🧠
           </p>
         </div>
 
@@ -100,7 +100,6 @@ export default function Home() {
             </button>
           ))}
         </div>
-
       </main>
     </Layout>
   );
