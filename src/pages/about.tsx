@@ -67,7 +67,7 @@ export default function About() {
 
             {/* Title. */}
             <h1 className={styles.zhiMangXing} style={{marginBottom: '0.5rem', fontSize: '3.5rem'}}>
-              远在天边 近在眼前
+              远在天边<br />近在眼前
             </h1>
 
             {/* Intro. */}

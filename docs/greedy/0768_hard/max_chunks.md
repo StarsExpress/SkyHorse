@@ -47,7 +47,7 @@ __肯定是这盾最弱的部位 竟然不弱于最强的剑尖__
 
 每个满足$1 \leq i < n$的索引$i$ 我们来检查下：
 
-__$max(nums[:i]) \leq min(nums[i:])$有成立吗？__
+__$max(nums[:i]) \leq min(nums[i:])$成立吗？__
 
 有的话 索引$i$便能作为 __熔断点__
 
@@ -66,7 +66,7 @@ __$max(nums[:i]) \leq min(nums[i:])$有成立吗？__
 就给```max_chunks```加1 但是要记得
 
 ### __```max_chunks```的起始值不是0 而是1__
-__因为哪怕是严格递减的$nums$ 也能被看作一个Chunk__
+__哪怕严格递减的$nums$ 也能被看作一个Chunk__
 
 <Tabs>
   <TabItem value="cpp" label="C++">
@@ -78,7 +78,7 @@ __因为哪怕是严格递减的$nums$ 也能被看作一个Chunk__
 </Tabs>
 
 ![Prefix Efficiency](0768_efficiency.png)
-时间复杂度$O(n)$ 空间复杂度$O(n)$ 跑了两遍for回圈
+时间复杂度$O(n)$ 空间复杂度$O(n)$ 跑两遍for回圈
 
 过了一年半后 我想到下方的另一套模式......
 
@@ -112,7 +112,7 @@ $nums[k]$领军的叫$Chunk_k$ 即$nums[j + 1:k + 1]$ 皆大欢喜
 
 I. 如果不让$nums[l]$去$nums[k]$挂帅的$Chunk_k$
 
-那么$nums[l]$和右边的数字合组出的$Chunk_y$ 排序好后
+那么$nums[l]$和右边的数字组出$Chunk_y$ 排序好后
 
 碰到从左方来的$Chunk_j$ __就出现$nums[j]$和$nums[l]$错位啦__
 

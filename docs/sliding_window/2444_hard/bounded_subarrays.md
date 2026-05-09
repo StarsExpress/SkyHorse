@@ -68,11 +68,11 @@ __有$C = $ ```min(prevMinIdx, prevMaxIdx) + 1 - leftIdx```这么多__
 把$C$加入最终要回传的```boundedSubarraysCount```更新
 
 <Tabs>
-  <TabItem value="cpp" label="C++">
+  <TabItem value="cpp" label="C++" default>
     <CodeBlock language="cpp">{CppCode}</CodeBlock>
   </TabItem>
 
-  <TabItem value="python" label="Python" default>
+  <TabItem value="python" label="Python">
     <CodeBlock language="python">{PyCode}</CodeBlock>
   </TabItem>
 </Tabs>
