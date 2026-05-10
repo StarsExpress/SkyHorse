@@ -45,7 +45,7 @@ export default function Home() {
         {/* Welcome 文字區 */}
         <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            一年4,699次提交的轨迹⌛️
+            一年四千次提交的轨迹⌛️
           </h1>
         </div>
 

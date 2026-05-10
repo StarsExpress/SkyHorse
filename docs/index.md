@@ -1,4 +1,4 @@
 ---
-title: 天碼行空 SkyHorse
+title: 天码行空 SkyHorse
 slug: /
 ---
