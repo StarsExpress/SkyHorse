@@ -112,6 +112,10 @@ $C'_l$ = ```leftDiffCounts[k - nums[l]]``` + ```rightDiffCounts[nums[l] - k]```
 
 藉此和已知的历史最大值$C$比较 企图更新$C$
 
+这边主要得注意的就是 因为是前缀与后缀
+
+__查询的差值正好差一个负号__
+
 ### 随时更新两张哈希表
 $l$被访问完后 算出$D_l = \text{sum}(nums[:l + 1]) - \text{sum}(nums[l + 1:])$
 

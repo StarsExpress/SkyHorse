@@ -17,6 +17,27 @@ export default function Home() {
   const totalPages = Math.ceil(problems.length / ITEMS_PER_PAGE);
   const current = problems.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
+  const Pagination = () => (
+    <div style={{display: 'flex', justifyContent: 'center', gap: 8}}>
+      {Array.from({length: totalPages}, (_, i) => i + 1).map(n => (
+        <button
+          key={n}
+          onClick={() => setPage(n)}
+          style={{
+            width: 36, height: 36,
+            borderRadius: 8,
+            border: '1px solid var(--ifm-color-emphasis-300)',
+            background: n === page ? 'var(--ifm-color-primary)' : 'transparent',
+            color: n === page ? 'white' : 'inherit',
+            cursor: 'pointer',
+            fontWeight: n === page ? 600 : 400,
+          }}>
+          {n}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <Layout title="天码行空 SkyHorse" description="LeetCode 题解">
       <main style={{maxWidth: 1200, margin: '0 auto', padding: '2rem 1rem'}}>
@@ -24,8 +45,13 @@ export default function Home() {
         {/* Welcome 文字區 */}
         <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            ⌛️一年4,699次提交的一些轨迹🛣️
+            一年4,699次提交的轨迹⌛️
           </h1>
+        </div>
+
+        {/* 分頁：上排 */}
+        <div style={{marginBottom: '1.5rem'}}>
+          <Pagination />
         </div>
 
         <div style={{
@@ -78,25 +104,11 @@ export default function Home() {
           ))}
         </div>
 
-        {/* 分頁 */}
-        <div style={{display: 'flex', justifyContent: 'center', gap: 8, marginTop: '2rem'}}>
-          {Array.from({length: totalPages}, (_, i) => i + 1).map(n => (
-            <button
-              key={n}
-              onClick={() => setPage(n)}
-              style={{
-                width: 36, height: 36,
-                borderRadius: 8,
-                border: '1px solid var(--ifm-color-emphasis-300)',
-                background: n === page ? 'var(--ifm-color-primary)' : 'transparent',
-                color: n === page ? 'white' : 'inherit',
-                cursor: 'pointer',
-                fontWeight: n === page ? 600 : 400,
-              }}>
-              {n}
-            </button>
-          ))}
+        {/* 分頁：下排 */}
+        <div style={{marginTop: '2rem'}}>
+          <Pagination />
         </div>
+
       </main>
     </Layout>
   );
