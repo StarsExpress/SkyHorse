@@ -98,11 +98,11 @@ __但只有在栈顶人和第$j$人同高时 才要弹栈顶__
 搞定弹栈后 第$j$人再进栈顶
 
 <Tabs>
-  <TabItem value="cpp" label="C++">
+  <TabItem value="cpp" label="C++" default>
     <CodeBlock language="cpp">{CppCode}</CodeBlock>
   </TabItem>
 
-  <TabItem value="python" label="Python" default>
+  <TabItem value="python" label="Python">
     <CodeBlock language="python">{PyCode}</CodeBlock>
   </TabItem>
 </Tabs>

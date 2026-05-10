@@ -105,6 +105,6 @@ __由更大的来作为我们最终的守护者__
 </Tabs>
 
 ![Greedy Efficiency](2412_efficiency.png)
-有没有觉得 其实读懂了题意的话中话 就没有很难了
+时间复杂度：$O(n)$ 空间复杂度：$O(1)$
 
-时间复杂度：$O(n)$ 空间复杂度：$O(1)$ 整题AC
+本题其实核心就在读懂"Regardless of the order"那句话

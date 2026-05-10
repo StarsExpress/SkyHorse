@@ -8,7 +8,9 @@ int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
     for (const auto &num : nums)
         totalSum += num;
 
-    // Key: diff = prefix sum - suffix sum.
+    // Left diff: only consider potential pivot indices at left side.
+    // Right diff: only consider potential pivot indices at right side.
+    // Map key: diff = prefix sum - suffix sum.
     unordered_map<long long, int> leftDiffCounts, rightDiffCounts;
 
     // Default to natural value: leave entire array unchanged.
@@ -35,13 +37,11 @@ int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
 
         int partitionWays = 0;
 
-        // Change prefix side: replace num with k.
-        if (idx < nums.size() - 1) // Vector back num can't join prefix side.
-            partitionWays += rightDiffCounts[num - k];
+        // Potential pivot idx is at the right of current idx.
+        partitionWays += rightDiffCounts[num - k];
 
-        // Change suffix side: replace num with k.
-        if (idx > 0) // Vector front num can't join suffix side.
-            partitionWays += leftDiffCounts[k - num];
+        // Potential pivot idx is at the left of current idx.
+        partitionWays += leftDiffCounts[k - num];
 
         if (partitionWays > maxPartitionWays)
             maxPartitionWays = partitionWays;
@@ -50,8 +50,7 @@ int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
 
         // For future indices, this diff is only available as left side.
         leftDiffCounts[diff]++;
-        if (rightDiffCounts[diff] > 0)
-            rightDiffCounts[diff]--;
+        rightDiffCounts[diff]--;
     }
 
     return maxPartitionWays;

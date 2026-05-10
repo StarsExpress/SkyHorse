@@ -24,11 +24,8 @@ export default function Home() {
         {/* Welcome 文字區 */}
         <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            🐴天马行空的思路<br />天天专注想代码🧑🏻‍💻
-          </h1>
-          <p style={{ fontSize: '2.0rem', margin: 0 }}>
             ⌛️一年4,699次提交的一些轨迹🛣️
-          </p>
+          </h1>
         </div>
 
         <div style={{

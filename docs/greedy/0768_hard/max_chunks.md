@@ -21,8 +21,6 @@ import PyCodeStack from './max_chunks_stack_version.py?raw';
 
 但这两次的解法 用不同的数据结构
 
-明明就都同一个人写的😅
-
 
 ## 一、2024年底：前缀与后缀
 ### 剑盾之争
@@ -34,13 +32,13 @@ import PyCodeStack from './max_chunks_stack_version.py?raw';
 
 __$max(Chunk_{left}) \leq min(Chunk_{right})$__
 
-把$max(Chunk_{left})$想像成 __剑🗡__️
+把$max(Chunk_{left})$想像成剑🗡️
 
-$min(Chunk_{right})$是 __盾🛡__
+$min(Chunk_{right})$是盾🛡️
 
 一面盾牌️如何金刚不坏体？
 
-__肯定是这盾最弱的部位 竟然不弱于最强的剑尖__
+__肯定是这盾最弱的部位 不弱于最强的剑尖__
 
 ### 先往右再向左
 于是对于长度$n$的数组$nums$ (题目叫$arr$ 但我习惯$nums$咯)

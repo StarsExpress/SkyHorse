@@ -78,6 +78,6 @@ __有$C = $ ```min(prevMinIdx, prevMaxIdx) + 1 - leftIdx```这么多__
 </Tabs>
 
 ![Sliding Window Efficiency](2444_efficiency.png)
-时间复杂度：$O(n)$ 其中$n$是输入的数组长度
+时间复杂度$O(n)$ 其中$n$是输入的数组长度
 
 空间则是$O(1)$ 仅需四根指针 和负责记录总值的```boundedSubarraysCount```

@@ -20,7 +20,7 @@ import PyCode from './circular_subarray_sum.py?raw';
 
 ☝️若还不熟悉Kadane算法 看这篇文章
 
-拿捏好第53道题 那就来更奇葩的第918道题吧🤪
+拿捏好第53道题 那就来更奇葩的第918道题吧
 
 
 ## [Circular Subarray Sum](https://leetcode.com/problems/maximum-sum-circular-subarray/description/)
@@ -28,7 +28,7 @@ import PyCode from './circular_subarray_sum.py?raw';
 
 找到两个索引$i$和$j$ 满足$0 \leq i \leq j < n$
 
-最大化$sum(nums[i: j + 1])$
+最大化$\text{sum}(nums[i: j + 1])$
 
 918号也和53号题一样接受上述这类子数组
 
@@ -36,7 +36,7 @@ import PyCode from './circular_subarray_sum.py?raw';
 
 找到两个索引$i$和$j$ 满足$0 \leq i \leq j < n$
 
-__最大化$sum(nums[:i] + nums[j: ])$__
+__最大化$\text{sum}(nums[:i] + nums[j: ])$__
 
 简而言之便是在$nums$搞 __一段Prefix__ 和 __一段Suffix__
 
@@ -66,7 +66,7 @@ __看挖土机往地下掏的动作__ 我恍然大悟：
 
 对 就是从$nums$中找出 __最小且总和为负值__ 的那个子数组
 
-__把这最负的子数组从$sum(nums)$扣掉__
+__把这最负的子数组从$\text{sum}(nums)$扣掉__
 
 来一招 __"Addition by subtraction"__ 排除毒瘤
 
@@ -76,7 +76,7 @@ __把这最负的子数组从$sum(nums)$扣掉__
 
 我们这儿要找出 __最小且总和负值的子数组__
 
-加了负号这样子 逆向一波🫵
+加了负号这样子 逆向一波
 
 
 ## 挖土机可不能随便挖的
@@ -86,9 +86,9 @@ __把这最负的子数组从$sum(nums)$扣掉__
 
 什么意思？想想看 __万一$nums$全都不是正数__
 
-__最负子数组不就是$sum(nums)$？__
+__最负子数组不就是$\text{sum}(nums)$？__
 
-这时从$sum(nums)$扣减 等于弄空的子数组
+这时从$\text{sum}(nums)$扣减 等于弄空的子数组
 
 __但是子数组不能为空呀__
 
@@ -100,14 +100,14 @@ __此时选拖后腿幅度最小的那条腿 也就是$max(nums)$__
 
 II. 至于$max(nums) > 0$时 我们的答案可能是：
 1. 如第53号题那样形状的最大子数组
-2. 环形子数组：$sum(nums)$ - 最负子数组
+2. 环形子数组：$\text{sum}(nums)$ - 最负子数组
 
 这俩之一 要取俩者较大的做回传
 
 因此本题要追踪的关键变量如下：
 1. ```maxPosSum```：最大的正子数组和
 2. ```minNegSum```：最小的负子数组和
-3. ```arrayTotalSum```：$sum(nums)$
+3. ```arrayTotalSum```：$\text{sum}(nums)$
 4. ```maxNum```：$max(nums)$
 
 大致逻辑其实和第53号题还是一样

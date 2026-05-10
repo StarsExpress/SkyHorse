@@ -197,14 +197,16 @@ __那就没需要还写递归cache 搞到$O(n)$空间复杂度了__
   </TabItem>
 </Tabs>
 
-因为这题无需绝对值 我就把abs当做absence缩写 然后要时不时Modulo控制大小 避免天文数字炸裂
+因为这题无需绝对值 我就把abs当做absence缩写
+
+然后要时不时Modulo控制大小 避免天文数字炸裂
 
 然后我的```recordLen```/```record_len```变量名
 
 其实就是LeetCode官网上的```n```参数
 
 ![Bottom Up Efficiency](0552_efficiency.png)
-__第552道难题 一旦想明白了 写Bottom Up便非常轻松呢～～__
+__Bottom Up搞定一切～～__
 
 
 ## 延伸问题
@@ -224,4 +226,4 @@ II. "LLL"被判定为没资格领出勤奖
 
 问题来了：如果要让"LLA"自动出局
 
-那么我们该怎么修改状态转移方程呢(手动狗头🐶)😏
+那么我们该怎么修改状态转移方程呢

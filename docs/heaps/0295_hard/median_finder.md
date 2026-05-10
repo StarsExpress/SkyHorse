@@ -119,6 +119,8 @@ Python我惯用🐍snake cases
 
 空间自然一直都是$O(n)$了
 
-[Roughgarden教授教超好](https://youtu.be/mNYHDv7SbDI?si=QiBFwiNTJamQrebN) 除了Median Maintenance
+来到这 我强烈推荐[Tim Roughgarden教授的算法教程](https://youtu.be/mNYHDv7SbDI?si=QiBFwiNTJamQrebN)
 
-还有不少非常有趣的Heaps应用 和最基础的堆原理解析
+除了Median Maintenance 还有不少非常有趣的Heaps应用
+
+和最基础的堆原理解析
