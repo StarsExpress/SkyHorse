@@ -15,6 +15,7 @@ def count_max_partitions(nums: list[int], k: int) -> int:  # LeetCode Q.2025.
     for pivot_idx in range(1, len(nums)):
         prefix_sum += nums[pivot_idx - 1]
         suffix_sum = total_sum - prefix_sum
+
         diff = prefix_sum - suffix_sum
 
         if diff not in right_diff_counts.keys():

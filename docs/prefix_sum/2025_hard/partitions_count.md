@@ -72,18 +72,18 @@ __$nums[l]$被改成了$k$ 而且$nums[l] - k = D$__
 
 __这样岂不让sum(nums[:```pivotIdx```]) - sum(nums[```pivotIdx```:])变成零？__
 
-```pivotIdx```因为这么改动而成为合法的分割点 C'增加1
+```pivotIdx```因这么改而成为合法的分割点 C'增加1
 
 ### 左右对称的陷阱
 不过还得再留意到一件事
 
 就是某个$l$索引 其$nums[l]$变成$k$后
 
-__能因此成为合法分割点的索引 可能在$l$左 也可能在$l$右__
+__能因此成为合法分割点的索引 可能在$l$左 可能在$l$右__
 
 光靠```rightDiffCounts```只纪录分割点在$l$右 造成的前后缀差值
 
-仍须```lefttDiffCounts```管理分割点在$l$左 造成的前后缀差值
+仍须```leftDiffCounts```管理分割点在$l$左 造成的前后缀差值
 
 ## 最终计数的遍历流程
 ### 前缀视角
@@ -93,9 +93,9 @@ __能因此成为合法分割点的索引 可能在$l$左 也可能在$l$右__
 
 $l$右边有多少个前后缀差值为$nums[l] - k$的分割点
 
-$nums[l]$的更动 __在$l$右边的分割点视角 属于前缀和变化__
+$nums[l]$的更动 __在$l$右边分割点视角 属前缀和变化__
 
-这点的计数 靠```rightDiffCounts```查$nums[l] - k$即可
+计数靠```rightDiffCounts```查$nums[l] - k$即可
 
 ### 后缀视角
 相似的对称性来看 $nums[l]$更动成$k$
@@ -104,18 +104,24 @@ __对于$l$左边的潜在分割点视角 属于后缀和变化__
 
 得统计$l$左边有多少个前后缀差值为$k - nums[l]$的分割点
 
-这点的计数 靠```lefttDiffCounts```查$k - nums[l]$即可
+计数靠```leftDiffCounts```查$k - nums[l]$即可
+
+因此$nums[l]$改成$k$ 能造出的完美分割点数量就是
+
+$C'_l$ = ```leftDiffCounts[k - nums[l]]``` + ```rightDiffCounts[nums[l] - k]```
+
+藉此和已知的历史最大值$C$比较 企图更新$C$
 
 ### 随时更新两张哈希表
 $l$被访问完后 算出$D_l = \text{sum}(nums[:l + 1]) - \text{sum}(nums[l + 1:])$
 
 把$D_l$在```rightDiffCounts```的计数减1
 
-把$D_l$在```lefttDiffCounts```的计数加1
+把$D_l$在```leftDiffCounts```的计数加1
 
 因为对于比$l$大的所有索引 它们的视角来讲
 
-__l只可能做左方分割点 不可能做右方的__
+__$l$只可能做左方分割点 不可能做右方的__
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>
@@ -130,4 +136,4 @@ __l只可能做左方分割点 不可能做右方的__
 ![Prefix_Sum Efficiency](2025_efficiency.png)
 时间复杂度$O(n)$ 空间也是$O(n)$
 
-这题逻辑确实蛮复杂的 会需要想好几遍才能抓到命脉
+这题逻辑确实蛮复杂的 会需要想好几遍才抓到命脉
