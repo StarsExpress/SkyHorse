@@ -125,9 +125,9 @@ export default function About() {
             flex: '1 1 260px',
             lineHeight: 2,
           }}>
-            <p style={{margin: 0}}>仔细想想 对外显得爱玩 说话甚至搞笑</p>
+            <p style={{margin: 0}}>仔细想想 平时显得爱玩不太认真</p>
             <p style={{margin: 0}}>可能是闭门练功后 自然的能量平衡吧</p>
-            <p style={{margin: 0}}>回首过往 连自己也没想到会</p>
+            <p style={{margin: 0}}>回首过往 连自己也没想到会专心</p>
             <p style={{margin: 0}}>不停沉思要怎么节省代码行数</p>
             <p style={{margin: 0}}>同时升级可读性 大幅提速 花更少空间</p>
             <p style={{margin: 0}}>多少朝夕默默地沉浸于程序中</p>

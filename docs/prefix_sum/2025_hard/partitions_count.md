@@ -29,7 +29,7 @@ import PyCode from './partitions_count.py?raw';
 
 有多少个$1 \leq i < n$的索引$i$做到
 
-__$sum(nums[:i]) = sum(nums[i:]$__
+__$sum(nums[:i]) = sum(nums[i:])$__
 
 因此Max Partitions Count的出厂值
 
