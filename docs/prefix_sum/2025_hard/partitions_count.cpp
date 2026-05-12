@@ -1,11 +1,11 @@
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
-int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
+int countMaxPartitions(vector<int>& nums, int k) // LeetCode Q.2025.
 {
     long long totalSum = 0; // Prevents overflow.
-    for (const auto &num : nums)
+    for (const auto& num : nums)
         totalSum += num;
 
     // Left diff: only consider potential pivot indices at left side.
@@ -17,8 +17,7 @@ int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
     int maxPartitionWays = 0;
 
     long long prefixSum = 0;
-    for (int pivotIdx = 1; pivotIdx < nums.size(); pivotIdx++)
-    {
+    for (int pivotIdx = 1; pivotIdx < nums.size(); pivotIdx++) {
         prefixSum += nums[pivotIdx - 1];
         long long suffixSum = totalSum - prefixSum;
         rightDiffCounts[prefixSum - suffixSum]++;
@@ -30,8 +29,7 @@ int countMaxPartitions(vector<int> &nums, int k) // LeetCode Q.2025.
 
     prefixSum = 0; // Reset to let next for loop sweep again.
 
-    for (int idx = 0; idx < nums.size(); idx++)
-    {
+    for (int idx = 0; idx < nums.size(); idx++) {
         int num = nums[idx];
         prefixSum += num;
 

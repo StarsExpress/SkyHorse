@@ -11,19 +11,17 @@ private:
 
     int maxRisingLen = 1; // Base case.
 
-    void dfsRisingPath(int rowIdx, int colIdx)
-    {
+    void dfsRisingPath(int rowIdx, int colIdx) {
         maxRisingPath[rowIdx][colIdx] = 1; // Base case: a path of only current entry.
 
         vector<pair<int, int>> neighbors = {
             {rowIdx + 1, colIdx}, // South.
             {rowIdx - 1, colIdx}, // North.
             {rowIdx, colIdx + 1}, // East.
-            {rowIdx, colIdx - 1}  // West.
+            {rowIdx, colIdx - 1} // West.
         };
 
-        for (const auto &[neighborRowIdx, neighborColIdx] : neighbors)
-        {
+        for (const auto& [neighborRowIdx, neighborColIdx] : neighbors) {
             // Inbound checks on row & col indices.
             if (0 > neighborRowIdx || neighborRowIdx >= entries.size())
                 continue;
@@ -49,18 +47,15 @@ private:
     }
 
 public:
-    int findLongestRisingPath(vector<vector<int>> &matrix)
-    {
+    int findLongestRisingPath(vector<vector<int>>& matrix) {
         entries = matrix;
 
         maxRisingPath.assign(matrix.begin(), matrix.end()); // Base case.
-        for (auto &row : maxRisingPath)
+        for (auto& row : maxRisingPath)
             fill(row.begin(), row.end(), -1);
 
-        for (int rowIdx = 0; rowIdx < matrix.size(); rowIdx++)
-        {
-            for (int colIdx = 0; colIdx < matrix[0].size(); colIdx++)
-            {
+        for (int rowIdx = 0; rowIdx < matrix.size(); rowIdx++) {
+            for (int colIdx = 0; colIdx < matrix[0].size(); colIdx++) {
                 if (maxRisingPath[rowIdx][colIdx] == -1)
                     dfsRisingPath(rowIdx, colIdx);
             }

@@ -7,8 +7,7 @@ private:
     vector<int> graph, visitedOrders, visitedCounts;
     int currentOrder = 1;
 
-    int dfsVisitedNodes(int node)
-    {
+    int dfsVisitedNodes(int node) {
         visitedOrders[node] = currentOrder;
         currentOrder++;
 
@@ -19,8 +18,7 @@ private:
             cycleStartOrder = dfsVisitedNodes(tgtNode);
 
         // A cycle just forms. Current node and its target node are members.
-        if (visitedOrders[tgtNode] > 0)
-        {
+        if (visitedOrders[tgtNode] > 0) {
             int cycleSize = visitedOrders[node] + 1 - visitedOrders[tgtNode];
             visitedCounts[node] = cycleSize;
 
@@ -42,8 +40,7 @@ private:
     }
 
 public:
-    vector<int> countVisitedNodes(vector<int> &edges)
-    {
+    vector<int> countVisitedNodes(vector<int>& edges) {
         graph = edges;
         visitedCounts.assign(edges.size(), 0);
 

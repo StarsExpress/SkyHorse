@@ -1,17 +1,15 @@
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
-int sumGoodSubsequences(vector<int> &nums) // LeetCode Q.3351.
+int sumGoodSubsequences(vector<int>& nums) // LeetCode Q.3351.
 {
     long long modulo = pow(10, 9) + 7; // Long long prevents overflow.
 
     unordered_map<int, long long> subseqCounts, subseqSums;
 
-    for (const auto &num : nums)
-    {
-        for (const auto &validTail : {num - 1, num + 1})
-        {
+    for (const auto& num : nums) {
+        for (const auto& validTail : {num - 1, num + 1}) {
             long long prevCount = subseqCounts[validTail];
             subseqCounts[num] += prevCount;
 
@@ -30,7 +28,7 @@ int sumGoodSubsequences(vector<int> &nums) // LeetCode Q.3351.
     }
 
     long long goodSubseqSum = 0;
-    for (const auto &pair : subseqSums)
+    for (const auto& pair : subseqSums)
         goodSubseqSum += pair.second;
 
     return goodSubseqSum % modulo; // Control value size.

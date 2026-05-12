@@ -1,6 +1,6 @@
-#include <vector>
 #include <deque>
 #include <string>
+#include <vector>
 using namespace std;
 
 class TextEditor // LeetCode Q.2296.
@@ -8,8 +8,7 @@ class TextEditor // LeetCode Q.2296.
 private:
     deque<char> cursorLeftSide, cursorRightSide;
 
-    string sliceCursorLeftTail()
-    {
+    string sliceCursorLeftTail() {
         string text = "";
 
         int startIdx = 0;
@@ -25,20 +24,17 @@ private:
 public:
     TextEditor() {}
 
-    void addText(string text)
-    {
-        for (const auto &letter : text)
+    void addText(string text) {
+        for (const auto& letter : text)
             cursorLeftSide.push_back(letter);
     }
 
-    int deleteText(int k)
-    {
+    int deleteText(int k) {
         int deletionsCount = cursorLeftSide.size();
         if (k < deletionsCount)
             deletionsCount = k;
 
-        while (k > 0 && !cursorLeftSide.empty())
-        {
+        while (k > 0 && !cursorLeftSide.empty()) {
             cursorLeftSide.pop_back();
             k--;
         }
@@ -46,10 +42,8 @@ public:
         return deletionsCount;
     }
 
-    string cursorLeft(int k)
-    {
-        while (k > 0 && !cursorLeftSide.empty())
-        {
+    string cursorLeft(int k) {
+        while (k > 0 && !cursorLeftSide.empty()) {
             char letter = cursorLeftSide.back();
             cursorRightSide.push_front(letter);
             cursorLeftSide.pop_back();
@@ -59,10 +53,8 @@ public:
         return sliceCursorLeftTail();
     }
 
-    string cursorRight(int k)
-    {
-        while (k > 0 && !cursorRightSide.empty())
-        {
+    string cursorRight(int k) {
+        while (k > 0 && !cursorRightSide.empty()) {
             char letter = cursorRightSide.front();
             cursorLeftSide.push_back(letter);
             cursorRightSide.pop_front();

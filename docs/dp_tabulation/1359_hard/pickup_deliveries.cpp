@@ -8,8 +8,7 @@ int countValidSequences(int totalOrders) // LeetCode Q.1359.
     // Base case when n is 1: pickup 1 followed by delivery 1.
     long long validSequences = 1;
 
-    for (int prevOrderNum = 1; prevOrderNum <= totalOrders - 1; prevOrderNum++)
-    {
+    for (int prevOrderNum = 1; prevOrderNum <= totalOrders - 1; prevOrderNum++) {
         int spotsCount = 2 * prevOrderNum + 1;
 
         // Sum from 1 to spots count.

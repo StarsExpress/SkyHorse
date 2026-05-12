@@ -1,5 +1,5 @@
-#include <vector>
 #include <cmath>
+#include <vector>
 using namespace std;
 
 int countPossibilities(int recordLen) // LeetCode Q.552.
@@ -17,14 +17,13 @@ int countPossibilities(int recordLen) // LeetCode Q.552.
 
     long long modulo = pow(10, 9) + 7; // Long long prevents overflow.
 
-    for (int day = 2; day <= recordLen; day++)
-    {
+    for (int day = 2; day <= recordLen; day++) {
         long long noAbsSum = noAbsEndP + noAbsEndL + noAbsEndLL;
         noAbsSum %= modulo;
 
         newNoAbsEndP = noAbsSum % modulo; // No.1: all 0 absence ends are now "P".
 
-        newNoAbsEndL = noAbsEndP;  // No.2: 0 absence end "P" => "L".
+        newNoAbsEndL = noAbsEndP; // No.2: 0 absence end "P" => "L".
         newNoAbsEndLL = noAbsEndL; // No.3: 0 absence end "L" => "LL".
 
         long long oneAbsSum = oneAbsEndP + oneAbsEndL + oneAbsEndLL + oneAbsEndA;

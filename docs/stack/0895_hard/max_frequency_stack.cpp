@@ -1,5 +1,5 @@
-#include <unordered_map>
 #include <stack>
+#include <unordered_map>
 #include <vector>
 using namespace std;
 
@@ -15,8 +15,7 @@ private:
 public:
     MaxFrequencyStack() {}
 
-    void push(int value)
-    {
+    void push(int value) {
         valuesFrequencies[value]++;
         int frequency = valuesFrequencies[value];
 
@@ -27,8 +26,7 @@ public:
         frequencyStack[frequency].push(value);
     }
 
-    int pop()
-    {
+    int pop() {
         int mostFreqValue = frequencyStack.back().top();
         valuesFrequencies[mostFreqValue]--;
 

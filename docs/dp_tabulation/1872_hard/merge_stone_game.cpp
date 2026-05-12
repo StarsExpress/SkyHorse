@@ -1,11 +1,11 @@
-#include <vector>
 #include <numeric>
+#include <vector>
 using namespace std;
 
-int maximizeScoresDifference(vector<int> &stones) // LeetCode Q.1872.
+int maximizeScoresDifference(vector<int>& stones) // LeetCode Q.1872.
 {
     int prefixSum = 0;
-    for (const auto &stone : stones)
+    for (const auto& stone : stones)
         prefixSum += stone;
 
     // Base case: Alice merges everything as the only attempt.
@@ -13,8 +13,7 @@ int maximizeScoresDifference(vector<int> &stones) // LeetCode Q.1872.
 
     prefixSum -= stones.back();
 
-    for (int idx = stones.size() - 2; idx >= 1; idx--)
-    {
+    for (int idx = stones.size() - 2; idx >= 1; idx--) {
         if (prefixSum - maxScoreDiff > maxScoreDiff)
             maxScoreDiff = prefixSum - maxScoreDiff;
 

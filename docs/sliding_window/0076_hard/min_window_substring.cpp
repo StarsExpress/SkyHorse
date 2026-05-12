@@ -6,7 +6,7 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
 {
     unordered_map<char, int> tgtCharsCounts;
 
-    for (const auto &character : targetString)
+    for (const auto& character : targetString)
         tgtCharsCounts[character]++;
 
     int uniqueTgtCharsCount = tgtCharsCounts.size();
@@ -18,11 +18,9 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
     int minLen = sourceString.size() + 1; // Source length + 1: symbol of not found yet.
 
     int leftIdx = 0;
-    for (int rightIdx = 0; rightIdx < sourceString.size(); rightIdx++)
-    {
+    for (int rightIdx = 0; rightIdx < sourceString.size(); rightIdx++) {
         char character = sourceString[rightIdx];
-        if (tgtCharsCounts.find(character) != tgtCharsCounts.end())
-        {
+        if (tgtCharsCounts.find(character) != tgtCharsCounts.end()) {
             tgtCharsCounts[character]--;
 
             if (tgtCharsCounts[character] == 0) // Becomes covered.
@@ -37,8 +35,7 @@ string findMinWindowSubstring(string sourceString, string targetString) // LeetC
                 minLen = windowLen, minWindowLeftIdx = leftIdx;
 
             char removedChar = sourceString[leftIdx];
-            if (tgtCharsCounts.find(removedChar) != tgtCharsCounts.end())
-            {
+            if (tgtCharsCounts.find(removedChar) != tgtCharsCounts.end()) {
                 tgtCharsCounts[removedChar]++;
 
                 if (tgtCharsCounts[removedChar] > 0) // Becomes uncovered.

@@ -1,6 +1,6 @@
-#include <vector>
-#include <string>
 #include <deque>
+#include <string>
+#include <vector>
 using namespace std;
 
 class TextJustificator // LeetCode Q.68.
@@ -8,13 +8,11 @@ class TextJustificator // LeetCode Q.68.
 private:
     deque<string> queue;
 
-    string formSentence(int charsCount, int maxWidth, bool leftJustify)
-    {
+    string formSentence(int charsCount, int maxWidth, bool leftJustify) {
         string intervalSpaces = "";
         int intervalsCount = queue.size() - 1, modulo = 0;
 
-        if (intervalsCount > 0 && !leftJustify)
-        {
+        if (intervalsCount > 0 && !leftJustify) {
             int quotient = (maxWidth - charsCount) / intervalsCount;
             for (int num = 0; num < quotient; num++)
                 intervalSpaces += " ";
@@ -24,14 +22,12 @@ private:
 
         string sentence = "";
 
-        for (int idx = 0; idx < queue.size(); idx++)
-        {
+        for (int idx = 0; idx < queue.size(); idx++) {
             sentence += queue[idx];
 
             if (idx < queue.size() - 1) // Not the last word.
             {
-                if (leftJustify)
-                {
+                if (leftJustify) {
                     sentence += " "; // Left-justification.
                     continue;
                 }
@@ -50,16 +46,13 @@ private:
     }
 
 public:
-    vector<string> justifyText(vector<string> &words, int maxWidth)
-    {
+    vector<string> justifyText(vector<string>& words, int maxWidth) {
         vector<string> justifiedSentences;
         int charsCount = 0; // Characters only. Not counting interval spaces.
 
-        for (const auto &word : words)
-        {
+        for (const auto& word : words) {
             // Current sentence is finalized.
-            if (charsCount + queue.size() - 1 + word.size() + 1 > maxWidth)
-            {
+            if (charsCount + queue.size() - 1 + word.size() + 1 > maxWidth) {
                 string sentence = formSentence(charsCount, maxWidth, false);
                 justifiedSentences.push_back(sentence);
                 charsCount -= charsCount; // Reset for the next sentence.

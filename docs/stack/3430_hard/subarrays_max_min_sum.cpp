@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-long long computeMaxMinSum(vector<int> &nums, int k) //  LeetCode Q.3430.
+long long computeMaxMinSum(vector<int>& nums, int k) //  LeetCode Q.3430.
 {
     long long totalMaxMinSum = 0;
     long long windowMaxSum = 0, windowMinSum = 0;
@@ -10,13 +10,11 @@ long long computeMaxMinSum(vector<int> &nums, int k) //  LeetCode Q.3430.
     // Format: {idx, num, shares}. Use long long to prevent overflow.
     deque<tuple<int, int, long long>> maxStack, minStack;
 
-    for (int endIdx = 0; endIdx < nums.size(); endIdx++)
-    {
+    for (int endIdx = 0; endIdx < nums.size(); endIdx++) {
         int startIdx = max(0, endIdx - k + 1);
 
         // Window start idx slides by 1: must update stacks' info.
-        if (startIdx > 0)
-        {
+        if (startIdx > 0) {
             get<2>(maxStack.front())--; // Decrement stack's front num shares.
             windowMaxSum -= get<1>(maxStack.front());
 
@@ -37,8 +35,7 @@ long long computeMaxMinSum(vector<int> &nums, int k) //  LeetCode Q.3430.
         long long maxShares = 1; // Base case.
         windowMaxSum += num;
 
-        while (!maxStack.empty() && get<1>(maxStack.back()) <= num)
-        {
+        while (!maxStack.empty() && get<1>(maxStack.back()) <= num) {
             int prevNum = get<1>(maxStack.back());
             long long prevShares = get<2>(maxStack.back());
             maxStack.pop_back();
@@ -54,8 +51,7 @@ long long computeMaxMinSum(vector<int> &nums, int k) //  LeetCode Q.3430.
         long long minShares = 1; // Base case.
         windowMinSum += num;
 
-        while (!minStack.empty() && get<1>(minStack.back()) >= num)
-        {
+        while (!minStack.empty() && get<1>(minStack.back()) >= num) {
             int prevNum = get<1>(minStack.back());
             long long prevShares = get<2>(minStack.back());
             minStack.pop_back();

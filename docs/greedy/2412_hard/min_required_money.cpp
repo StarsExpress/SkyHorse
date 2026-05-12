@@ -1,20 +1,17 @@
 #include <vector>
 using namespace std;
 
-long long calculateMinRequiredMoney(vector<vector<int>> &transactions)
-{ // LeetCode Q.2412.
+long long calculateMinRequiredMoney(vector<vector<int>>& transactions) { // LeetCode Q.2412.
     long long totalAbsLoss = 0;
 
     int winningTradeMaxCost = -1;
 
     int losingTradeMaxCashback = -1;
 
-    for (const auto &transaction : transactions)
-    {
+    for (const auto& transaction : transactions) {
         int cost = transaction[0], cashback = transaction[1];
 
-        if (cashback >= cost)
-        {
+        if (cashback >= cost) {
             if (cost > winningTradeMaxCost)
                 winningTradeMaxCost = cost;
             continue;

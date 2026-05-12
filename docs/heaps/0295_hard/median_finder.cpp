@@ -11,18 +11,16 @@ private:
 public:
     MedianFinder() {}
 
-    void addNum(int num)
-    {
+    void addNum(int num) {
         if (maxHeap.size() == minHeap.size())
             minHeap.push(-num); // Min heap negates.
 
         else
             maxHeap.push(num);
 
-        while (!maxHeap.empty() && !minHeap.empty())
-        {
+        while (!maxHeap.empty() && !minHeap.empty()) {
             if (maxHeap.top() <= -minHeap.top()) // Min heap negates.
-                break;                           // No need to adjust.
+                break; // No need to adjust.
 
             // Max heap top > -min heap top: mismatch so must switch.
             minHeap.push(-maxHeap.top()); // Min heap negates.
@@ -33,8 +31,7 @@ public:
         }
     }
 
-    double findMedian()
-    {
+    double findMedian() {
         if (minHeap.size() > maxHeap.size()) // Min heap negates.
             return -minHeap.top();
         return (maxHeap.top() - minHeap.top()) * 0.5; // Min heap negates.

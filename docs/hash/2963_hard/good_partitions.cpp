@@ -1,8 +1,8 @@
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
-int countGoodPartitions(vector<int> &nums) // LeetCode Q.2963.
+int countGoodPartitions(vector<int>& nums) // LeetCode Q.2963.
 {
     unordered_map<int, int> numsLastIndices; // Each num's last idx.
 
@@ -12,19 +12,16 @@ int countGoodPartitions(vector<int> &nums) // LeetCode Q.2963.
     int windowsCount = 0; // Sliding window by two pointers.
     int scanIdx = 0, boundaryIdx = 0;
 
-    while (boundaryIdx < nums.size())
-    {
+    while (boundaryIdx < nums.size()) {
         int num = nums[scanIdx];
         scanIdx++; // Already visited.
 
-        if (boundaryIdx < numsLastIndices[num])
-        { // Num extends current window.
+        if (boundaryIdx < numsLastIndices[num]) { // Num extends current window.
             boundaryIdx = numsLastIndices[num];
             continue;
         }
 
-        if (scanIdx > boundaryIdx)
-        {
+        if (scanIdx > boundaryIdx) {
             windowsCount++; // Current window is finalized.
 
             boundaryIdx++; // Search for another window, if possible.
@@ -35,8 +32,7 @@ int countGoodPartitions(vector<int> &nums) // LeetCode Q.2963.
 
     int power = windowsCount - 1, modulo = pow(10, 9) + 7;
 
-    while (power > 0)
-    {
+    while (power > 0) {
         goodPartitions *= 2;
         goodPartitions %= modulo; // Must prevent overflow.
         power--;

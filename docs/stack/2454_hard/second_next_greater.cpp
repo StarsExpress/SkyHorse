@@ -1,8 +1,8 @@
-#include <vector>
 #include <stack>
+#include <vector>
 using namespace std;
 
-vector<int> find_second_next_greater(vector<int> &nums) // LeetCode Q.2454.
+vector<int> find_second_next_greater(vector<int>& nums) // LeetCode Q.2454.
 {
     vector<int> secondNextGreater(nums.size(), -1);
 
@@ -11,25 +11,21 @@ vector<int> find_second_next_greater(vector<int> &nums) // LeetCode Q.2454.
 
     vector<pair<int, int>> transporter; // Format: {num, idx}.
 
-    for (int idx = 0; idx < nums.size(); idx++)
-    {
+    for (int idx = 0; idx < nums.size(); idx++) {
         int num = nums[idx];
 
-        while (!stackTwo.empty() && stackTwo.top().first < num)
-        {
+        while (!stackTwo.empty() && stackTwo.top().first < num) {
             int past_idx = stackTwo.top().second;
             secondNextGreater[past_idx] = num;
             stackTwo.pop();
         }
 
-        while (!stackOne.empty() && stackOne.top().first < num)
-        {
+        while (!stackOne.empty() && stackOne.top().first < num) {
             transporter.push_back(stackOne.top()); // Keep decreasing monotonicity.
             stackOne.pop();
         }
 
-        while (!transporter.empty())
-        {
+        while (!transporter.empty()) {
             stackTwo.push(transporter.back());
             transporter.pop_back();
         }

@@ -1,5 +1,5 @@
-#include <string>
 #include <queue>
+#include <string>
 #include <unordered_map>
 using namespace std;
 
@@ -7,8 +7,7 @@ string reorganizeString(string initString) // LeetCode Q.767.
 {
     unordered_map<char, int> charsCounts;
 
-    for (const char &character : initString)
-    {
+    for (const char& character : initString) {
         charsCounts[character]++;
 
         // Sanity check.
@@ -18,13 +17,12 @@ string reorganizeString(string initString) // LeetCode Q.767.
 
     priority_queue<pair<int, char>> maxHeap; // Format: {count, char}.
 
-    for (const auto &[character, count] : charsCounts)
+    for (const auto& [character, count] : charsCounts)
         maxHeap.push({count, character});
 
     string reshapedString = "";
 
-    while (maxHeap.size() > 1)
-    {
+    while (maxHeap.size() > 1) {
         const auto [topOneCount, topOneChar] = maxHeap.top();
         maxHeap.pop();
 
