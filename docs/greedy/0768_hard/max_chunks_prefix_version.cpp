@@ -3,7 +3,7 @@ using namespace std;
 
 int findMaxSortableChunks(vector<int>& nums) // LeetCode Q.768 & 769.
 {
-    vector<int> prefixMaxs; // Max of each arr[:(i + 1)th idx].
+    vector<int> prefixMaxs; // Max of each nums[:(i + 1)th idx].
 
     for (const auto& num : nums) {
         if (prefixMaxs.empty()) {
@@ -15,7 +15,7 @@ int findMaxSortableChunks(vector<int>& nums) // LeetCode Q.768 & 769.
     }
 
     int maxChunks = 1; // Base case.
-    int suffixMin = nums.back(); // Min of arr[ith idx:].
+    int suffixMin = nums.back(); // Min of nums[ith idx:].
 
     for (int idx = nums.size() - 1; idx >= 1; idx--) {
         if (nums[idx] < suffixMin)

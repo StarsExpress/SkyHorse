@@ -181,6 +181,8 @@ __每一个索引的状态 全只看上一个索引的脸色__
 
 直接开叫做```max_score_diff```的变量记载$D_i$即可
 
+![Bottom Up Efficiency](1872_efficiency.png)
+
 如此时间复杂度$O(n)$ 空间复杂度$O(1)$
 
 

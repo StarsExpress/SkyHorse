@@ -33,9 +33,9 @@ $\frac{1 + n}{2} - (n - \frac{1 + n}{2}) = 1$
 因此防呆检查要判断有无字符出现频率 __超过$\frac{1 + n}{2}$__
 
 ### 确认Sanity Check没事后
-把全部字符放在一个Max Heap里 这大堆中每个元素都是
+把全部字符放在一个Max Heap里 这大堆中每个元素都是 __(剩馀次数, 字符)__ 这样的格式
 
-__(剩馀次数, 字符)这样的格式 只要大堆还有起码两元素__
+只要大堆还有起码两元素
 
 就先把堆顶元素$(Count_1, Char_1)$取出来
 
@@ -59,7 +59,7 @@ I. 没剩元素肯定能立刻回传```reshapedString```
 
 II. 要是还有剩 肯定等于1 __因为上方有通过Sanity Check啦__
 
-把元素上这字符拼接到```reshapedString```末尾即可回传
+把元素上字符接到```reshapedString```末尾即可回传
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>
@@ -72,6 +72,6 @@ II. 要是还有剩 肯定等于1 __因为上方有通过Sanity Check啦__
 </Tabs>
 
 ![Max Heap Efficiency](0767_efficiency.png)
-时间复杂度：$O(nlogk)$ $n$是字串长度 $k$是字符种类数
+时间复杂度：$O(nlogk)$ 字串长度$n$ 字符种类数$k$
 
 空间复杂度：$O(n)$ $n$是字串长度

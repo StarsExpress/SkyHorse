@@ -107,4 +107,4 @@ __由更大的来作为我们最终的守护者__
 ![Greedy Efficiency](2412_efficiency.png)
 时间复杂度：$O(n)$ 空间复杂度：$O(1)$
 
-本题其实核心就在读懂"Regardless of the order"那句话
+本题核心就在读懂"Regardless of the order"那句话

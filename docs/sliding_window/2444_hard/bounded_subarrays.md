@@ -19,7 +19,7 @@ import PyCode from './bounded_subarrays.py?raw';
 
 先检查一下是否$minK \leq nums[rightIdx] \leq maxK$
 
-没做到的话 代表$nums[rightIdx]$摔出了既定范围
+没做到的话 代表$nums[rightIdx]$摔出既定范围
 
 __由```rightIdx```做窗口右尾的合规子数组肯定不存在__
 
@@ -65,7 +65,7 @@ __那么$nums[k:rightIdx + 1]$必然没法同时拥有$minK$和$maxK$__
 
 __有$C = $ ```min(prevMinIdx, prevMaxIdx) + 1 - leftIdx```这么多__
 
-把$C$加入最终要回传的```boundedSubarraysCount```更新
+把$C$加入最终要回传的```boundedSubarraysCount```
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

@@ -85,16 +85,16 @@ B. 若两个堆尺寸一样 中位数是
 ```min_heap```最小值和```max_heap```最大值的平均数
 
 
-## Python和C++预设不太一样欸⚠️
+## Python和C++预设不太一样⚠️
 __Python的heapq预设min heap__
 
 __C++的priority_queue预设max heap__
 
 不是预设的那个半身 要记得negate数值
 
-__就是给数值加上负号__
+__就是给数值加上负号__ 才能让
 
-才能让预设min heap的也做得了max heap 反之亦然
+预设min heap的也做得了max heap 反之亦然
 
 <Tabs>
   <TabItem value="cpp" label="C++">
@@ -119,8 +119,6 @@ Python我惯用🐍snake cases
 
 空间自然一直都是$O(n)$了
 
-来到这 我强烈推荐[Tim Roughgarden教授的算法教程](https://youtu.be/mNYHDv7SbDI?si=QiBFwiNTJamQrebN)
+我强烈推荐[Tim Roughgarden教授的算法教程](https://youtu.be/mNYHDv7SbDI?si=QiBFwiNTJamQrebN)
 
-除了Median Maintenance 还有不少非常有趣的Heaps应用
-
-和最基础的堆原理解析
+除了Median Maintenance 还有不少非常有趣的Heaps应用 和最基础的堆原理解析

@@ -78,4 +78,4 @@ __$(u, v)$是这个新生的环$C$ 最后的那块拼图🧩__
 
 
 ## 延伸问题
-__[若你想清楚了第2360问，那就来吧](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)__
+__[若想清楚了第2360问，那就来吧](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)__
