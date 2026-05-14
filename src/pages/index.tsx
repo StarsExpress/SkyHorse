@@ -22,7 +22,7 @@ export default function Home() {
   const location = useLocation();
   const isEnglish = location.pathname.includes('/en/') || location.pathname.endsWith('/en');
   const title = isEnglish
-    ? 'Footsteps of 4,699 Submissions in a Year ⌛️'
+    ? 'Footsteps: 4,699 Submissions in a Year ⌛️'
     : '一年四千次提交的轨迹⌛️';
 
   const Pagination = () => (

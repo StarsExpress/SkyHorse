@@ -21,6 +21,10 @@ def get_md_title(md_path: str, fallback: str) -> str:
 def generate_sidebars() -> None:
     dsa_topics_list = []
 
+    # Counter to make duplicate difficulty labels unique via zero-width spaces (U+200B).
+    # Docusaurus i18n requires all sidebar category labels to be globally unique.
+    diff_label_counter: dict[str, int] = {}
+
     for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):  # Sort DSA topics.
         topic_path = os.path.join(DOCS_DIR_PATH, dsa_topic)
         if not os.path.isdir(topic_path): continue
@@ -64,10 +68,15 @@ def generate_sidebars() -> None:
         for diff in DIFFICULTIES:
             if diff not in groups: continue
 
+            base_label = diff.capitalize()
+            count = diff_label_counter.get(base_label, 0)
+            unique_label = base_label + "\u200B" * count  # Add zero-width spaces.
+            diff_label_counter[base_label] = count + 1
+
             diff_categories.append(
                 {
                     "type": "category",
-                    "label": diff.capitalize(),
+                    "label": unique_label,
                     "collapsed": True,
                     "items": groups[diff],
                 }
@@ -92,6 +101,8 @@ def generate_sidebars() -> None:
 
     # Output sidebars.ts.
     output = "import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';\n\n"
+    output += "// Zero-width spaces (U+200B) make duplicate difficulty labels unique without visual change.\n"
+    output += "// Docusaurus i18n requires all sidebar category labels to be globally unique.\n\n"
     output += "const sidebars: SidebarsConfig = {\n"
     output += f"  tutorialSidebar: {json.dumps(dsa_topics_list, indent=2, ensure_ascii=False)},\n"
     output += "};\n\n"

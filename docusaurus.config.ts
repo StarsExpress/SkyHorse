@@ -112,7 +112,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'LeetCode Catalog📒',
+          label: 'LeetCode目录📒',
         },
         {
           to: '/about',
