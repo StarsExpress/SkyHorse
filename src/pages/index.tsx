@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import problems from '../data/problems.json';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import {useLocation} from '@docusaurus/router';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -16,6 +18,12 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const totalPages = Math.ceil(problems.length / ITEMS_PER_PAGE);
   const current = problems.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
+
+  const location = useLocation();
+  const isEnglish = location.pathname.includes('/en/') || location.pathname.endsWith('/en');
+  const title = isEnglish
+    ? 'Footsteps of 4,699 Submissions in a Year ⌛️'
+    : '一年四千次提交的轨迹⌛️';
 
   const Pagination = () => (
     <div style={{display: 'flex', justifyContent: 'center', gap: 8}}>
@@ -45,7 +53,7 @@ export default function Home() {
         {/* Welcome 文字區 */}
         <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            一年四千次提交的轨迹⌛️
+            {title}
           </h1>
         </div>
 
@@ -76,7 +84,7 @@ export default function Home() {
 
                 {p.img && (
                   <img
-                    src={p.img}
+                    src={useBaseUrl(p.img)}
                     alt={p.title}
                     style={{width: '100%', height: 160, objectFit: 'cover'}}
                   />

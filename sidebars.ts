@@ -1,5 +1,18 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
+// Zero-width spaces (U+200B) make duplicate labels unique without visual change.
+const H1  = 'Hard';
+const H2  = 'Hard\u200B';
+const H3  = 'Hard\u200B\u200B';
+const H4  = 'Hard\u200B\u200B\u200B';
+const H5  = 'Hard\u200B\u200B\u200B\u200B';
+const H6  = 'Hard\u200B\u200B\u200B\u200B\u200B';
+const H7  = 'Hard\u200B\u200B\u200B\u200B\u200B\u200B';
+const H8  = 'Hard\u200B\u200B\u200B\u200B\u200B\u200B\u200B';
+const H9  = 'Hard\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B';
+const M1  = 'Medium';
+const M2  = 'Medium\u200B';
+
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
   {
@@ -9,24 +22,12 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H1,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "dfs/0329_hard/max_rising_path",
-            "label": "329. Max Rising Path"
-          },
-          {
-            "type": "doc",
-            "id": "dfs/2360_hard/longest_cycle",
-            "label": "2360. Longest Cycle"
-          },
-          {
-            "type": "doc",
-            "id": "dfs/2876_hard/visited_nodes",
-            "label": "2876. Visited Nodes"
-          }
+          {"type": "doc", "id": "dfs/0329_hard/max_rising_path",   "label": "329. Max Rising Path"},
+          {"type": "doc", "id": "dfs/2360_hard/longest_cycle",     "label": "2360. Longest Cycle"},
+          {"type": "doc", "id": "dfs/2876_hard/visited_nodes",     "label": "2876. Visited Nodes"}
         ]
       }
     ]
@@ -38,36 +39,20 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Medium",
+        "label": M1,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "dp_tabulation/0918_medium/circular_subarray_sum",
-            "label": "918. Circular Subarray Sum"
-          }
+          {"type": "doc", "id": "dp_tabulation/0918_medium/circular_subarray_sum", "label": "918. Circular Subarray Sum"}
         ]
       },
       {
         "type": "category",
-        "label": "Hard",
+        "label": H2,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "dp_tabulation/0552_hard/student_attendance",
-            "label": "552. Student Attendance"
-          },
-          {
-            "type": "doc",
-            "id": "dp_tabulation/1359_hard/pickup_deliveries",
-            "label": "1359. Pickup Deliveries"
-          },
-          {
-            "type": "doc",
-            "id": "dp_tabulation/1872_hard/merge_stone_game",
-            "label": "1872. Merge Stone Game"
-          }
+          {"type": "doc", "id": "dp_tabulation/0552_hard/student_attendance",  "label": "552. Student Attendance"},
+          {"type": "doc", "id": "dp_tabulation/1359_hard/pickup_deliveries",   "label": "1359. Pickup Deliveries"},
+          {"type": "doc", "id": "dp_tabulation/1872_hard/merge_stone_game",    "label": "1872. Merge Stone Game"}
         ]
       }
     ]
@@ -79,19 +64,11 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H3,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "greedy/0768_hard/max_chunks",
-            "label": "768. Max Chunks"
-          },
-          {
-            "type": "doc",
-            "id": "greedy/2412_hard/min_required_money",
-            "label": "2412. Min Required Money"
-          }
+          {"type": "doc", "id": "greedy/0768_hard/max_chunks",          "label": "768. Max Chunks"},
+          {"type": "doc", "id": "greedy/2412_hard/min_required_money",  "label": "2412. Min Required Money"}
         ]
       }
     ]
@@ -103,19 +80,11 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H4,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "hash/2963_hard/good_partitions",
-            "label": "2963. Good Partitions"
-          },
-          {
-            "type": "doc",
-            "id": "hash/3351_hard/good_subsequences_sum",
-            "label": "3351. Good Subsequences Sum"
-          }
+          {"type": "doc", "id": "hash/2963_hard/good_partitions",          "label": "2963. Good Partitions"},
+          {"type": "doc", "id": "hash/3351_hard/good_subsequences_sum",    "label": "3351. Good Subsequences Sum"}
         ]
       }
     ]
@@ -127,26 +96,18 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Medium",
+        "label": M2,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "heaps/0767_medium/reorganized_string",
-            "label": "767. Reorganized String"
-          }
+          {"type": "doc", "id": "heaps/0767_medium/reorganized_string", "label": "767. Reorganized String"}
         ]
       },
       {
         "type": "category",
-        "label": "Hard",
+        "label": H5,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "heaps/0295_hard/median_finder",
-            "label": "295. Median Finder"
-          }
+          {"type": "doc", "id": "heaps/0295_hard/median_finder", "label": "295. Median Finder"}
         ]
       }
     ]
@@ -158,19 +119,11 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H6,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "prefix_sum/2025_hard/partitions_count",
-            "label": "2025. Partitions Count"
-          },
-          {
-            "type": "doc",
-            "id": "prefix_sum/2302_hard/subarray_scores",
-            "label": "2302. Subarray Scores"
-          }
+          {"type": "doc", "id": "prefix_sum/2025_hard/partitions_count", "label": "2025. Partitions Count"},
+          {"type": "doc", "id": "prefix_sum/2302_hard/subarray_scores",  "label": "2302. Subarray Scores"}
         ]
       }
     ]
@@ -182,19 +135,11 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H7,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "queue/0068_hard/text_justificator",
-            "label": "68. Text Justificator"
-          },
-          {
-            "type": "doc",
-            "id": "queue/2398_hard/max_robots",
-            "label": "2398. Max Robots"
-          }
+          {"type": "doc", "id": "queue/0068_hard/text_justificator", "label": "68. Text Justificator"},
+          {"type": "doc", "id": "queue/2398_hard/max_robots",        "label": "2398. Max Robots"}
         ]
       }
     ]
@@ -206,19 +151,11 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H8,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "sliding_window/0076_hard/min_window_substring",
-            "label": "76. Min Window Substring"
-          },
-          {
-            "type": "doc",
-            "id": "sliding_window/2444_hard/bounded_subarrays",
-            "label": "2444. Bounded Subarrays"
-          }
+          {"type": "doc", "id": "sliding_window/0076_hard/min_window_substring", "label": "76. Min Window Substring"},
+          {"type": "doc", "id": "sliding_window/2444_hard/bounded_subarrays",    "label": "2444. Bounded Subarrays"}
         ]
       }
     ]
@@ -230,34 +167,14 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": H9,
         "collapsed": true,
         "items": [
-          {
-            "type": "doc",
-            "id": "stack/0895_hard/max_frequency_stack",
-            "label": "895. Max Frequency Stack"
-          },
-          {
-            "type": "doc",
-            "id": "stack/1944_hard/visible_people",
-            "label": "1944. Visible People"
-          },
-          {
-            "type": "doc",
-            "id": "stack/2296_hard/text_editor",
-            "label": "2296. Text Editor"
-          },
-          {
-            "type": "doc",
-            "id": "stack/2454_hard/second_next_greater",
-            "label": "2454. Second Next Greater"
-          },
-          {
-            "type": "doc",
-            "id": "stack/3430_hard/subarrays_max_min_sum",
-            "label": "3430. Subarrays Max Min Sum"
-          }
+          {"type": "doc", "id": "stack/0895_hard/max_frequency_stack",      "label": "895. Max Frequency Stack"},
+          {"type": "doc", "id": "stack/1944_hard/visible_people",           "label": "1944. Visible People"},
+          {"type": "doc", "id": "stack/2296_hard/text_editor",              "label": "2296. Text Editor"},
+          {"type": "doc", "id": "stack/2454_hard/second_next_greater",      "label": "2454. Second Next Greater"},
+          {"type": "doc", "id": "stack/3430_hard/subarrays_max_min_sum",    "label": "3430. Subarrays Max Min Sum"}
         ]
       }
     ]

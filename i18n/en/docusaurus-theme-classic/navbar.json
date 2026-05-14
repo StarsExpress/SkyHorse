@@ -1,0 +1,14 @@
+{
+  "item.label.LeetCode Catalog📒": {
+    "message": "LeetCode Catalog📒",
+    "description": "Navbar item"
+  },
+  "item.label.码主二三事👀": {
+    "message": "My Story👀",
+    "description": "Navbar item"
+  },
+  "item.label.SkyHorse Repo": {
+    "message": "SkyHorse Repo",
+    "description": "Navbar item"
+  }
+}

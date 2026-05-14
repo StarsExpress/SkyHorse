@@ -47,7 +47,7 @@ for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):
 
         for file in os.listdir(problem_path):
             if file.endswith("efficiency.png"):
-                image = f"/SkyHorse/img/efficiency/{number_str}_efficiency.png"
+                image = f"/img/efficiency/{number_str}_efficiency.png"
                 break
 
         topic_label = dsa_topic.replace("_", " ").title()
