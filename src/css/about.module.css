@@ -1,14 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Ma+Shan+Zheng&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-/* Zhi Mang Xing: title & intro. */
+/* Zhi Mang Xing: Chinese title & intro. */
 .zhiMangXing {
   font-family: 'Zhi Mang Xing', serif;
   font-size: 1.5rem;
 }
 
-/* Ma Shan Zheng: words next to submissions history. */
+/* Caveat: English title & intro. */
+.caveat {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+}
+
+/* Ma Shan Zheng: Chinese words next to submissions history. */
 .maShanZheng {
   font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+}
+
+/* Playfair Display: English words next to submissions history. */
+.playfairDisplay {
+  font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
 }
 

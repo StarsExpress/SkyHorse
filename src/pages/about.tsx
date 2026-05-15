@@ -70,12 +70,12 @@ export default function About() {
           <div style={{flex: 1, minWidth: 260}}>
 
             {/* Title. */}
-            <h1 className={styles.zhiMangXing} style={{marginBottom: '0.5rem'}}>
+            <h1 className={isChinese ? styles.zhiMangXing : styles.caveat} style={{marginBottom: '0.5rem'}}>
                 {isChinese ? '远在天边' : 'Mr.Faraway'}
             </h1>
 
             {/* Intro. */}
-            <p className={styles.zhiMangXing} style={{marginBottom: '1.5rem'}}>
+            <p className={isChinese ? styles.zhiMangXing : styles.caveat} style={{marginBottom: '1.5rem'}}>
                 {isChinese ? '莫听穿林打叶声 不随流水即随风' : 'Add sparkles to your sky.'}
             </p>
 
@@ -125,7 +125,7 @@ export default function About() {
           />
 
           {/* Words for submissions history. */}
-          <div className={styles.maShanZheng} style={{
+          <div className={isChinese ? styles.maShanZheng : styles.playfairDisplay} style={{
             flex: '1 1 260px',
             lineHeight: 2,
           }}>
