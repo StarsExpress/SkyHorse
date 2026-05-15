@@ -11,7 +11,7 @@ import PyCode from '@site/docs/dfs/0329_hard/max_rising_path.py?raw';
 
 
 ## [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/)
-__A must-know matrix DFS pattern — problem 329 is the classic example__
+__A must-know matrix DFS pattern. Problem 329 is a classic example.__
 
 Goal is to find the longest strictly increasing path in a matrix.
 

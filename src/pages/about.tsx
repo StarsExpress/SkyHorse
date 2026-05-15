@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from '../css/about.module.css';
+import {useLocation} from '@docusaurus/router';
 
 const socials = [
   {
@@ -25,6 +26,9 @@ const socials = [
 ];
 
 export default function About() {
+  const location = useLocation();
+  const isChinese = location.pathname.includes('/zh-Hans/') || location.pathname.endsWith('/zh-Hans');
+
   return (
     <Layout title="About Me" description="Personal Profile">
       <main style={{
@@ -66,13 +70,13 @@ export default function About() {
           <div style={{flex: 1, minWidth: 260}}>
 
             {/* Title. */}
-            <h1 className={styles.zhiMangXing} style={{marginBottom: '0.5rem', fontSize: '3.5rem'}}>
-              远在天边
+            <h1 className={styles.zhiMangXing} style={{marginBottom: '0.5rem'}}>
+                {isChinese ? '远在天边' : 'Mr.Faraway'}
             </h1>
 
             {/* Intro. */}
             <p className={styles.zhiMangXing} style={{marginBottom: '1.5rem'}}>
-              莫听穿林打叶声 不随流水即随风
+                {isChinese ? '莫听穿林打叶声 不随流水即随风' : 'Add sparkles to your sky.'}
             </p>
 
             {/* Social media: standard. */}
@@ -125,12 +129,12 @@ export default function About() {
             flex: '1 1 260px',
             lineHeight: 2,
           }}>
-            <p style={{margin: 0}}>仔细想想 平时显得爱玩不太认真</p>
-            <p style={{margin: 0}}>可能是闭门练功后 自然的能量平衡吧</p>
-            <p style={{margin: 0}}>回首过往 连自己也没想到会专心</p>
-            <p style={{margin: 0}}>不停沉思要怎么节省代码行数</p>
-            <p style={{margin: 0}}>同时升级可读性 大幅提速 花更少空间</p>
-            <p style={{margin: 0}}>多少朝夕默默地沉浸于程序中</p>
+            <p style={{margin: 0}}>{isChinese ? '仔细想想 平时显得爱玩不太认真' : 'At times I look quite unserious and playful'}</p>
+            <p style={{margin: 0}}>{isChinese ? '可能是闭门练功后 自然的能量平衡吧' : 'Is likely just some rebalanced energy after hard work'}</p>
+            <p style={{margin: 0}}>{isChinese ? '回首过往 连自己也没想到会专心' : 'Looking back, I never know that one day'}</p>
+            <p style={{margin: 0}}>{isChinese ? '不停沉思要怎么节省代码行数' : 'I would devote a lot of time into trimming code'}</p>
+            <p style={{margin: 0}}>{isChinese ? '同时升级可读性 大幅提速 花更少空间' : 'Enhancing readability and speed, while saving space'}</p>
+            <p style={{margin: 0}}>{isChinese ? '多少朝夕默默地沉浸于程序中' : 'To all these days quietly dedicated to coding'}</p>
           </div>
         </div>
 
