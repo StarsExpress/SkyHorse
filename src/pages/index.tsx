@@ -20,10 +20,10 @@ export default function Home() {
   const current = problems.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
   const location = useLocation();
-  const isEnglish = location.pathname.includes('/en/') || location.pathname.endsWith('/en');
-  const title = isEnglish
-    ? 'Footsteps: 4,699 Submissions in a Year ⌛️'
-    : '一年四千次提交的轨迹⌛️';
+  const isChinese = location.pathname.includes('/zh-Hans/') || location.pathname.endsWith('/zh-Hans');
+  const title = isChinese
+    ? '一年四千次提交的轨迹⌛️'
+    : 'Footsteps: 4,699 Submissions in a Year ⌛️';
 
   const Pagination = () => (
     <div style={{display: 'flex', justifyContent: 'center', gap: 8}}>

@@ -52,9 +52,9 @@ II. __```max_heap```最大值$\leq$```min_heap```最小值__
 
 
 ## 新元素来时 先看Heaps尺寸
-若两个堆尺寸一样 就把新元素丢到```min_heap```
+- 若两个堆尺寸一样 就把新元素丢到```min_heap```
 
-若```min_heap```比```max_heap```多一个元素 新元素丢```max_heap```
+- 若```min_heap```比```max_heap```多一个元素 新元素丢```max_heap```
 
 __现在我们已经执行完毕前述的条件I__
 
