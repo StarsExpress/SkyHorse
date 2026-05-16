@@ -15,8 +15,8 @@ vector<int> find_second_next_greater(vector<int>& nums) // LeetCode Q.2454.
         int num = nums[idx];
 
         while (!stackTwo.empty() && stackTwo.top().first < num) {
-            int past_idx = stackTwo.top().second;
-            secondNextGreater[past_idx] = num;
+            int pastIdx = stackTwo.top().second;
+            secondNextGreater[pastIdx] = num;
             stackTwo.pop();
         }
 

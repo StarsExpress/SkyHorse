@@ -37,7 +37,7 @@ Biggest advantage is the traversal logic becomes genuinely convenient.
 ## Boundary Control
 When index $i$ serves as right end, first thing we do is determine which starting indices $j$ are __valid__:
 
-those $j$ satisfying $j \leq i$ and $j \geq \max(0, i - k + 1)$.
+those $j$ satisfying $\max(0, i - k + 1) \leq j \leq i$.
 
 Once valid range for $j$ is established, the harder part follows.
 
