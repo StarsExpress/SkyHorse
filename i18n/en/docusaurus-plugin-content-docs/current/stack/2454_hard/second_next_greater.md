@@ -15,9 +15,7 @@ import PyCode from '@site/docs/stack/2454_hard/second_next_greater.py?raw';
 
 [GeeksforGeeks explanation of First Next Greater Element](https://www.geeksforgeeks.org/dsa/next-greater-element/)
 
-The First Next Greater Element problem is well-known.
-
-On LeetCode it's problem 496, easy level.
+The First Next Greater Element problem is well-known. On LeetCode it's problem 496.
 
 Today we look at problem 496's twin: problem 2454, __hard level__.
 
@@ -33,17 +31,16 @@ Finding just the first one isn't enough.
 ## How Popular Sites Handle Problem 2454
 [Algo Monster](https://algo.monster/liteproblems/2454) uses pure binary search.
 
-[LeetCode Wiki](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md) uses an ordered set with global sorting.
+[LeetCode Wiki](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md) uses an ordered set with sorting.
 
 Both are $O(n \log n)$ solutions. They do get AC.
 
 But... we can still follow professor Tim Roughgarden, former Stanford and now Columbia CS professor,
-
 who opens data structures and algorithms lectures on YouTube and Coursera with this famous line:
 
 ![Can we do better?](algo_mindset.jpg)
 
-[Professor Roughgarden's Courses Are Really Amazing](https://www.youtube.com/watch?v=yRM3sc57q0c&list=PLEAYkSg4uSQ37A6_NrUnTHEKp6EkAxTMa)
+[Professor Roughgarden's Courses Are Amazing](https://www.youtube.com/watch?v=yRM3sc57q0c&list=PLEAYkSg4uSQ37A6_NrUnTHEKp6EkAxTMa)
 
 
 ## How I Think About "Second" Next Greater
@@ -52,24 +49,22 @@ First, ask a foundational question:
 what kind of element __has the right — or more precisely, the eligibility__ to ask "where is my Second Next Greater? 🥲"
 
 It must be an element that has __already encountered its first right-side element greater than itself__,
-
 and is now __searching for the next one greater than itself__.
 
-__Searching for the next element to the right that is greater than itself__... doesn't that sound familiar?
+__Searching for the next element to the right that is greater than itself__... sound familiar?
 
-An element that hasn't seen any right-side element greater than itself is __searching for the next element to the right that is greater than itself__.
+An element that hasn't seen any right-side greater element is __searching for the next element to the right that is greater than itself__.
 
 So we immediately see: if element $x$ eventually finds its second next greater,
 
 $x$ must have successfully completed __two rounds of "find the next greater element to the right"__.
 
-Actions are the same for both times, but states differ:
+Actions are the same, but states differ:
 
-1. First search: state of $x$— has not yet encountered any right-side element greater than itself.
-2. Second search: state of $x$— has encountered exactly one right-side element greater than itself.
+1. First search: state of $x$— has not yet encountered any right-side greater element.
+2. Second search: state of $x$— has encountered exactly one right-side greater element.
 
 Since the first task is well-known to be solvable by a monotonic decreasing stack,
-
 the second task can obviously also be solved with a stack — __no binary search or ordered set needed__.
 
 We just need stack 1 for the first task and stack 2 for the second task, managing elements in different states.
@@ -105,10 +100,9 @@ Since each element is traversed once, pushed into stack 1 exactly once, and ente
 __our double-stack approach runs in $O(n)$ time and $O(n)$ space__.
 
 ![Double Stacks_Efficiency](2454_efficiency.png)
-**My double stacks C++ code performance: AC in 31ms.**
+**Double stacks C++ performance: AC in 31ms.**
 
 (Quietly noting: Algo Monster and LeetCode Wiki's solutions took 350+ ms in C++,
-
 __which stretched the time distribution chart significantly in the other direction__. See horizontal axis.)
 
 
@@ -140,4 +134,4 @@ Now that we've seen both first and second next greater, consider:
 3. Continuing from question 1. For an array of length $n = 1,000,000$, which value of $k$ most easily produces results for all elements?
    (A) $k = 1$ (B) $k = 10^2$ (C) $k = 10^4$ (D) $k = 10^6$
 
-Think through all three questions, and you'll have a solid grasp of the philosophy behind monotonic stacks 🤓
+Think through all three questions, and you'll solidly grasp philosophy behind monotonic stacks 🤓

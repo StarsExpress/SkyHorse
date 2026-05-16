@@ -18,7 +18,6 @@ the __left side uses a LIFO stack__,
 the __right side uses a deque that supports insertion and removal at front__.
 
 This way, no matter where the cursor moves or how far it slides,
-
 characters can be transferred between stack and deque with ease.
 
 
@@ -37,31 +36,25 @@ __Time complexity: $O(k)$__
 
 ### ```cursorLeft(int k)```
 Moving the cursor left by $k$ positions means our dividing line cuts off some left side characters,
-
-__so characters near the top of left stack now become characters near the front of right deque__.
+__so characters near the top of left stack now are characters near the front of right deque__.
 
 Pop ```min(k, len(stack))``` characters from the top of left stack one by one,
-
 __and push each into the front of right deque__.
 
 After these pops, go to the top of left stack
-
-and slice substring consisting of ```min(10, len(stack))``` characters going leftward from there.
+to slice substring consisting of ```min(10, len(stack))``` characters going leftward from there.
 
 __Time complexity: $O(k)$__
 
 ### ```cursorRight(int k)```
 Moving the cursor right by $k$ positions means our dividing line cuts off some right side characters,
-
 __characters near the front of right deque now become characters near the top of left stack__.
 
 Pop ```min(k, len(Deque))``` characters from the front of right deque one by one,
-
 __and push each onto the top of left stack__.
 
 After these pops, go to the top of left stack
-
-and slice substring consisting of ```min(10, len(stack))``` characters going leftward from there.
+to slice substring consisting of ```min(10, len(stack))``` characters going leftward from there.
 
 __Time complexity: $O(k)$__
 

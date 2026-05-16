@@ -20,7 +20,7 @@ I was quite easy to fall into a shotgun approach.
 I later learned to hit the brakes, observe calmly, then react.
 
 
-## Default Value of Max Partitions Count
+## Default Max Partitions Count
 The problem says we can choose to leave every element unchanged.
 
 So first, look at original array of length $n$:
@@ -36,8 +36,7 @@ $C = \Sigma_{i = 1}^{n - 1} \mathbf{1}(\text{sum}(nums[:i]) = \text{sum}(nums[i:
 
 ## Hard Part: Changing One Element
 The problem also allows us to pick __exactly one__ index $j$
-
-__and replace $nums[j]$ with input variable $k$__.
+__and replace $nums[j]$ with input $k$__.
 
 This means we need to find which $j$ maximizes:
 
@@ -51,10 +50,8 @@ The final answer is $\max(C, C')$.
 ## Find C'
 ### Concept of Prefix-Suffix Difference
 First, prepare a hash map called ```rightDiffCounts```,
-
-and a pivot index ```pivotIdx``` — as defined by the problem,
-
-__```pivotIdx``` must start from 1 and be less than $n$__.
+and a pivot index ```pivotIdx```. As defined by the problem,
+__```pivotIdx``` must start from 1 and < $n$__.
 
 As ```pivotIdx``` traverses from 1 to $n - 1$,
 
@@ -62,11 +59,11 @@ compute __prefix-suffix difference__ $D = \text{sum}(nums[:\text{pivotIdx}]) - \
 
 and record count of each $D$ in ```rightDiffCounts```.
 
-What is this prefix-suffix difference good for? Imagine:
+What is this difference good for? Imagine:
 
 if some index $l$ __less than ```pivotIdx```__ is selected,
 
-__$nums[l]$ is changed to $k$, and $nums[l] - k = D$__,
+__$nums[l]$ changes to $k$, and $nums[l] - k = D$__,
 
 __then $\text{sum}(nums[:\text{pivotIdx}]) - \text{sum}(nums[\text{pivotIdx}:])$ becomes zero!__
 
@@ -80,8 +77,9 @@ when some index $l$ has $nums[l]$ changed to $k$,
 __the valid split points it creates can be to the left or to the right of $l$__.
 
 Using only ```rightDiffCounts``` (which tracks prefix-suffix differences for split points to the right of $l$)
+is not enough.
 
-is not enough. We also need ```leftDiffCounts``` to manage differences for split points to the left of $l$.
+We also need ```leftDiffCounts``` to manage differences for split points to the left of $l$.
 
 
 ## Traversal Logic for Final Counting
@@ -112,7 +110,6 @@ $C'_l$ = ```leftDiffCounts[k - nums[l]]``` + ```rightDiffCounts[nums[l] - k]```
 Compare this with the current best $C$ and update if it's larger.
 
 Note that since we're dealing with prefix and suffix perspectives,
-
 __the queried differences differ by exactly a sign flip__.
 
 ### Update Both Hash Maps at Each Step
@@ -123,7 +120,6 @@ Decrement $D_l$'s count in ```rightDiffCounts```.
 Increment $D_l$'s count in ```leftDiffCounts```.
 
 Because from the perspective of all indices larger than $l$,
-
 __$l$ can only be a left split point, never a right one__.
 
 <Tabs>

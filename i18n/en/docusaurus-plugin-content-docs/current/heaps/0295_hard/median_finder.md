@@ -11,12 +11,11 @@ import PyCode from '@site/docs/heaps/0295_hard/median_finder.py?raw';
 
 
 ## [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/description/)
-A key application of heaps: not just tracking real-time minimum or maximum,
+A key application of heaps: tracking not just real-time minimum or maximum,
+but also __real-time median in a data stream__.
 
-but also __tracking real-time median in a data stream__.
 
-
-## Definition of Median in a Data Stream
+## Definition of Data Stream Median
 - Length $n$ is odd: after sorting, __the middle element__. Like, median of $[1, 2, 3]$ is $2$
 - Length $n$ is even: after sorting, __the average of two middle elements__. Like, median of $[1, 2, 3, 4]$ is $(2 + 3) / 2 = 2.5$
 
@@ -68,20 +67,18 @@ Keep swapping until:
 
 __maximum of ```max_heap``` $\leq$ minimum of ```min_heap```__
 
-__At this point, condition II is also satisfied 👌👌__
+__At this point, condition II is satisfied 👌👌__
 
 
 ## Find the Median: Back to Heap Sizes
 A. If ```min_heap``` has one more element than ```max_heap```,
-
 the median is minimum of ```min_heap```.
 
 B. If both heaps are the same size, the median is
-
 the average of ```min_heap```'s minimum and ```max_heap```'s maximum.
 
 
-## Python and C++ Defaults Differ ⚠️
+## Python & C++ Defaults Differ ⚠️
 __Python's heapq defaults to a min heap.__
 
 __C++'s priority_queue defaults to a max heap.__
@@ -101,7 +98,6 @@ So that a default min heap can act as a max heap, and vice versa.
 </Tabs>
 
 LeetCode's ```addNum``` and ```findMedian``` on the problem page
-
 correspond to my ```add_num``` and ```find_median```.
 
 I use 🐫 camelCase in C++ and 🐍 snake_case in Python. Just a personal habit.

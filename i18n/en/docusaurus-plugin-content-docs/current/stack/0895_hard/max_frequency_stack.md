@@ -16,18 +16,15 @@ The key to this type of problem usually is understanding what ```pop()``` is sup
 We need to remove and return the element with the highest frequency in stack.
 
 __If multiple elements tie for highest frequency, pick the one closest to stack top__,
-
 meaning the one that was pushed into most recently.
 
 So we need to maintain a stack structure per frequency level,
-
 ensuring that under a tiebreaker, the most recently added element is retrieved.
 
 
 ## Stack of Stacks
 ### Architecture
 (1). __Frequency Stack__: __outer__ structure. Whenever current highest frequency
-
 __has all its elements removed, that frequency is no longer maximum__.
 
 It gets popped off the outer stack, letting next frequency take over outer stack top.
@@ -36,7 +33,7 @@ It gets popped off the outer stack, letting next frequency take over outer stack
 
 __Among elements at the same frequency, the one that most recently reached this frequency is at its inner stack top.__
 
-This is exactly the tiebreaker our problem requires.
+This is exactly the tiebreaker of our problem.
 
 So we maintain a ```frequencyStack``` as outer stack, where index $i$ represents frequency $i$.
 
@@ -57,7 +54,7 @@ II. ```pop()```: each time it's called, locate outer stack top, at which there i
 
 Pop the top element from this inner stack.
 
-Decrement that popped element's frequency in hash map.
+Decrement that popped element's frequency in hash table.
 
 __This gives us the most recently pushed element among those with highest frequency.__
 

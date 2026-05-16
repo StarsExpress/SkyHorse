@@ -11,7 +11,7 @@ import PyCode from '@site/docs/queue/0068_hard/text_justificator.py?raw';
 
 
 ## [Text Justification](https://leetcode.com/problems/text-justification/description/)
-A decent way to have experience with queues in LeetCode.
+A decent way to have experience with queues.
 
 Given a list of words, we pack as many consecutive words as possible into each line,
 
@@ -24,7 +24,6 @@ and __spaces must be placed between words__ — how many depends on situations.
 Set up a queue to hold words which are __currently being assembled into a line__.
 
 Since at least one space is needed between any two adjacent words,
-
 minimum line length formed by these queued words is:
 
 __$L = \text{len}(\text{queue}) - 1 + \Sigma_i \; \text{len}(\text{word}_i)$__
@@ -34,7 +33,7 @@ Once the current word $word_j$ causes
 
 __$L + 1 + \text{len}(word_j) > \text{maxWidth}$__,
 
-it's time for all currently queued words to form a line.
+it's time for all queued words to form a line.
 
 After forming a line, queue clears, and $word_j$ enters queue as next line's head word.
 
@@ -45,7 +44,7 @@ Otherwise, simply add $word_j$ to queue. The line doesn't need to form yet.
 ## Forming Line
 As mentioned, number of spaces between adjacent words depends on situations.
 
-The problem specifies two different spacing styles.
+The problem specifies two spacing styles.
 
 ### 1. Left Justification
 If the line being formed is the __last line__, it should be left-justified:
@@ -55,7 +54,6 @@ __exactly one space__ between adjacent words.
 If total length still hasn't reached ```maxWidth``` after filling, pad spaces to the end of the line.
 
 Note: if a non-last line contains only __one word__,
-
 the spacing behavior __automatically becomes left-justified__.
 
 ### 2. Right Justification
@@ -68,7 +66,6 @@ Total spaces to distribute: $S = \text{maxWidth} - \Sigma_i \; \text{len}(\text{
 Each gap first receives: __$\lfloor S \div (\text{len}(\text{queue}) - 1) \rfloor$ spaces__
 
 Remainder $M = S \bmod{(\text{len}(\text{queue}) - 1)}$ is usually greater than zero,
-
 meaning $M$ extra spaces still need to be dealt.
 
 Very simple: __take the leftmost $M$ gaps__ and give each one an extra space.

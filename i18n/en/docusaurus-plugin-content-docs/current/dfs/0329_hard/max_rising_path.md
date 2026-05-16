@@ -16,13 +16,12 @@ __A must-know matrix DFS pattern. Problem 329 is a classic example.__
 Goal is to find the longest strictly increasing path in a matrix.
 
 Constraint is that from any cell, when trying to extend a path,
-
-only four cardinal directions (east, south, west, north) are allowed — __no diagonals__
+only four cardinal directions (east, south, west, north) are allowed — __no diagonals__.
 
 Of course, stepping outside the matrix is also forbidden, so boundary checks come first.
 
 
-## Scanning the Global Answer Effortlessly
+## Scanning Effortlessly
 For every element ```matrix[i][j]``` in the matrix,
 
 we try using it as a starting point to find the longest increasing path from there.
@@ -50,16 +49,16 @@ So if neighbor $x$ shows -1 in ```maxRisingPath```,
 
 __it means $x$ hasn't been visited yet — we run DFS on $x$ first__.
 
-Once $x$'s longest path length is determined, say $k$,
+Once $x$'s longest path length is determined, say $k$, we apply:
 
-we apply: __$maxRisingPath[i][j] = max(maxRisingPath[i][j], 1 + k)$__
+__$maxRisingPath[i][j] = max(maxRisingPath[i][j], 1 + k)$__
 
 After updating ```maxRisingPath[i][j]```, __don't forget to compare it with global maximum__.
 
 ![Matrix_DFS Efficiency](0329_efficiency.png)
 Both time and space complexity are $O(mn)$, where $m$ and $n$ are number of rows and columns.
 
-Problem 329 is officially labeled hard, __but it's actually not that difficult — even relatively easy__.
+Problem 329 is officially labeled hard, __but it's actually not difficult. Even relatively easy__.
 
 A great problem to build fundamentals.
 

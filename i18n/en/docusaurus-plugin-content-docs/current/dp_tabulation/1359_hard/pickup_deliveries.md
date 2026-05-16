@@ -13,12 +13,13 @@ import PyCode from '@site/docs/dp_tabulation/1359_hard/pickup_deliveries.py?raw'
 ## [Count All Valid Pickup and Delivery Options](https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/description/)
 Another wonderful bottom up DP training.
 
-A bit simpler than [problem 552](https://starsexpress.github.io/SkyHorse/docs/dp_tabulation/0552_hard/student_attendance). At least that's how I feel.
+A bit simpler than [problem 552](https://starsexpress.github.io/SkyHorse/docs/dp_tabulation/0552_hard/student_attendance).
+
+At least that's how I feel.
 
 
 ## Base Case
 With only one order, there's only one valid arrangement:
-
 pickup first (P), then delivery (D), giving a count of 1.
 
 It looks like this: $(P_1, D_1)$.
@@ -45,7 +46,6 @@ II. Place between $P_1$ and $D_1$: __2 + 2__ format
 III. Place after $D_1$: __3 + 1__ format
 
 Since $P_i$ must always be to the left of $D_i$, once $P_2$ is placed,
-
 __$D_2$ can only go into slots to the right__, which are those on the right of $+$.
 
 Total valid slots for $D_2$: $1 + 2 + 3 = 6$.
@@ -60,8 +60,7 @@ __forming a sequence of length $2j - 2$__, from which $P_j$ thus has $2j - 1$ sl
 From left to right, number of valid slots available to $D_j$ after placing $P_j$ __is $2j - 1, \ldots, 1$ respectively__.
 
 This is an arithmetic series summing to $j(2j - 1)$,
-
-which is exactly the __multiplier applied to previous count $C_{j-1}$__ when arranging $P_j$ and $D_j$.
+the __exact multiplier applied to previous count $C_{j-1}$__ when arranging $P_j$ and $D_j$.
 
 Thereby, our state transition equation is:
 

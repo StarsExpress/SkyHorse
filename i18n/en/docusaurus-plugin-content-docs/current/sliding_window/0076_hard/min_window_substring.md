@@ -12,10 +12,8 @@ import PyCode from '@site/docs/sliding_window/0076_hard/min_window_substring.py?
 
 ## Sliding Window Problems: Common Pattern
 Once ```left_idx``` and ```right_idx``` satisfy some condition,
-
 compute window length ```right_idx``` + 1 - ```left_idx```,
-
-compare it with historical max or min window length, and update records.
+and compare it with historical max or min window length, and update records.
 
 Sometimes we also need to store window's starting index.
 
@@ -26,19 +24,16 @@ Then move ```left_idx``` to the right until condition is no longer met, or ```le
 Let's use problem 76 as a demonstration.
 
 We're given two strings ```source_str``` and ```target_str```
-
 (the problem uses ```s``` and ```t```, but ```source_str``` and ```target_str``` are more readable).
 
 We have to find the shortest substring in ```source_str```
-
 __that contains all characters in ```target_str```, including duplicates__.
 
-If no such substring exists, return an empty string.
+If no such substring exists, return "".
 
 
 ## Our Old Friend Hash Map 🔢
 First, count occurrences of each character in ```target_str```,
-
 since these are the characters we must __fully cover, including duplicates__.
 
 Call this map ```tgt_chars_counts```.
@@ -52,11 +47,9 @@ Also prepare two variables upfront:
 ## Like Insurance: Over-coverage Is Fine, But Not Under
 ### I. ```right_idx``` Always Moves Right
 Create an integer variable ```unique_tgt_chars_coverage```
-
 to track how many __unique__ characters in ```target_str``` the current window __fully covers__.
 
 Each time we move ```right_idx``` to the right,
-
 let ```char``` = ```source_str[right_idx]```.
 
 First check if ```char``` is a key in ```tgt_chars_counts```.
@@ -64,11 +57,9 @@ First check if ```char``` is a key in ```tgt_chars_counts```.
 __Only if it is, ```char``` is something we need to cover.__
 
 If so, decrement ```tgt_chars_counts[char]``` by 1,
-
 __symbolizing that we've bought one more unit of insurance for ```char```__.
 
 The moment ```tgt_chars_counts[char]``` drops to 0,
-
 __it means full coverage of ```char``` has been achieved__,
 
 so increment ```unique_tgt_chars_coverage``` at that point.
@@ -79,13 +70,12 @@ __every future occurrence of ```char``` should still decrement ```tgt_chars_coun
 
 __Going negative is fine__, as it just means __over-coverage__, which is allowed.
 
-Just don't increment ```unique_tgt_chars_coverage``` more than once 😏
+Just don't increment ```unique_tgt_chars_coverage``` more than once.
 
 __Only when ```tgt_chars_counts[char]``` drops to exactly 0 should our coverage count increase.__
 
 ### II. When Can ```left_idx``` Move Right?
 Once ```unique_tgt_chars_coverage``` matches ```len(tgt_chars_counts)```,
-
 our current window fully covers all characters in ```target_str```.
 
 Quickly compute current window length: ```window_len``` = ```right_idx``` + 1 - ```left_idx```.
@@ -93,7 +83,6 @@ Quickly compute current window length: ```window_len``` = ```right_idx``` + 1 - 
 Compare with ```min_len```. If it's a new record,
 
 __also update ```min_window_left_idx``` with ```left_idx```__,
-
 __since we'll eventually need it to slice ```source_str``` for the answer__.
 
 After recording and updating, move ```left_idx``` to the right.
@@ -105,11 +94,9 @@ Again, check if ```removed_char``` is a key in ```tgt_chars_counts```.
 __Only if it is, ```removed_char``` is something we were covering.__
 
 If so, increment ```tgt_chars_counts[removed_char]``` by 1,
-
 __symbolizing that we've canceled one unit of insurance for ```removed_char```__.
 
 The moment ```tgt_chars_counts[removed_char]``` gets greater than 0,
-
 __```removed_char```, which was fully covered, is now exposed__.
 
 At that point, decrement ```unique_tgt_chars_coverage``` by 1.
@@ -120,13 +107,13 @@ __each additional loss of ```removed_char``` should still increment ```tgt_chars
 
 since it means gap is growing and will need to be filled later.
 
-Just don't decrement ```unique_tgt_chars_coverage``` more than once 😏
+Just don't decrement ```unique_tgt_chars_coverage``` more than once.
 
 __Only when it goes from 0 to positive should our coverage count decrease.__
 
 After a full scan, check if ```min_len``` equals ```len(source_str) + 1```.
 
-If so, no valid substring was found so we return "".
+If so, no valid substring was found. Return "".
 
 Otherwise, return ```source_str[min_window_left_idx: min_window_left_idx + min_len]```.
 

@@ -14,10 +14,9 @@ import PyCodeStack from '@site/docs/greedy/0768_hard/max_chunks_stack_version.py
 
 ## [Max Chunks To Make Sorted II](https://leetcode.com/problems/max-chunks-to-make-sorted-ii/description/)
 This problem carries a very peculiar feeling for me:
-
 a sense that things have changed while the problem remains the same.
 
-I solved it for the first time in late 2024 and got AC.
+I solved it for the first time in late 2024.
 
 Coming back in early 2026, I got AC again.
 
@@ -50,7 +49,6 @@ for every index $i$ satisfying $1 \leq i < n$, we check:
 __Does $\max(nums[:i]) \leq \min(nums[i:])$ hold?__
 
 If so, index $i$ is a __cut point__,
-
 meaning the array can be split into two chunks at index $i$,
 
 and sorting each chunk separately then concatenating will yield a sorted result.
@@ -61,9 +59,9 @@ building a ```prefix_maxs``` array recording each $\max(nums[:i])$,
 
 then scan back from the right, tracking $\min(nums[i:])$ with ```suffix_min```.
 
-Whenever $\max(nums[:i]) \leq \min(nums[i:])$ holds,
+Whenever $\max(nums[:i]) \leq \min(nums[i:])$ holds, increment ```max_chunks``` by 1.
 
-increment ```max_chunks``` by 1. But remember:
+But remember:
 
 ### __```max_chunks``` starts at 1, not 0__
 __Even a strictly decreasing $nums$ can count as one chunk__.
@@ -85,11 +83,10 @@ About a year and a half later, I thought of an alternative approach below...
 
 ## II. Early 2026: Monotonic Increasing Stack
 ### Eligibility to Lead a Chunk
-Looking at the previous code, ```prefix_maxs``` is a continuous process of __expanding the current leader__.
+Looking at previous code, ```prefix_maxs``` is a continuous process of __expanding current leader__.
 
-Can you sense what kind of situation would make a leader
-
-__ineligible to be the maximum of its chunk__?
+Can you sense what situation would a leader
+__get ineligible to be maximum of its chunk__?
 
 Consider this scenario: $0 \leq j < k < l < n$
 
@@ -108,15 +105,13 @@ Now comes $nums[l]$ satisfying $nums[l] < nums[j] \leq nums[k]$.
 
 Since $k < l$, $nums[l]$ lies to the right of both $nums[j]$ and $nums[k]$.
 
-With sharp instincts, we immediately smell a problem:
+With sharp instincts, we immediately have a problem:
 
 I. If $nums[l]$ is kept out of $Chunk_k$ (led by $nums[k]$),
 
-then $nums[l]$ forms $Chunk_y$ with elements to its right.
+then $nums[l]$ forms $Chunk_y$ with elements to its right. After sorting,
 
-After sorting, $Chunk_y$ meets $Chunk_j$ from the left —
-
-__$nums[j]$ and $nums[l]$ end up out of order__.
+$Chunk_y$ meets $Chunk_j$ from the left — __$nums[j]$ and $nums[l]$ end up out of order__.
 
 II. Okay, so let $nums[l]$ join $Chunk_k$.
 
@@ -126,9 +121,7 @@ __$nums[j]$ and $nums[l]$ are still out of order__.
 
 From both paths, we conclude directly:
 
-$nums[l]$ and $nums[j]$ must be in the same chunk.
-
-Separating them causes problems.
+$nums[l]$ and $nums[j]$ must be in the same chunk. Separating them causes problems.
 
 This is precisely why $nums[j]$ must step down and can no longer lead any chunk.
 
@@ -148,7 +141,6 @@ Otherwise, push the originally popped value back onto the right end of ```prefix
 __Isn't this exactly the behavior of a monotonic increasing stack? 👌__
 
 After traversal, count how many elements remain in the stack, say $s$.
-
 __That means there are $s$ eligible chunk leaders. Return $s$.__
 
 <Tabs>

@@ -38,7 +38,6 @@ __index $i$ can connect to any subsequence ending at indices $0, \ldots, i - 1$_
 
 ## The Pattern in Problem 3351
 For each currently visited index $i$, we look at how many
-
 __subsequences with tail value $nums[i] - 1$ or $nums[i] + 1$ have appeared in the previous $i$ iterations__,
 
 since the problem states that __adjacent elements__ in each subsequence must have an __absolute difference of exactly 1__.
@@ -55,18 +54,17 @@ We can immediately conclude two facts:
 
 2. The number of subsequences with tail __value of $nums[i]$ net increases__ by $j + k + 1$
 
-Note that statements 1 and 2 use slightly different phrasing, because __there is only one index labeled $i$__,
+Note that statements 1 and 2 use slightly different phrasing, because __there is only one index $i$__,
 
-but before visiting index $i$, __subsequences with tail value of $nums[i]$ may have already formed__.
+but before index $i$, __subsequences with tail value of $nums[i]$ may have already formed__.
 
 Take a moment to digest the difference between these two statements before you read on~~
 
---------------No rush, take your time--------------
+-------------No rush, take your time-------------
 
 Back to $j + k + 1$. Where does $+ 1$ come from?
 
 Don't forget: at index $i$, __we also have the right to start fresh__,
-
 __letting $nums[i]$ form a subsequence on its own__.
 
 With counting handled, summing follows naturally. We now have:
@@ -103,7 +101,7 @@ One thing to note: __the number of subsequences is on the order of $O(2^n)$__,
 
 and throughout our pipeline, __we use subsequence counts to compute subsequence sums__,
 
-so __we must apply modulo to both counts and sums during computation__ to prevent overflow.
+so __we must apply modulo to both counts and sums__ to prevent overflow.
 
 ![Hash DP Efficiency](3351_efficiency.png)
 

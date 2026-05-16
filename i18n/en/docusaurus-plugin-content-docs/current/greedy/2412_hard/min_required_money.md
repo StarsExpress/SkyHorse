@@ -12,7 +12,6 @@ import PyCode from '@site/docs/greedy/2412_hard/min_required_money.py?raw';
 
 ## [Minimum Money Required Before Transactions](https://leetcode.com/problems/minimum-money-required-before-transactions/description/)
 The reason this problem is labeled hard, I eventually noticed,
-
 is that the key to solving it is actually a __reading comprehension test__.
 
 
@@ -20,7 +19,6 @@ is that the key to solving it is actually a __reading comprehension test__.
 We are asked to find the minimum amount of money such that
 
 __no matter what order the transactions are executed__,
-
 money will always be enough __for upcoming transactions at each time step__.
 
 That is, this amount __guarantees we won't be unable to afford the next transaction__.
@@ -35,12 +33,9 @@ steadily draining initial funds, bit by bit.
 
 
 ## The Protection at Absolute Security 🪖
-From the above, we must at least be able to withstand
-
-__the total net loss of all losing transactions__.
+From the above, we must at least withstand __total net loss of all losing transactions__.
 
 We must __collect all transactions where $cashback_i < cost_i$__
-
 and sum up their losses: $L = \Sigma_i (cost_i - cashback_i)$.
 
 __Nevertheless, we also need to add the maximum cashback $x$ among all losing transactions__.
@@ -48,7 +43,6 @@ __Nevertheless, we also need to add the maximum cashback $x$ among all losing tr
 Why? __If we execute all losing transactions consecutively from the start__,
 
 __and the last losing transaction__ happens to have cashback $x$,
-
 the moment of maximum cumulated loss happens __right before receiving $x$ back__.
 
 
@@ -61,12 +55,11 @@ __After losing transactions are done, we are still having profitable ones to han
 
 The nature of profitable transactions is that our principal never drops after each one.
 
-So at this point, we only need to consider one thing:
+So now we only need to consider one thing:
 
 __after tortured by losing transactions, do we still have enough to cover entry cost of any profitable transaction?__
 
 After all, profitable transactions __don't fall from the sky__:
-
 __you have to pay cost first__ before getting cashback.
 
 ### How to Profit: 🌫️ Endure the Storm, See the Moon 🌕
@@ -77,7 +70,6 @@ __the number $L + y$, where $y$ is the maximum cost among all profitable transac
 The deeper meaning of such a number is:
 
 __in the worst case, all losing transactions occur first__,
-
 __immediately followed by the most expensive profitable transaction__.
 
 We'd need to start with $L + y$ to handle everything.

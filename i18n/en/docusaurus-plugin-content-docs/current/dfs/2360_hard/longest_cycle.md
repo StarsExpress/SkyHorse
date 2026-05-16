@@ -14,7 +14,6 @@ import PyCode from '@site/docs/dfs/2360_hard/longest_cycle.py?raw';
 A classic cycle detection problem — DFS is the most intuitive way.
 
 One advantage of this problem is that these $n$ nodes are labeled $0$ to $n - 1$ as non-negative integers,
-
 so a plain ```vector<int>``` works perfectly to track visit orders.
 
 Using ```unordered_map<int, int>``` would be much slower......🐢
@@ -36,7 +35,6 @@ III. Previously visited and already off the stack 🟢
 Which state marks the moment a cycle is formed?
 
 The answer is state II — currently on the recursion stack 🟡
-
 __That's the moment to celebrate a newly formed cycle 🎊__
 
 __$(u, v)$ is the last piece of puzzle for this new cycle $C$ 🧩__
@@ -56,8 +54,8 @@ One small detail worth noting: __to quickly distinguish between states II and II
 I like to use different markers in the integer array ```visitedOrders```:
 
 1. -1: node not yet visited 🔴
-2. Positive integer: node is currently on the recursion stack 🟡 (which is the node's visit order)
-3. -2: node has been visited and popped off the stack 🟢
+2. Positive integer: node is on recursion stack 🟡. Integer is node's visit order
+3. -2: node has been visited and popped off stack 🟢
 
 ![DFS_Efficiency](2360_efficiency.png)
 Each node and each edge is visited exactly once. Time complexity is $O(V + E)$.
@@ -76,4 +74,4 @@ Space complexity is also $O(V + E)$.
 
 
 ## Follow-up Problem
-__[If problem 2360 is clear, come take on this one.](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)__
+__[If problem 2360 is clear, come take this.](https://starsexpress.github.io/SkyHorse/docs/dfs/2876_hard/visited_nodes)__

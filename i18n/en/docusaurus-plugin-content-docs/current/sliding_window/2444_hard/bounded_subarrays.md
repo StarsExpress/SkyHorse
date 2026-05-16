@@ -15,16 +15,14 @@ Excellent problem to enhance sliding window technique.
 
 
 ## Since We Need Both minK and maxK to Be Bounded
-Each time we move window's right end ```rightIdx```,
+Each time we move window's right end ```rightIdx```, first check whether
 
-first check whether $minK \leq nums[rightIdx] \leq maxK$.
+$minK \leq nums[rightIdx] \leq maxK$.
 
 If not, $nums[rightIdx]$ falls outside valid range,
-
 so __no valid subarray with ```rightIdx``` as the right end can exist__.
 
 Directly reset window's left end ```leftIdx``` to ```rightIdx``` + 1,
-
 and also reset both ```prevMinIdx``` and ```prevMaxIdx``` to -1,
 
 since we don't yet know whether $nums[leftIdx:]$ contains elements equal to $minK$ or $maxK$.
@@ -38,7 +36,6 @@ the most recent index $i$ where $nums[i] = minK$, and assign it to ```prevMinIdx
 the most recent index $j$ where $nums[j] = maxK$, and assign it to ```prevMaxIdx```.
 
 Once both ```prevMinIdx``` and ```prevMaxIdx``` are not -1,
-
 __our window has just satisfied the problem's requirements__.
 
 Valid subarrays within this window must satisfy three conditions:
@@ -74,6 +71,5 @@ Add $C$ to ```boundedSubarraysCount```, which will be returned at the end.
 </Tabs>
 
 ![Sliding Window Efficiency](2444_efficiency.png)
-Time complexity $O(n)$ where $n$ is input array length.
-
+Time complexity is $O(n)$ where $n$ is input array length.
 Space is $O(1)$: just four pointers and ```boundedSubarraysCount``` to track total.

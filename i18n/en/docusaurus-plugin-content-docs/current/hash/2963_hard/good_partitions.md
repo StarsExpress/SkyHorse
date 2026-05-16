@@ -17,10 +17,10 @@ with the constraint that __no two subarrays share the same number__. This is cal
 
 The expected returned value is total number of good partitions.
 
-## Can't Join Two Groups? Then...
-Put it this way: for any number, find its first and last occurrence at indices $i$ and $j$ —
+## Can't Join Two Groups? So...
+Put it this way: for any number, find its first and last occurrence at indices $i$ and $j$.
 
-__both $i$ and $j$ must belong to the same group__.
+__Both $i$ and $j$ must belong to the same group__.
 
 __Which means we need to track the last occurrence index of each number__.
 
@@ -39,17 +39,16 @@ __so that $x$ stays loyal and remains within the current unfinished group $G_k$,
 Conversely, if during this incremental scan, ```scanIdx``` ever becomes __$>$ ```boundaryIdx```__,
 
 __it naturally means group $G_k$ has fully formed and stopped growing__,
-
 so we update the total count of completed groups accordingly.
 
-## What Does the Group Count Represent?
+## What Does Group Count Represent?
 Say there are $k$ groups in total, implying that there are $k - 1$ gaps between them.
 
-Each gap faces two paths: __keep it to separate two adjacent groups, or remove it to merge them into one__.
+Each gap faces two paths: __keep it to separate two adjacent groups, or remove it to merge them into one group__.
 
 __The answer follows: total good partitions = $2^{k - 1}$ ✌️__
 
-Since the total number of partitions is on the order of __$O(2^k)$__, we use a modulo of $10^9 + 7$ to prevent overflow.
+Since total number of partitions is on the order of __$O(2^k)$__, we use a modulo of $10^9 + 7$ to prevent overflow.
 
 Even computing the exponent $2^{k - 1}$ should use __modular exponentiation__ for safety.
 

@@ -13,7 +13,6 @@ import PyCode from '@site/docs/dp_tabulation/0918_medium/circular_subarray_sum.p
 ## Quick Review
 [Max Subarray Sum](https://leetcode.com/problems/maximum-subarray/)
 👈 This is a classic bottom up DP problem.
-
 It can be solved with Kadane's algorithm in $O(n)$ time and $O(1)$ space.
 
 [GeeksforGeeks explanation of Kadane's algorithm](https://www.geeksforgeeks.org/dsa/largest-sum-contiguous-subarray/)
@@ -31,13 +30,11 @@ satisfying $0 \leq i \leq j < n$, to maximize $\text{sum}(nums[i: j + 1])$.
 Problem 918 accepts the same type of subarray as problem 53,
 
 but it also accepts __circular subarrays__:
-
 find two indices $i$ and $j$ satisfying $0 \leq i \leq j < n$,
 
 __maximizing $\text{sum}(nums[:i] + nums[j:])$__
 
 In short, this means taking __a prefix__ and __a suffix__ from $nums$,
-
 with the constraint that __no indices can be used twice__.
 
 
@@ -53,7 +50,6 @@ That ended with five wrong answers over two and a half months 🤣
 
 ## Time for Reverse Thinking 😌
 Almost three months later, one day outside my home,
-
 there was construction going on 🚧 with an excavator digging into the ground 🪏
 
 __Watching the excavator scoop downward__, I suddenly realized that:
@@ -63,7 +59,6 @@ problem 918 requires __"excavation"__!
 That is, find the subarray with the __most negative sum__ in $nums$,
 
 __subtract it from $\text{sum}(nums)$__, and apply __"addition by subtraction"__ to eliminate this deficit —
-
 what remains is the maximum circular subarray sum 😁
 
 Kadane's algorithm in problem 53 finds the maximum subarray,

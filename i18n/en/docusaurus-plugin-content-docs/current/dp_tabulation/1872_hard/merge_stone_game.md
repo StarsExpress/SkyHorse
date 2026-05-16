@@ -22,7 +22,6 @@ As LeetCode's tradition, Alice moves first just like __ladies first__.
 So let's __put ourselves in Alice's shoes__ and think about her opening move.
 
 The simplest first move is for Alice to merge all stones into one in 1 sweep,
-
 bringing the game to an end with only one stone remaining.
 
 Alice earns $\text{sum}(stones)$ points this way.
@@ -61,18 +60,17 @@ __$D_{n - 2} = \text{sum}(stones[:n - 1]) - D_{n - 1}$__
 ### Should Alice Switch Options?
 Now we have a __binary choice: $D_{n - 2}$ vs. $D_{n - 1}$__.
 
-(1). If $D_{n - 2} > D_{n - 1}$, Alice abandons that one-and-done merger
+(1). If $D_{n - 2} > D_{n - 1}$, Alice abandons that one-and-done merger,
 
 and chooses to merge only up to $(n - 2)^{\text{th}}$ stone, leaving out $(n - 1)^{\text{th}}$.
 
-From earlier: $D_{n - 2} = \text{sum}(stones[:n - 1]) - D_{n - 1}$
+Recall $D_{n - 2} = \text{sum}(stones[:n - 1]) - D_{n - 1}$
 
 $D_{n - 2} > D_{n - 1}$ is equivalent to $\text{sum}(stones[:n - 1]) - D_{n - 1} > D_{n - 1}$
 
 One conversation to describe: "To my dear opponent: I'll give you $D_{n - 1}$.
 
 That's because I have an even stronger option $D_{n - 2}$ ~~ __so strong that even after your $D_{n - 1}$ offset,__
-
 __my net differential still exceeds what I'd get if taking $D_{n - 1}$ directly.__"
 
 (2). Conversely, if $D_{n - 2} \leq D_{n - 1}$, Alice merges everything.
@@ -83,7 +81,7 @@ In translation: "Merging only up to $(n - 2)^{\text{th}}$ stone earns me $\text{
 
 but my opponent earns $D_{n - 1}$. After offsetting, my net lead is $\text{sum}(stones[:n - 1]) - D_{n - 1}$.
 
-__Comparing these two, I find out it's better to just include $(n - 1)^{\text{th}}$ stone in my merger,__
+__Comparing these two, I find out it's better to also include $(n - 1)^{\text{th}}$ stone in my merger,__
 
 __taking $D_{n - 1}$ as my net differential.__"
 
@@ -94,7 +92,6 @@ reflecting a key insight: __when only $(n - 2)^{\text{th}}$ and $(n - 1)^{\text{
 based on the score comparison, __merging both is better than leaving out $(n - 1)^{\text{th}}$ stone.__
 
 __So the option to stop at $(n - 2)^{\text{th}}$ stone is eliminated__.
-
 This elimination is due to our problem's own rule: __each player plays optimally__.
 
 ### Deriving the Transition from Here
@@ -122,7 +119,6 @@ __Base Case: $D_{n - 1} = \text{sum}(stones)$__
 I once found a description that captures the stories behind quite well:
 
 Given that when only stones $i + 1, \ldots, n - 1$ remain,
-
 the current player will earn a net differential of $D_{i + 1}$.
 
 If I merge only up to $i^{th}$ stone and earn $\text{sum}(stones[:i + 1])$,
@@ -143,13 +139,11 @@ __it moves from larger indices to smaller indices__.
 
 So when computing, __traverse from larger to smaller indices__,
 
-[rather than using extra DFS and cache which would cost $O(n)$ space......](https://algo.monster/liteproblems/1872).
+[rather than using extra DFS and cache which would cost $O(n)$ space......](https://algo.monster/liteproblems/1872)
 
 Also, the transition equation tells us
-
 __each index's state only depends on the immediately previous index__,
-
-[so there's no need to maintain an array costing $O(n)$ space.](https://walkccc.me/LeetCode/problems/1872/).
+[so there's no need to maintain an array costing $O(n)$ space.](https://walkccc.me/LeetCode/problems/1872/)
 
 <Tabs>
   <TabItem value="cpp" label="C++">
@@ -169,9 +163,7 @@ Time complexity $O(n)$, space complexity $O(1)$.
 
 
 ## Follow-up Problems
-I. How would you modify the code above
-
-to print out all of Alice and Bob's __"scoring plays"__?
+I. How would you modify the code above to print out all __"scoring plays"__?
 
 A scoring play is defined as when any player merges some stones and earns points.
 

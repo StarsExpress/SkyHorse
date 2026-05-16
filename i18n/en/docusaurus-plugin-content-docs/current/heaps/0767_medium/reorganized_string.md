@@ -39,9 +39,9 @@ __Use exactly one of each character per round__:
 
 append $Char_1$ and $Char_2$ to the unfinished ```reshapedString```,
 
-then push $(Count_1 - 1, Char_1)$ back __only if $Count_1 - 1 > 0$__ —
+then push $(Count_1 - 1, Char_1)$ back __only if $Count_1 - 1 > 0$__.
 
-__max heap is only for characters that haven't been exhausted yet__.
+__Max heap is only for characters that haven't been exhausted yet__.
 
 Same logic applies to $(Count_2 - 1, Char_2)$.
 

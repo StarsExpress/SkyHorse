@@ -12,7 +12,6 @@ import PyCode from '@site/docs/queue/2398_hard/max_robots.py?raw';
 
 ## [Maximum Number of Robots Within Budget](https://leetcode.com/problems/maximum-number-of-robots-within-budget/description/)
 Problem 2398 hovers around a __38% acceptance rate__,
-
 yet it really just tests whether we know one fundamental skill: __reading the problem carefully__.
 
 Once we do, we'll be confident that __monotonic deque + sliding window + prefix sum__ trio can take it down together.
@@ -40,7 +39,6 @@ Note the word __consecutive__ — __we can't pick robot $i$ and robot $i + 2$ wh
 With this in mind, we notice a key insight: for $0 \leq i \leq j \leq l < n$,
 
 once total cost of robots $i$ through $j$ exceeds budget,
-
 __robots $i$ through $l$ will also exceed budget by an even wider margin__. Why?
 
 ```max(chargeTimes[i:j + 1])``` $\leq$ ```max(chargeTimes[i:l + 1])```. __The former is a subset of the latter__.
@@ -55,9 +53,9 @@ Conclusion: once robots $i$ through $j$ exceed budget, __robot $i$ must be dropp
 
 This is __monotonicity__: invalidated robots never become valid again.
 
-Just keep scanning forward. No need to look back. We can smell an $O(n)$ solution within reach.
+Just keep scanning forward. No need to look back. We smell $O(n)$ solution within reach.
 
-__Although suitable data structures are still required to actually realize monotonicity in $O(n)$__.
+__Although suitable data structures are required to realize monotonicity in $O(n)$__.
 
 
 ## Three Data Structures
@@ -82,7 +80,7 @@ __Also, when ```startIdx``` increases, check if deque's front index has fallen o
 Remaining members naturally shift up, updating window's max charge time.
 
 ### 3. Prefix Sum: Total Running Cost in Window
-Finally, maintain a variable ```windowTotalCost``` for total running cost of robots at ```startIdx``` to ```endIdx```.
+Maintain a variable ```windowTotalCost``` for total running cost of robots at ```startIdx``` to ```endIdx```.
 
 When incrementing ```endIdx```: __add running cost of robot at ```endIdx``` to ```windowTotalCost```__.
 
@@ -100,11 +98,10 @@ For each ```endIdx```, ```startIdx``` can reach at most ```endIdx``` + 1. __But 
 
 because __count formula in (1) gives ```endIdx``` + 1 - ```startIdx``` = 0, meaning no robots are selected. A valid outcome__.
 
-Now we just simply compare with respect to historical maximum and return it at the end ~~
+Now we just simply compare with respect to historical maximum and return it at the end~~
 
 ![Triplets_Efficiency](2398_efficiency.png)
 __It really comes down to reading constraints carefully__, then figuring out
-
 which structures best preserve correctness under those constraints. Both time and space: $O(n)$.
 
 <Tabs>

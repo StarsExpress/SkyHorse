@@ -12,16 +12,13 @@ import PyCode from '@site/docs/prefix_sum/2302_hard/subarray_scores.py?raw';
 
 ## [Count Subarrays With Score Less Than K](https://leetcode.com/problems/count-subarrays-with-score-less-than-k/description/)
 I'll be honest: when I first saw this problem, I was worried.
-
 About what? Worried that in this __strictly positive integer array__ of length $n$,
 
 for some subarray $nums[i: j + 1]$ with $i < j < n$,
 
 the addition of $nums[j + 1]$ could somehow cause $\text{sum}(nums[i: j + 2]) \times (j + 2 - i) < k$ to hold,
 
-forcing my left-to-right traversal to occasionally look back and handle cases
-
-where subarray score suddenly drops.
+forcing my left-to-right traversal to occasionally look back and handle cases where subarray score suddenly drops.
 
 But then...
 
@@ -58,7 +55,6 @@ As for why... see the follow-up problem section below.
 __Problem 2398 requires tracking window maximum, whereas problem 2302 doesn't ~~__
 
 __So we save that $O(n)$ space which would've been needed for a monotonic decreasing deque__,
-
 using just two pointers for sliding window's left and right ends,
 
 plus a variable ```subarraySum``` to track $\text{sum}(nums[i: j + 1])$.
@@ -69,7 +65,6 @@ __Simplified down to just $O(1)$ space ~~ Time complexity remains linear $O(n)$.
 
 ## What If the Input Has Both Positive and Negative Numbers?
 [Algo Monster](https://algo.monster/liteproblems/2302) uses __binary search__ for problem 2302,
-
 which __handles the case where input contains both positive and negative numbers__,
 
 at the cost of $O(n \log n)$ time and $O(n)$ space.
@@ -89,7 +84,6 @@ __In a live coding interview, clarifying boundary constraints upfront is an esse
 __A favor to both the interviewer and yourself.__
 
 That's exactly what I did for problem 2302 — reducing complexity
-
 from Algo Monster's $O(n \log n)$ time and $O(n)$ space down to $O(n)$ and $O(1)$.
 
 <Tabs>
@@ -105,7 +99,5 @@ from Algo Monster's $O(n \log n)$ time and $O(n)$ space down to $O(n)$ and $O(1)
 
 ## Follow-up Problem
 When scanning subarrays with right boundary at index $j$,
-
 if the left boundary $i$ increments all the way to $j + 1$,
-
 what conclusion can we draw about $nums[j]$?

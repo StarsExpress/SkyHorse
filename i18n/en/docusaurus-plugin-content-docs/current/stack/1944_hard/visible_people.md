@@ -15,7 +15,7 @@ A very fun hard problem. I'll admit the math formula initially caught me off bal
 
 
 ## What Does It Mean to See Someone at your Right?
-According to problem definition: in a queue of $n$ people,
+According to definition: in a queue of $n$ people,
 
 for indices $i$ and $j$ with $0 \leq i < j < n$,
 
@@ -31,7 +31,7 @@ __person $i$ and person $j + 1$ will never satisfy that math formula above.__
 
 Person $i$ can't see person $j + 1$.
 
-At this point, don't you feel __monotonicity again 😀__?
+At this point, don't you feel __monotonicity 😀__?
 
 Combined with a right-to-left traversal: when person $j + 1$ is processed,
 
@@ -60,12 +60,9 @@ Once we reach the point where __the person at stack top is not shorter than pers
 there's a subtle detail to handle carefully.
 
 (1). First, __the person at stack top can definitely be seen by person $j$__,
-
 regardless of whether they're taller or the same height.
 
-Increment person $j$'s rightward visibility count by one.
-
-Math formula from the start supports this.
+Math formula from the start supports this. Increment person $j$'s rightward visibility count by one.
 
 (2). Here's the tricky part: if the person at stack top is __taller__ than person $j$,
 
@@ -87,9 +84,7 @@ __both cases we increment person $j$'s rightward visibility count by one__,
 
 __but only when the person at stack top equals person $j$'s height do we also pop stack__.
 
-Don't mix them up.
-
-After handling these pops, push person $j$ onto stack.
+Don't mix them up. After handling these pops, push person $j$ onto stack.
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

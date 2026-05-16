@@ -19,20 +19,17 @@ On closer inspection, this problem really only tests two things:
 
 ## Making Traversal Logic Convenient
 The task is to find maximum and minimum of every subarray of length at most $k$ for input array,
+and return the summation of all those maximums and minimums.
 
-then return the summation of all those maximums and minimums.
-
-The most natural traversal approach is to __let each visited index $i$ serve as subarray's right end__,
-
+Most natural traversal approach is to __let each visited index $i$ serve as subarray's right end__,
 then look at all valid subarrays ending at $i$ to find their respective max and min.
 
 This ensures we capture exactly the right information. Nothing more and nothing less.
 
 Since our problem limits subarray __length to at most $k$__, we must __control which starting indices $j$ are valid__ for the current right end $i$.
 
-My personal habit for subarray-style problems is to __let the visited index $i$ be subarray's right end__,
-
-then look left to filter valid starting indices $j$ — whether moving, counting, summing up, or multiplying.
+My habit for subarray-style problems is to __let the visited index $i$ be subarray's right end__,
+so I can look left to filter valid starting indices $j$ — whether moving, counting, summing up, or multiplying.
 
 Biggest advantage is the traversal logic becomes genuinely convenient.
 
@@ -76,8 +73,7 @@ Every valid subarray ending at $i$ contains $nums[i]$.
 
 So if $nums[i] \geq nums[i - 1]$ (1), none of these subarrays can have $nums[i - 1]$ as their maximum.
 
-Why include equality? We traverse from left to right,
-
+Why include equality? We traverse left to right,
 __if two adjacent elements are equal, definitely prefer the newer one: it arrived later so it can stay longer 😁__
 
 In this case, $nums[i - 1]$ was the maximum for $l$ times of all valid subarrays ending at $i - 1$.
@@ -90,14 +86,13 @@ Since $nums[i]$ unseated $nums[i - 1]$, it must also compare against $nums[i - 2
 
 When do we stop? __When we hit the first $nums[j]$ that is greater than $nums[i]$.__
 
-__Everything to the left of $nums[j]$ is even larger. $nums[i]$ can't beat them.__
+__Everything to the left of $nums[j]$ is even larger, so $nums[i]$ can't beat them.__
 
 Isn't this a monotonic decreasing stack approach?
 
 Pop all elements that aren't greater than $nums[i]$, collect their transferred shares, and push $nums[i]$ into stack.
 
 Since $MaxSum_i$ can be tracked in real time using a monotonic decreasing stack,
-
 $MinSum_i$ can naturally be handled with a monotonic increasing stack.
 
 __Only difference: transfer condition flips. For monotonic increasing stack, $nums[i] \leq nums[i - 1]$ triggers handoff (2),__
@@ -106,12 +101,11 @@ __Which is the opposite inequality compared to (1) for $MaxSum_i$.__
 
 ### III. Monotonic Stack Meets Queue
 As mentioned, every iteration enforces boundary control.
-
 Have to discard max/min contributions from subarrays that are no longer in current valid range.
 
 __Such a removal is FIFO, so we merge queue and monotonic stack into a deque that supports both FIFO and LIFO.__
 
-__Each element on the stack is a tuple of (Index, Number, Shares)__, each field serving a critical role:
+__Each element on stack is a tuple of (Index, Number, Shares)__, each field is a critical role:
 
 __I. Index__: we need to know where the max/min element is located.
 
@@ -120,7 +114,6 @@ This allows boundary control to determine __when it falls out of current window 
 __II. Number__: numerical value of the max or min is needed, since both stacks are __always comparing against newly visited element__.
 
 __III. Shares__: among all valid subarrays ending at the current index,
-
 the __contribution count__ of an element serving as the max (in decreasing stack) or min (for increasing stack).
 
 Which is actually the $l$ from our handoff explanation above. It's what allows $MaxSum_i$ and $MinSum_i$ to correctly adjust.
@@ -128,9 +121,8 @@ Which is actually the $l$ from our handoff explanation above. It's what allows $
 Think of it like bonuses: issued upfront at an estimated amount, __then corrected at the end based on actual performance__.
 
 ![Max Min Stacks Efficiency](3430_efficiency.png)
-Each element enters both stacks exactly once for each.
-
-Every element leaves two stacks at most twice in total. Time and space complexity: both $O(n)$.
+Each element enters both stacks exactly once for each. Every element leaves two stacks at most twice in total.
+Time and space complexity: $O(n)$.
 
 <Tabs>
   <TabItem value="cpp" label="C++">
