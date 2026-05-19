@@ -21,8 +21,8 @@ jumping straight into problem 2876 might leave you __stuck in circles__ with no 
 ## [Count Visited Nodes in a Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/description/)
 A directed graph has $n$ nodes and $n$ edges, with nodes labeled $0$ to $n-1$.
 
-All edge information is stored in an array called ```edges```,
-where ```edges[i]``` is the label of the node to which node $i$'s outgoing edge points.
+All edge information is stored in an array called `edges`,
+where `edges[i]` is the label of the node to which node $i$'s outgoing edge points.
 
 Also, $edges[i] \neq i$, meaning no self-loops exist.
 

@@ -155,7 +155,7 @@ __each index's state only depends on the immediately previous index__,
   </TabItem>
 </Tabs>
 
-Just use a variable called ```max_score_diff``` to track $D_i$.
+Just use a variable called `max_score_diff` to track $D_i$.
 
 ![Bottom Up Efficiency](1872_efficiency.png)
 
@@ -169,4 +169,4 @@ A scoring play is defined as when any player merges some stones and earns points
 
 II. __To make the game more exciting, our goal is to maximize the number of scoring plays__.
 
-What input array ```stones``` should you design to achieve this?
+What input array `stones` should you design to achieve this?

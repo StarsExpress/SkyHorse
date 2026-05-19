@@ -179,7 +179,7 @@ Since this problem doesn't involve absolute values, I use "abs" to represent "ab
 
 Remember to apply modulo periodically to prevent exploding large numbers.
 
-Also, my variable ```recordLen```/```record_len``` is just LeetCode's parameter ```n```.
+Also, my variable `recordLen`/`record_len` is just LeetCode's parameter `n`.
 
 ![Bottom Up Efficiency](0552_efficiency.png)
 __Bottom up handles everything～～__
@@ -191,7 +191,7 @@ with tail "LL" that has also had one absence.
 
 Yet transition VI's code looks like this:
 
-```new_one_abs_table["ll"] = one_abs_table["l"]  # No.6: 1 absence end "l" => "ll".```
+`new_one_abs_table["ll"] = one_abs_table["l"]  # No.6: 1 absence end "l" => "ll".`
 
 __Why don't we need if statement to check whether we're on day 2 — with all results still correct? 😌__
 

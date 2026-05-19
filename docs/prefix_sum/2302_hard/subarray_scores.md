@@ -52,7 +52,7 @@ __2398那题必须追窗口最大值 第2302题不用～～__
 
 __因此能顺利节省了空间复杂度$O(n)$的单调递减队列__ 靠两个指针代表窗口左右端
 
-再来一个叫做```subarraySum```的变量追踪$\text{sum}(nums[i: j + 1])$
+再来一个叫做`subarraySum`的变量追踪$\text{sum}(nums[i: j + 1])$
 
 ![Prefix Sum Sliding Window_Efficiency](2302_efficiency.png)
 __顺利简化到仅剩$O(1)$的空间复杂度而已～～时间复杂度仍是线性的$O(n)$__

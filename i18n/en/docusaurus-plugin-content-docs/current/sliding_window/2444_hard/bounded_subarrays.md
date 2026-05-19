@@ -15,15 +15,15 @@ Excellent problem to enhance sliding window technique.
 
 
 ## Since We Need Both minK and maxK to Be Bounded
-Each time we move window's right end ```rightIdx```, first check whether
+Each time we move window's right end `rightIdx`, first check whether
 
 $minK \leq nums[rightIdx] \leq maxK$.
 
 If not, $nums[rightIdx]$ falls outside valid range,
-so __no valid subarray with ```rightIdx``` as the right end can exist__.
+so __no valid subarray with `rightIdx` as the right end can exist__.
 
-Directly reset window's left end ```leftIdx``` to ```rightIdx``` + 1,
-and also reset both ```prevMinIdx``` and ```prevMaxIdx``` to -1,
+Directly reset window's left end `leftIdx` to `rightIdx` + 1,
+and also reset both `prevMinIdx` and `prevMaxIdx` to -1,
 
 since we don't yet know whether $nums[leftIdx:]$ contains elements equal to $minK$ or $maxK$.
 
@@ -31,24 +31,24 @@ since we don't yet know whether $nums[leftIdx:]$ contains elements equal to $min
 ## As Long as $nums[leftIdx: rightIdx + 1]$ Stay Fully In Bounds
 We look within window for:
 
-the most recent index $i$ where $nums[i] = minK$, and assign it to ```prevMinIdx```;
+the most recent index $i$ where $nums[i] = minK$, and assign it to `prevMinIdx`;
 
-the most recent index $j$ where $nums[j] = maxK$, and assign it to ```prevMaxIdx```.
+the most recent index $j$ where $nums[j] = maxK$, and assign it to `prevMaxIdx`.
 
-Once both ```prevMinIdx``` and ```prevMaxIdx``` are not -1,
+Once both `prevMinIdx` and `prevMaxIdx` are not -1,
 __our window has just satisfied the problem's requirements__.
 
 Valid subarrays within this window must satisfy three conditions:
 
-(1). Right end exactly at ```rightIdx```
+(1). Right end exactly at `rightIdx`
 
-(2). Left end at least at ```leftIdx```, while not exceeding right end
+(2). Left end at least at `leftIdx`, while not exceeding right end
 
-(3). Left end at most at ```min(prevMinIdx, prevMaxIdx)```
+(3). Left end at most at `min(prevMinIdx, prevMaxIdx)`
 
 (1) and (2) are intuitive. The key is where (3) comes from.
 
-__If some index $k$ in the window satisfies ```min(prevMinIdx, prevMaxIdx)``` $< k$__,
+__If some index $k$ in the window satisfies `min(prevMinIdx, prevMaxIdx)` $< k$__,
 
 __then $nums[k:rightIdx + 1]$ can't contain both $minK$ and $maxK$__.
 
@@ -56,9 +56,9 @@ Each bounded subarray is required to contain both $minK$ and $maxK$.
 
 Therefore, number of valid subarrays in current window is:
 
-__$C = $ ```min(prevMinIdx, prevMaxIdx) + 1 - leftIdx```__
+__$C = $ `min(prevMinIdx, prevMaxIdx) + 1 - leftIdx`__
 
-Add $C$ to ```boundedSubarraysCount```, which will be returned at the end.
+Add $C$ to `boundedSubarraysCount`, which will be returned at the end.
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>
@@ -72,4 +72,4 @@ Add $C$ to ```boundedSubarraysCount```, which will be returned at the end.
 
 ![Sliding Window Efficiency](2444_efficiency.png)
 Time complexity is $O(n)$ where $n$ is input array length.
-Space is $O(1)$: just four pointers and ```boundedSubarraysCount``` to track total.
+Space is $O(1)$: just four pointers and `boundedSubarraysCount` to track total.

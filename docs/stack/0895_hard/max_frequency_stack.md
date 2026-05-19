@@ -11,7 +11,7 @@ import PyCode from './max_frequency_stack.py?raw';
 
 
 ## [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/description/)
-这种题的关键 通常都看```pop()```方法想干嘛
+这种题的关键 通常都看`pop()`方法想干嘛
 
 要我们移除且返回栈中频率最高的元素
 
@@ -38,22 +38,22 @@ __其所含元素被清光 这个频率就不再是最高__
 
 正是题目强调的Tiebreaker的体现
 
-因此我们先开个```frequencyStack```的外栈
+因此我们先开个`frequencyStack`的外栈
 
 栈上每个索引$i$ 代表频率$i$
 
 每个频率$i$上又内栈 储存频率为$i$的元素
 
 ### 方法实现
-一、```push(int value)```：一旦被呼叫
+一、`push(int value)`：一旦被呼叫
 
-先在哈希表给```value```的出场频率+1
+先在哈希表给`value`的出场频率+1
 
 假设更新后的频率来到了$x$
 
 就在外栈上寻找索引为$x$的内栈
 
-把```value```放到这个内栈最顶端
+把`value`放到这个内栈最顶端
 
 __因此如果发现$x$等于外栈长度时__
 
@@ -61,7 +61,7 @@ __说明目前外栈只反映到频率$x - 1$__
 
 需要在外栈顶开个新内栈储存频率$x$
 
-二、```pop()```：每次运作时 首先将外栈上
+二、`pop()`：每次运作时 首先将外栈上
 
 最顶部的内栈 弹出其栈顶元素
 
@@ -86,6 +86,6 @@ __这便是频率最高的元素中最接近栈顶的__
 </Tabs>
 
 ![Stack of Stacks_Efficiency](0895_efficiency.png)
-时间复杂度在```push(int value)```和```pop()```都是$O(1)$ 空间则是有$O(n)$
+时间复杂度在`push(int value)`和`pop()`都是$O(1)$ 空间则是有$O(n)$
 
 可别像[Algo Monster](https://algo.monster/liteproblems/895)搞heaps弄成$O(logn)$时间复杂度欸

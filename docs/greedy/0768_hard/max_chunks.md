@@ -55,15 +55,15 @@ __$max(nums[:i]) \leq min(nums[i:])$成立吗？__
 
 说到这边 大家应该猜到了 我们得 __先向左遍历__
 
-开一个```prefix_maxs```数组 记住每个$max(nums[:i])$
+开一个`prefix_maxs`数组 记住每个$max(nums[:i])$
 
-接著再从右端往回走 路上靠```suffix_min```追踪$min(nums[i:])$
+接著再从右端往回走 路上靠`suffix_min`追踪$min(nums[i:])$
 
 每当$max(nums[:i]) \leq min(nums[i:])$成立
 
-就给```max_chunks```加1 但是要记得
+就给`max_chunks`加1 但是要记得
 
-### __```max_chunks```的起始值不是0 而是1__
+### __`max_chunks`的起始值不是0 而是1__
 __哪怕严格递减的$nums$ 也能被看作一个Chunk__
 
 <Tabs>
@@ -83,7 +83,7 @@ __哪怕严格递减的$nums$ 也能被看作一个Chunk__
 
 ## 二、2026上半年：单调递增栈
 ### 任何数字想挂帅Chunk的资格
-观察前一段的代码 就是```prefix_maxs```不停 __扩充老大__ 的过程
+观察前一段的代码 就是`prefix_maxs`不停 __扩充老大__ 的过程
 
 是不是有意识到 可能是什么环境
 
@@ -131,15 +131,15 @@ $nums[l]$和$nums[j]$都必须进入$Chunk_k$
 ### 单调性用起来
 于是我们得出一个结论 每当目前遍历的$nums[i]$
 
-__比```prefix_maxs[-1]```小__ 我们要：
+__比`prefix_maxs[-1]`小__ 我们要：
 
-(1). 先```pop()``` 请```prefix_maxs[-1]```出来
+(1). 先`pop()` 请`prefix_maxs[-1]`出来
 
-(2). 接著若```prefix_maxs```还没空
+(2). 接著若`prefix_maxs`还没空
 
-就继续检查是否```prefix_maxs[-1] > nums[i]``` 是的话 重回(2)这步
+就继续检查是否`prefix_maxs[-1] > nums[i]` 是的话 重回(2)这步
 
-不是的话 把最开始被```pop()```的那```prefix_maxs[-1]``` 放回prefix_maxs右端
+不是的话 把最开始被`pop()`的那`prefix_maxs[-1]` 放回prefix_maxs右端
 
 __这不就是单调递增栈的行为吗👌__
 

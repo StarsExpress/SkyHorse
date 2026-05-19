@@ -15,7 +15,7 @@ import PyCode from './text_justificator.py?raw';
 
 给定一堆字 要求尽可能把本来相邻的字放在同一句
 
-但是每句的长度非得刚好凑到```maxWidth```
+但是每句的长度非得刚好凑到`maxWidth`
 
 然后每句中的 __字之间必须有空格__
 
@@ -32,7 +32,7 @@ import PyCode from './text_justificator.py?raw';
 ### 可能性1：长度超标
 一旦目前迭代到的字$word_j$ 造成了
 
-__$L + 1 + len(word_j) > $```maxWidth```__
+__$L + 1 + len(word_j) > $`maxWidth`__
 
 那么这就是队列已经要全数成句子的时机
 
@@ -52,7 +52,7 @@ __$L + 1 + len(word_j) > $```maxWidth```__
 
 也就是说 __相邻俩字中间刚好塞一个空格__
 
-要是填完发现长度还没摸到```maxWidth```
+要是填完发现长度还没摸到`maxWidth`
 
 直接在句子末尾补空格灌水啰
 
@@ -65,7 +65,7 @@ __不是最后一句且夹带起码两字__ 的句子采取右对齐
 
 先看有$len(queue) - 1$这么多个字与字之间缝隙
 
-总共得填充$S = $```maxWidth``` $ - \Sigma_i \; len(word_i)$这么多空格
+总共得填充$S = $`maxWidth` $ - \Sigma_i \; len(word_i)$这么多空格
 
 于是每个缝隙先各自填
 
@@ -73,7 +73,7 @@ __$\lfloor S // (len(queue) - 1) \rfloor$这么多空格__
 
 当然通常馀数$M = S \bmod{(len(queue) - 1)}$是大于零的
 
-换言之还要安排最后这$M$个空格 才能凑齐句长```maxWidth```
+换言之还要安排最后这$M$个空格 才能凑齐句长`maxWidth`
 
 这也非常简单 __抓最左边的$M$个缝隙__
 

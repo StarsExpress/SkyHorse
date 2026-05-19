@@ -30,59 +30,59 @@ __一个排序好的序列 显然能拆成上下俩半身__
 
 __下半身的『最大』肯定$\leq$上半身的『最小』__
 
-因此我们能准备一个```min_heap``` 一个```max_heap```
+因此我们能准备一个`min_heap` 一个`max_heap`
 
-```min_heap```维护上半身 ```max_heap```维护下半身
+`min_heap`维护上半身 `max_heap`维护下半身
 
 然后要遵守下方的条件：
 
-I. __双方尺寸要嘛一样 要么```min_heap```比```max_heap```多一个元素__
+I. __双方尺寸要嘛一样 要么`min_heap`比`max_heap`多一个元素__
 
-若数据流目前有奇数个元素时 __中位数会在```min_heap```这儿__
+若数据流目前有奇数个元素时 __中位数会在`min_heap`这儿__
 
-也是此时```min_heap```比```max_heap```多一个元素
+也是此时`min_heap`比`max_heap`多一个元素
 
 当然这是因为我习惯让中位数去上半身
 
 选择放下半身其实也行 纯属个人偏好 有统一就好
 
-II. __```max_heap```最大值$\leq$```min_heap```最小值__
+II. __`max_heap`最大值$\leq$`min_heap`最小值__
 
 没做到的话 就要不停双方交换 直到做到为止
 
 
 ## 新元素来时 先看Heaps尺寸
-- 若两个堆尺寸一样 就把新元素丢到```min_heap```
+- 若两个堆尺寸一样 就把新元素丢到`min_heap`
 
-- 若```min_heap```比```max_heap```多一个元素 新元素丢```max_heap```
+- 若`min_heap`比`max_heap`多一个元素 新元素丢`max_heap`
 
 __现在我们已经执行完毕前述的条件I__
 
 接下来 我们要检查 __是否得矫正双堆__
 
-也就是如果```max_heap```最大值$\gt$```min_heap```最小值
+也就是如果`max_heap`最大值$\gt$`min_heap`最小值
 
-__那么```max_heap```最大值升级去```min_heap```__
+__那么`max_heap`最大值升级去`min_heap`__
 
-__同理```min_heap```最小值降级去```max_heap```__
+__同理`min_heap`最小值降级去`max_heap`__
 
 形成双方交易 交易到何时停止捏？
 
 做到这句不等式即可结束矫正：
 
-__```max_heap```最大值$\leq$```min_heap```最小值__
+__`max_heap`最大值$\leq$`min_heap`最小值__
 
 __此刻条件II也满足啦～～👌👌__
 
 
 ## 查找中位数 还是回到双堆尺寸
-A. 若```min_heap```比```max_heap```多一个元素 
+A. 若`min_heap`比`max_heap`多一个元素 
 
-中位数就是```min_heap```最小值
+中位数就是`min_heap`最小值
 
 B. 若两个堆尺寸一样 中位数是
 
-```min_heap```最小值和```max_heap```最大值的平均数
+`min_heap`最小值和`max_heap`最大值的平均数
 
 
 ## Python和C++预设不太一样⚠️
@@ -106,9 +106,9 @@ __就是给数值加上负号__ 才能让
   </TabItem>
 </Tabs>
 
-LeetCode题目页Python区的 ```addNum```和```findMedian```
+LeetCode题目页Python区的 `addNum`和`findMedian`
 
-就是我的```add_num```和```find_median```
+就是我的`add_num`和`find_median`
 
 我习惯在C++才写🐫camel cases
 

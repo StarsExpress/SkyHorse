@@ -29,53 +29,53 @@ __A sorted sequence can naturally be split into a lower half and an upper half._
 
 __"Maximum" of lower half $\leq$ "minimum" of upper half.__
 
-So we prepare a ```min_heap``` and a ```max_heap```:
+So we prepare a `min_heap` and a `max_heap`:
 
-```min_heap``` maintains upper half, ```max_heap``` maintains lower half.
+`min_heap` maintains upper half, `max_heap` maintains lower half.
 
 Two conditions must maintain:
 
-I. __Either both heaps have the same size, or ```min_heap``` has exactly one more element than ```max_heap```__
+I. __Either both heaps have the same size, or `min_heap` has exactly one more element than `max_heap`__
 
-When the data stream has an odd number of elements, __the median lives in ```min_heap```__,
+When the data stream has an odd number of elements, __the median lives in `min_heap`__,
 
-which is also when ```min_heap``` has one more element.
+which is also when `min_heap` has one more element.
 
 This is simply my preference to place median in upper half — lower half works too, just be consistent.
 
-II. __Maximum of ```max_heap``` $\leq$ minimum of ```min_heap```__
+II. __Maximum of `max_heap` $\leq$ minimum of `min_heap`__
 
 If this isn't satisfied, keep swapping between two heaps until it is.
 
 
 ## When a New Element Arrives, Check Heap Sizes First
-- If both heaps are the same size, push new element into ```min_heap```.
+- If both heaps are the same size, push new element into `min_heap`.
 
-- If ```min_heap``` has one more element than ```max_heap```, push into ```max_heap```.
+- If `min_heap` has one more element than `max_heap`, push into `max_heap`.
 
 __condition I is now satisfied.__
 
 Next, check whether __heaps need rebalancing__:
 
-if maximum of ```max_heap``` $>$ minimum of ```min_heap```,
+if maximum of `max_heap` $>$ minimum of `min_heap`,
 
-__promote ```max_heap```'s maximum to ```min_heap```__,
+__promote `max_heap`'s maximum to `min_heap`__,
 
-__and demote ```min_heap```'s minimum to ```max_heap```__.
+__and demote `min_heap`'s minimum to `max_heap`__.
 
 Keep swapping until:
 
-__maximum of ```max_heap``` $\leq$ minimum of ```min_heap```__
+__maximum of `max_heap` $\leq$ minimum of `min_heap`__
 
 __At this point, condition II is satisfied 👌👌__
 
 
 ## Find the Median: Back to Heap Sizes
-A. If ```min_heap``` has one more element than ```max_heap```,
-the median is minimum of ```min_heap```.
+A. If `min_heap` has one more element than `max_heap`,
+the median is minimum of `min_heap`.
 
 B. If both heaps are the same size, the median is
-the average of ```min_heap```'s minimum and ```max_heap```'s maximum.
+the average of `min_heap`'s minimum and `max_heap`'s maximum.
 
 
 ## Python & C++ Defaults Differ ⚠️
@@ -97,8 +97,8 @@ So that a default min heap can act as a max heap, and vice versa.
   </TabItem>
 </Tabs>
 
-LeetCode's ```addNum``` and ```findMedian``` on the problem page
-correspond to my ```add_num``` and ```find_median```.
+LeetCode's `addNum` and `findMedian` on the problem page
+correspond to my `add_num` and `find_median`.
 
 I use 🐫 camelCase in C++ and 🐍 snake_case in Python. Just a personal habit.
 

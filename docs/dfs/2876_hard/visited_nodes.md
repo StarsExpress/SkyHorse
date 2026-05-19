@@ -21,9 +21,9 @@ __我平时不算正经的人 但这次我正经点说__
 ## [Count Visited Nodes in a Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/description/)
 本难题是这样的 有个总共$n$个且点$n$条边的有向图 点标号是$0$到$n-1$
 
-$n$条边信息都存在名叫```edges```的阵列
+$n$条边信息都存在名叫`edges`的阵列
 
-```edges[i]```是点$i$的出边指向的点标号
+`edges[i]`是点$i$的出边指向的点标号
 
 并且$edges[i] \neq i$ 说明没有自环点
 

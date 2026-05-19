@@ -14,9 +14,9 @@ import PyCode from '@site/docs/dfs/2360_hard/longest_cycle.py?raw';
 A classic cycle detection problem — DFS is the most intuitive way.
 
 One advantage of this problem is that these $n$ nodes are labeled $0$ to $n - 1$ as non-negative integers,
-so a plain ```vector<int>``` works perfectly to track visit orders.
+so a plain `vector<int>` works perfectly to track visit orders.
 
-Using ```unordered_map<int, int>``` would be much slower......🐢
+Using `unordered_map<int, int>` would be much slower......🐢
 
 
 ## When Does a Cycle Form? Think About It First
@@ -51,7 +51,7 @@ we compare __$d[u] + 1 - d[v]$ against the current best__ and update if it's a n
 ## A Handy Tracking Trick
 One small detail worth noting: __to quickly distinguish between states II and III above__,
 
-I like to use different markers in the integer array ```visitedOrders```:
+I like to use different markers in the integer array `visitedOrders`:
 
 1. -1: node not yet visited 🔴
 2. Positive integer: node is on recursion stack 🟡. Integer is node's visit order

@@ -22,39 +22,39 @@ characters can be transferred between stack and deque with ease.
 
 
 ## Methods to Implement
-### ```addText(string text)```
-Push the entire ```text``` onto the left stack.
+### `addText(string text)`
+Push the entire `text` onto the left stack.
 
 __Time complexity: $O(|\text{text}|)$__
 
-### ```deleteText(int k)```
-Delete ```min(k, len(stack))``` characters from the top of left stack.
+### `deleteText(int k)`
+Delete `min(k, len(stack))` characters from the top of left stack.
 
-Actual deletion count to return is ```min(k, len(stack))```.
+Actual deletion count to return is `min(k, len(stack))`.
 
 __Time complexity: $O(k)$__
 
-### ```cursorLeft(int k)```
+### `cursorLeft(int k)`
 Moving the cursor left by $k$ positions means our dividing line cuts off some left side characters,
 __so characters near the top of left stack now are characters near the front of right deque__.
 
-Pop ```min(k, len(stack))``` characters from the top of left stack one by one,
+Pop `min(k, len(stack))` characters from the top of left stack one by one,
 __and push each into the front of right deque__.
 
 After these pops, go to the top of left stack
-to slice substring consisting of ```min(10, len(stack))``` characters going leftward from there.
+to slice substring consisting of `min(10, len(stack))` characters going leftward from there.
 
 __Time complexity: $O(k)$__
 
-### ```cursorRight(int k)```
+### `cursorRight(int k)`
 Moving the cursor right by $k$ positions means our dividing line cuts off some right side characters,
 __characters near the front of right deque now become characters near the top of left stack__.
 
-Pop ```min(k, len(Deque))``` characters from the front of right deque one by one,
+Pop `min(k, len(Deque))` characters from the front of right deque one by one,
 __and push each onto the top of left stack__.
 
 After these pops, go to the top of left stack
-to slice substring consisting of ```min(10, len(stack))``` characters going leftward from there.
+to slice substring consisting of `min(10, len(stack))` characters going leftward from there.
 
 __Time complexity: $O(k)$__
 

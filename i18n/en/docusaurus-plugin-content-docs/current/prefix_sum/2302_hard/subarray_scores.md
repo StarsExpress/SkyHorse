@@ -57,7 +57,7 @@ __Problem 2398 requires tracking window maximum, whereas problem 2302 doesn't ~~
 __So we save that $O(n)$ space which would've been needed for a monotonic decreasing deque__,
 using just two pointers for sliding window's left and right ends,
 
-plus a variable ```subarraySum``` to track $\text{sum}(nums[i: j + 1])$.
+plus a variable `subarraySum` to track $\text{sum}(nums[i: j + 1])$.
 
 ![Prefix Sum Sliding Window_Efficiency](2302_efficiency.png)
 __Simplified down to just $O(1)$ space ~~ Time complexity remains linear $O(n)$.__

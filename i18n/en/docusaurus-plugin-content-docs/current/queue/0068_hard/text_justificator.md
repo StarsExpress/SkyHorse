@@ -15,7 +15,7 @@ A decent way to have experience with queues.
 
 Given a list of words, we pack as many consecutive words as possible into each line,
 
-but each line must be padded to exactly ```maxWidth``` characters,
+but each line must be padded to exactly `maxWidth` characters,
 
 and __spaces must be placed between words__ — how many depends on situations.
 
@@ -51,7 +51,7 @@ If the line being formed is the __last line__, it should be left-justified:
 
 __exactly one space__ between adjacent words.
 
-If total length still hasn't reached ```maxWidth``` after filling, pad spaces to the end of the line.
+If total length still hasn't reached `maxWidth` after filling, pad spaces to the end of the line.
 
 Note: if a non-last line contains only __one word__,
 the spacing behavior __automatically becomes left-justified__.

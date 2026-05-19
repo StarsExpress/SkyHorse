@@ -105,10 +105,10 @@ II. 至于$max(nums) > 0$时 我们的答案可能是：
 这俩之一 要取俩者较大的做回传
 
 因此本题要追踪的关键变量如下：
-1. ```maxPosSum```：最大的正子数组和
-2. ```minNegSum```：最小的负子数组和
-3. ```arrayTotalSum```：$\text{sum}(nums)$
-4. ```maxNum```：$max(nums)$
+1. `maxPosSum`：最大的正子数组和
+2. `minNegSum`：最小的负子数组和
+3. `arrayTotalSum`：$\text{sum}(nums)$
+4. `maxNum`：$max(nums)$
 
 大致逻辑其实和第53号题还是一样
 

@@ -43,7 +43,7 @@ $\frac{1 + n}{2} - (n - \frac{1 + n}{2}) = 1$
 
 __然后每次俩字符都各只用一个而已__
 
-把$Char_1$和$Char_2$拼接到未完成的```reshapedString```上
+把$Char_1$和$Char_2$拼接到未完成的`reshapedString`上
 
 再请$(Count_1 - 1, Char_1)$入堆 __前提是$Count_1 - 1 > 0$__
 
@@ -55,11 +55,11 @@ $(Count_2 - 1, Char_2)$同理
 ## 何时收手呢✋🏻
 就是大堆内只剩下 __零或一个__ 元素时：
 
-I. 没剩元素肯定能立刻回传```reshapedString```
+I. 没剩元素肯定能立刻回传`reshapedString`
 
 II. 要是还有剩 肯定等于1 __因为上方有通过Sanity Check啦__
 
-把元素上字符接到```reshapedString```末尾即可回传
+把元素上字符接到`reshapedString`末尾即可回传
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

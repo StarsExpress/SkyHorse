@@ -11,7 +11,7 @@ import PyCode from '@site/docs/stack/0895_hard/max_frequency_stack.py?raw';
 
 
 ## [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/description/)
-The key to this type of problem usually is understanding what ```pop()``` is supposed to do.
+The key to this type of problem usually is understanding what `pop()` is supposed to do.
 
 We need to remove and return the element with the highest frequency in stack.
 
@@ -35,22 +35,22 @@ __Among elements at the same frequency, the one that most recently reached this 
 
 This is exactly the tiebreaker of our problem.
 
-So we maintain a ```frequencyStack``` as outer stack, where index $i$ represents frequency $i$.
+So we maintain a `frequencyStack` as outer stack, where index $i$ represents frequency $i$.
 
 Each frequency $i$ has its own inner stack storing all elements currently at that frequency.
 
 ### Method Implementation
-I. ```push(int value)```: when called, first increment ```value```'s frequency in hash map.
+I. `push(int value)`: when called, first increment `value`'s frequency in hash map.
 
 Say the updated frequency is $x$.
 
-Find the inner stack at index $x$ in outer stack and push ```value``` to inner stack top.
+Find the inner stack at index $x$ in outer stack and push `value` to inner stack top.
 
 __If $x$ equals current length of outer stack, it means outer stack only reflects up to frequency $x - 1$__.
 
 A new inner stack must be created at outer stack top to store frequency $x$.
 
-II. ```pop()```: each time it's called, locate outer stack top, at which there is an inner stack.
+II. `pop()`: each time it's called, locate outer stack top, at which there is an inner stack.
 
 Pop the top element from this inner stack.
 
@@ -73,6 +73,6 @@ If so, pop that inner stack off outer stack as well, accurately reflecting corre
 </Tabs>
 
 ![Stack of Stacks_Efficiency](0895_efficiency.png)
-Both ```push(int value)``` and ```pop()``` run in $O(1)$ time. Space is $O(n)$.
+Both `push(int value)` and `pop()` run in $O(1)$ time. Space is $O(n)$.
 
 Don't use heaps like [Algo Monster](https://algo.monster/liteproblems/895) and end up with $O(\log n)$ time complexity.

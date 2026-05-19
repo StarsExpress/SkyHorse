@@ -49,25 +49,25 @@ The final answer is $\max(C, C')$.
 
 ## Find C'
 ### Concept of Prefix-Suffix Difference
-First, prepare a hash map called ```rightDiffCounts```,
-and a pivot index ```pivotIdx```. As defined by the problem,
-__```pivotIdx``` must start from 1 and < $n$__.
+First, prepare a hash map called `rightDiffCounts`,
+and a pivot index `pivotIdx`. As defined by the problem,
+__`pivotIdx` must start from 1 and < $n$__.
 
-As ```pivotIdx``` traverses from 1 to $n - 1$,
+As `pivotIdx` traverses from 1 to $n - 1$,
 
 compute __prefix-suffix difference__ $D = \text{sum}(nums[:\text{pivotIdx}]) - \text{sum}(nums[\text{pivotIdx}:])$,
 
-and record count of each $D$ in ```rightDiffCounts```.
+and record count of each $D$ in `rightDiffCounts`.
 
 What is this difference good for? Imagine:
 
-if some index $l$ __less than ```pivotIdx```__ is selected,
+if some index $l$ __less than `pivotIdx`__ is selected,
 
 __$nums[l]$ changes to $k$, and $nums[l] - k = D$__,
 
 __then $\text{sum}(nums[:\text{pivotIdx}]) - \text{sum}(nums[\text{pivotIdx}:])$ becomes zero!__
 
-```pivotIdx``` becomes a valid split point due to this change, and $C'$ increases by 1.
+`pivotIdx` becomes a valid split point due to this change, and $C'$ increases by 1.
 
 ### The Symmetric Trap
 one more thing to pay attention to:
@@ -76,10 +76,10 @@ when some index $l$ has $nums[l]$ changed to $k$,
 
 __the valid split points it creates can be to the left or to the right of $l$__.
 
-Using only ```rightDiffCounts``` (which tracks prefix-suffix differences for split points to the right of $l$)
+Using only `rightDiffCounts` (which tracks prefix-suffix differences for split points to the right of $l$)
 is not enough.
 
-We also need ```leftDiffCounts``` to manage differences for split points to the left of $l$.
+We also need `leftDiffCounts` to manage differences for split points to the left of $l$.
 
 
 ## Traversal Logic for Final Counting
@@ -92,7 +92,7 @@ how many split points to the right of $l$ have a prefix-suffix difference of $nu
 
 The change to $nums[l]$ __affects the prefix sum from the perspective of split points to $l$'s right__.
 
-Look up $nums[l] - k$ in ```rightDiffCounts``` for the count.
+Look up $nums[l] - k$ in `rightDiffCounts` for the count.
 
 ### Suffix Perspective
 By symmetric reasoning, changing $nums[l]$ to $k$
@@ -101,11 +101,11 @@ __affects the suffix sum from the perspective of potential split points to $l$'s
 
 Count how many split points to the left of $l$ have a prefix-suffix difference of $k - nums[l]$.
 
-Look up $k - nums[l]$ in ```leftDiffCounts``` for the count.
+Look up $k - nums[l]$ in `leftDiffCounts` for the count.
 
 Number of perfect split points created by changing $nums[l]$ to $k$ is:
 
-$C'_l$ = ```leftDiffCounts[k - nums[l]]``` + ```rightDiffCounts[nums[l] - k]```
+$C'_l$ = `leftDiffCounts[k - nums[l]]` + `rightDiffCounts[nums[l] - k]`
 
 Compare this with the current best $C$ and update if it's larger.
 
@@ -115,9 +115,9 @@ __the queried differences differ by exactly a sign flip__.
 ### Update Both Hash Maps at Each Step
 After visiting index $l$, compute $D_l = \text{sum}(nums[:l + 1]) - \text{sum}(nums[l + 1:])$.
 
-Decrement $D_l$'s count in ```rightDiffCounts```.
+Decrement $D_l$'s count in `rightDiffCounts`.
 
-Increment $D_l$'s count in ```leftDiffCounts```.
+Increment $D_l$'s count in `leftDiffCounts`.
 
 Because from the perspective of all indices larger than $l$,
 __$l$ can only be a left split point, never a right one__.

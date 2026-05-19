@@ -55,15 +55,15 @@ and sorting each chunk separately then concatenating will yield a sorted result.
 
 This means we need to __first scan left__,
 
-building a ```prefix_maxs``` array recording each $\max(nums[:i])$,
+building a `prefix_maxs` array recording each $\max(nums[:i])$,
 
-then scan back from the right, tracking $\min(nums[i:])$ with ```suffix_min```.
+then scan back from the right, tracking $\min(nums[i:])$ with `suffix_min`.
 
-Whenever $\max(nums[:i]) \leq \min(nums[i:])$ holds, increment ```max_chunks``` by 1.
+Whenever $\max(nums[:i]) \leq \min(nums[i:])$ holds, increment `max_chunks` by 1.
 
 But remember:
 
-### __```max_chunks``` starts at 1, not 0__
+### __`max_chunks` starts at 1, not 0__
 __Even a strictly decreasing $nums$ can count as one chunk__.
 
 <Tabs>
@@ -83,7 +83,7 @@ About a year and a half later, I thought of an alternative approach below...
 
 ## II. Early 2026: Monotonic Increasing Stack
 ### Eligibility to Lead a Chunk
-Looking at previous code, ```prefix_maxs``` is a continuous process of __expanding current leader__.
+Looking at previous code, `prefix_maxs` is a continuous process of __expanding current leader__.
 
 Can you sense what situation would a leader
 __get ineligible to be maximum of its chunk__?
@@ -128,15 +128,15 @@ This is precisely why $nums[j]$ must step down and can no longer lead any chunk.
 ### Putting Monotonicity to Work
 So we arrive at a conclusion: whenever the current $nums[i]$
 
-__is smaller than ```prefix_maxs[-1]```__, we should:
+__is smaller than `prefix_maxs[-1]`__, we should:
 
-(1). ```pop()``` to remove ```prefix_maxs[-1]```
+(1). `pop()` to remove `prefix_maxs[-1]`
 
-(2). If ```prefix_maxs``` is not yet empty,
+(2). If `prefix_maxs` is not yet empty,
 
-keep checking whether ```prefix_maxs[-1] > nums[i]```. If so, repeat step (2).
+keep checking whether `prefix_maxs[-1] > nums[i]`. If so, repeat step (2).
 
-Otherwise, push the originally popped value back onto the right end of ```prefix_maxs```.
+Otherwise, push the originally popped value back onto the right end of `prefix_maxs`.
 
 __Isn't this exactly the behavior of a monotonic increasing stack? 👌__
 

@@ -23,30 +23,30 @@ __必学的矩阵DFS题型 大概就是像329号这题__
 
 
 ## 轻松扫描全局答案
-对于矩阵的每个元素```matrix[i][j]```
+对于矩阵的每个元素`matrix[i][j]`
 
 我们都要尝试由它为起点 寻找最长的递增路径长度
 
-因此先开一个尺寸与```matrix```完全一致的```maxRisingPath```
+因此先开一个尺寸与`matrix`完全一致的`maxRisingPath`
 
-初始化时 ```maxRisingPath```所有元素都是-1 __象徵着尚未访问过__
+初始化时 `maxRisingPath`所有元素都是-1 __象徵着尚未访问过__
 
-然后对于每个```matrix[i][j]``` 我们先看看四个 __潜在__ 邻居：
+然后对于每个`matrix[i][j]` 我们先看看四个 __潜在__ 邻居：
 
-1. ```matrix[i][j + 1]``` 向东
-2. ```matrix[i + 1][j]``` 向南
-3. ```matrix[i][j - 1]``` 向西
-4. ```matrix[i - 1][j]``` 向北
+1. `matrix[i][j + 1]` 向东
+2. `matrix[i + 1][j]` 向南
+3. `matrix[i][j - 1]` 向西
+4. `matrix[i - 1][j]` 向北
 
 轮到邻居$x$做边界检查时 __一旦验证邻居$x$确实存在__
 
-那就能继续看 __$x$的值是否比```matrix[i][j]```更大__
+那就能继续看 __$x$的值是否比`matrix[i][j]`更大__
 
 更大的话 再来查 __从$x$为起点的最长递增路径长度__
 
-拿来加1便是 __从```matrix[i][j]```出发向$x$走时 能得到的最长递增路径长度__
+拿来加1便是 __从`matrix[i][j]`出发向$x$走时 能得到的最长递增路径长度__
 
-因此如果邻居$x$在```maxRisingPath```显示-1
+因此如果邻居$x$在`maxRisingPath`显示-1
 
 __说明$x$尚未被访问过 就得先拿DFS访问$x$__
 
@@ -54,9 +54,9 @@ __说明$x$尚未被访问过 就得先拿DFS访问$x$__
 
 我们就采取 __$maxRisingPath[i][j] = max(maxRisingPath[i][j], 1 + k)$__
 
-的方针更新```maxRisingPath[i][j]```
+的方针更新`maxRisingPath[i][j]`
 
-在更新好```maxRisingPath[i][j]```后 __别忘了和历史最大值比__
+在更新好`maxRisingPath[i][j]`后 __别忘了和历史最大值比__
 
 ![Matrix_DFS Efficiency](0329_efficiency.png)
 时间和空间复杂度都是$O(mn)$ 其中$m$和$n$分别是矩阵的行数和列数

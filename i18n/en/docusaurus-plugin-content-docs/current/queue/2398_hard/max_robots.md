@@ -18,7 +18,7 @@ Once we do, we'll be confident that __monotonic deque + sliding window + prefix 
 
 
 ## chargeTimes and runningCosts Are Always Natural Numbers
-Our input has two arrays: ```chargeTimes``` and ```runningCosts```, both of length $n$.
+Our input has two arrays: `chargeTimes` and `runningCosts`, both of length $n$.
 
 Index $i$ holds the charge time and running cost of $i^{\text{th}}$ robot, respectively.
 
@@ -28,7 +28,7 @@ suppliers are paying factories to take materials. Would you trust robots made li
 
 Same for charge time — a negative value would mean the universe has collapsed, right?
 
-Our third input is a positive integer ```budget```. The cost formula for running $k$ selected robots is:
+Our third input is a positive integer `budget`. The cost formula for running $k$ selected robots is:
 
 Total cost = max charge time among $k$ robots + $k$ × sum of all $k$ robots' running costs
 
@@ -41,11 +41,11 @@ With this in mind, we notice a key insight: for $0 \leq i \leq j \leq l < n$,
 once total cost of robots $i$ through $j$ exceeds budget,
 __robots $i$ through $l$ will also exceed budget by an even wider margin__. Why?
 
-```max(chargeTimes[i:j + 1])``` $\leq$ ```max(chargeTimes[i:l + 1])```. __The former is a subset of the latter__.
+`max(chargeTimes[i:j + 1])` $\leq$ `max(chargeTimes[i:l + 1])`. __The former is a subset of the latter__.
 
 The "max charge time among $k$ robots" in this formula can only increase.
 
-And since running costs are natural numbers, __```sum(runningCosts[i:l + 1])``` > ```sum(runningCosts[i:j + 1])```__.
+And since running costs are natural numbers, __`sum(runningCosts[i:l + 1])` > `sum(runningCosts[i:j + 1])`__.
 
 $k$ only grows as more robots are added. All three components can't decrease, so neither can the total cost.
 
@@ -60,43 +60,43 @@ __Although suitable data structures are required to realize monotonicity in $O(n
 
 ## Three Data Structures
 ### 1. Sliding Window: Define Search Range
-From the above, we establish two pointers: ```startIdx``` and ```endIdx```,
+From the above, we establish two pointers: `startIdx` and `endIdx`,
 
-representing robots at ```startIdx``` through ```endIdx``` — a total of ```endIdx``` + 1 - ```startIdx``` robots under evaluation.
+representing robots at `startIdx` through `endIdx` — a total of `endIdx` + 1 - `startIdx` robots under evaluation.
 
-__Once total cost exceeds budget, increment ```startIdx``` until cost is back within budget, or ```startIdx``` > ```endIdx```.__
+__Once total cost exceeds budget, increment `startIdx` until cost is back within budget, or `startIdx` > `endIdx`.__
 
 ### 2. Monotonic Deque: Max Charge Time in Window
-When incrementing ```endIdx```, we need the max charge time among robots at ```startIdx``` to ```endIdx```.
+When incrementing `endIdx`, we need the max charge time among robots at `startIdx` to `endIdx`.
 
-Get a __monotonic decreasing deque__ to track it. Compare robot ```endIdx```'s charge time against deque's tail:
+Get a __monotonic decreasing deque__ to track it. Compare robot `endIdx`'s charge time against deque's tail:
 
-while tail's charge time $\leq$ charge time of robot at ```endIdx```, tail is irrelevant. Pop it.
+while tail's charge time $\leq$ charge time of robot at `endIdx`, tail is irrelevant. Pop it.
 
-Stop when deque is empty or tail's charge time > charge time of robot at ```endIdx```.
+Stop when deque is empty or tail's charge time > charge time of robot at `endIdx`.
 
-__Also, when ```startIdx``` increases, check if deque's front index has fallen out of window. If so, pop it.__
+__Also, when `startIdx` increases, check if deque's front index has fallen out of window. If so, pop it.__
 
 Remaining members naturally shift up, updating window's max charge time.
 
 ### 3. Prefix Sum: Total Running Cost in Window
-Maintain a variable ```windowTotalCost``` for total running cost of robots at ```startIdx``` to ```endIdx```.
+Maintain a variable `windowTotalCost` for total running cost of robots at `startIdx` to `endIdx`.
 
-When incrementing ```endIdx```: __add running cost of robot at ```endIdx``` to ```windowTotalCost```__.
+When incrementing `endIdx`: __add running cost of robot at `endIdx` to `windowTotalCost`__.
 
-When incrementing ```startIdx```: __subtract running cost of robot at ```startIdx``` from ```windowTotalCost```__.
+When incrementing `startIdx`: __subtract running cost of robot at `startIdx` from `windowTotalCost`__.
 
 This ensures an accurate window running cost at any moment.
 
-Once ```startIdx``` stops rising, all robots in window won't exceed budget.
+Once `startIdx` stops rising, all robots in window won't exceed budget.
 
-Robot count is __```endIdx``` + 1 - ```startIdx```__ (1).
+Robot count is __`endIdx` + 1 - `startIdx`__ (1).
 
-As designed, ```startIdx``` may keep incrementing __until ```startIdx``` > ```endIdx```__.
+As designed, `startIdx` may keep incrementing __until `startIdx` > `endIdx`__.
 
-For each ```endIdx```, ```startIdx``` can reach at most ```endIdx``` + 1. __But that's OK,__
+For each `endIdx`, `startIdx` can reach at most `endIdx` + 1. __But that's OK,__
 
-because __count formula in (1) gives ```endIdx``` + 1 - ```startIdx``` = 0, meaning no robots are selected. A valid outcome__.
+because __count formula in (1) gives `endIdx` + 1 - `startIdx` = 0, meaning no robots are selected. A valid outcome__.
 
 Now we just simply compare with respect to historical maximum and return it at the end~~
 

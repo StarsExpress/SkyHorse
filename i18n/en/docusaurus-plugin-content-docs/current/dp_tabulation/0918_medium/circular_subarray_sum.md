@@ -94,10 +94,10 @@ II. When $max(nums) > 0$, the answer is one of:
 Take the larger of these two.
 
 So we have some key variables to track:
-1. ```maxPosSum```: maximum positive subarray sum
-2. ```minNegSum```: minimum negative subarray sum
-3. ```arrayTotalSum```: $\text{sum}(nums)$
-4. ```maxNum```: $max(nums)$
+1. `maxPosSum`: maximum positive subarray sum
+2. `minNegSum`: minimum negative subarray sum
+3. `arrayTotalSum`: $\text{sum}(nums)$
+4. `maxNum`: $max(nums)$
 
 The overall logic still follows problem 53's spirit.
 

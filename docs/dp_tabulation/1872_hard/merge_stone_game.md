@@ -179,7 +179,7 @@ __每一个索引的状态 全只看上一个索引的脸色__
   </TabItem>
 </Tabs>
 
-直接开叫做```max_score_diff```的变量记载$D_i$即可
+直接开叫做`max_score_diff`的变量记载$D_i$即可
 
 ![Bottom Up Efficiency](1872_efficiency.png)
 
@@ -195,4 +195,4 @@ Scoring Play的定义就是上台的玩家合并了某些石子赚到分数
 
 II. __为了让游戏更加精采 我们的目标是最大化Scoring Plays数量__
 
-想达成这个目标 如何设计输入数组```stones```？
+想达成这个目标 如何设计输入数组`stones`？

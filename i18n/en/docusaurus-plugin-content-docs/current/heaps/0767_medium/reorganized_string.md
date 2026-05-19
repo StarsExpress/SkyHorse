@@ -37,7 +37,7 @@ pop top element $(Count_1, Char_1)$, then pop again to get $(Count_2, Char_2)$.
 
 __Use exactly one of each character per round__:
 
-append $Char_1$ and $Char_2$ to the unfinished ```reshapedString```,
+append $Char_1$ and $Char_2$ to the unfinished `reshapedString`,
 
 then push $(Count_1 - 1, Char_1)$ back __only if $Count_1 - 1 > 0$__.
 
@@ -49,11 +49,11 @@ Same logic applies to $(Count_2 - 1, Char_2)$.
 ## When to Stop ✋🏻
 When max heap has __0 or 1__ element remaining:
 
-I. If empty, return ```reshapedString``` immediately.
+I. If empty, return `reshapedString` immediately.
 
 II. If one element remains, it must be exactly 1: __because sanity check passed__.
 
-Append its character to the end of ```reshapedString``` and return.
+Append its character to the end of `reshapedString` and return.
 
 <Tabs>
   <TabItem value="cpp" label="C++" default>

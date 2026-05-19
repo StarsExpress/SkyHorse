@@ -22,30 +22,30 @@ Of course, stepping outside the matrix is also forbidden, so boundary checks com
 
 
 ## Scanning Effortlessly
-For every element ```matrix[i][j]``` in the matrix,
+For every element `matrix[i][j]` in the matrix,
 
 we try using it as a starting point to find the longest increasing path from there.
 
-So we create ```maxRisingPath```, a 2D array with the same dimensions as ```matrix```.
+So we create `maxRisingPath`, a 2D array with the same dimensions as `matrix`.
 
-Initially, all elements of ```maxRisingPath``` are set to -1, __meaning unvisited__.
+Initially, all elements of `maxRisingPath` are set to -1, __meaning unvisited__.
 
-Then for each ```matrix[i][j]```, we check its four __potential__ neighbors:
+Then for each `matrix[i][j]`, we check its four __potential__ neighbors:
 
-1. ```matrix[i][j + 1]``` — east
-2. ```matrix[i + 1][j]``` — south
-3. ```matrix[i][j - 1]``` — west
-4. ```matrix[i - 1][j]``` — north
+1. `matrix[i][j + 1]` — east
+2. `matrix[i + 1][j]` — south
+3. `matrix[i][j - 1]` — west
+4. `matrix[i - 1][j]` — north
 
 When checking neighbor $x$, __once we confirm $x$ is within bounds__,
 
-we then check whether __$x$'s value is strictly greater than ```matrix[i][j]```__.
+we then check whether __$x$'s value is strictly greater than `matrix[i][j]`__.
 
 If so, we look up __the longest increasing path starting from $x$__.
 
-Adding 1 gives us __the longest increasing path from ```matrix[i][j]``` going through $x$__.
+Adding 1 gives us __the longest increasing path from `matrix[i][j]` going through $x$__.
 
-So if neighbor $x$ shows -1 in ```maxRisingPath```,
+So if neighbor $x$ shows -1 in `maxRisingPath`,
 
 __it means $x$ hasn't been visited yet — we run DFS on $x$ first__.
 
@@ -53,7 +53,7 @@ Once $x$'s longest path length is determined, say $k$, we apply:
 
 __$maxRisingPath[i][j] = max(maxRisingPath[i][j], 1 + k)$__
 
-After updating ```maxRisingPath[i][j]```, __don't forget to compare it with global maximum__.
+After updating `maxRisingPath[i][j]`, __don't forget to compare it with global maximum__.
 
 ![Matrix_DFS Efficiency](0329_efficiency.png)
 Both time and space complexity are $O(mn)$, where $m$ and $n$ are number of rows and columns.
