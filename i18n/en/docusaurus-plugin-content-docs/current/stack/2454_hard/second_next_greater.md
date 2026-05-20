@@ -31,7 +31,7 @@ Finding just the first one isn't enough.
 ## How Popular Sites Handle Problem 2454
 [Algo Monster](https://algo.monster/liteproblems/2454) uses pure binary search.
 
-[LeetCode Wiki](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md) uses an ordered set with sorting.
+[LeetCode Wiki Solution 1](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md) uses an ordered set with sorting.
 
 Both are $O(n \log n)$ solutions. They do get AC.
 
@@ -41,6 +41,14 @@ who opens data structures and algorithms lectures on YouTube and Coursera with t
 ![Can we do better?](algo_mindset.jpg)
 
 [Professor Roughgarden's Courses Are Amazing](https://www.youtube.com/watch?v=yRM3sc57q0c&list=PLEAYkSg4uSQ37A6_NrUnTHEKp6EkAxTMa)
+
+Update: if you scroll down too fast in LeetCode Wiki link and see a double stacks solution, don't hesitate
+
+![2454_Pull_Request](2454_pull_request.png)
+
+__As this double stacks solution is from my pull request merged into LeetCode Wiki__
+
+However, I still recommend that you stay in my blog, __as words here are more interesting😉__
 
 
 ## How I Think About "Second" Next Greater
@@ -102,8 +110,8 @@ __our double-stack approach runs in $O(n)$ time and $O(n)$ space__.
 ![Double Stacks_Efficiency](2454_efficiency.png)
 **Double stacks C++ performance: AC in 31ms.**
 
-(Quietly noting: Algo Monster and LeetCode Wiki's solutions took 350+ ms in C++,
-__which stretched the time distribution chart significantly in the other direction__. See horizontal axis.)
+(Quietly noting: Algo Monster method and LeetCode Wiki solution 1 took 350+ ms in C++,
+__which stretched time distribution chart significantly in the other direction__. See horizontal axis.)
 
 
 ## Takeaway: 2 = 1 + 1
