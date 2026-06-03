@@ -11,7 +11,7 @@ import PyCode from '@site/docs/stack/3430_hard/subarrays_max_min_sum.py?raw';
 
 
 ## [Maximum and Minimum Sums of at Most Size K Subarrays](https://leetcode.com/problems/maximum-and-minimum-sums-of-at-most-size-k-subarrays/description/)
-On closer inspection, this problem really only tests two things:
+After thinking for a bit, this problem really only tests two things:
 
 1. __Whether we're familiar with basic properties of monotonic stacks__
 2. __Whether we can integrate a monotonic stack with other data structures__

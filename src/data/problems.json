@@ -112,6 +112,22 @@
     "img": "/img/efficiency/1872_efficiency.png"
   },
   {
+    "number": 1793,
+    "title": "1793. Good Subarray Score",
+    "topic": "Two Pointers",
+    "difficulty": "Hard",
+    "docId": "two_pointers/1793_hard/good_subarray_score",
+    "img": "/img/efficiency/1793_efficiency.png"
+  },
+  {
+    "number": 1537,
+    "title": "1537. Max Score",
+    "topic": "Two Pointers",
+    "difficulty": "Hard",
+    "docId": "two_pointers/1537_hard/max_score",
+    "img": "/img/efficiency/1537_efficiency.png"
+  },
+  {
     "number": 1359,
     "title": "1359. Pickup Deliveries",
     "topic": "DP Tabulation",

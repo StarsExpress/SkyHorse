@@ -264,6 +264,30 @@ const sidebars: SidebarsConfig = {
         ]
       }
     ]
+  },
+  {
+    "type": "category",
+    "label": "Two Pointers",
+    "collapsed": true,
+    "items": [
+      {
+        "type": "category",
+        "label": "Hard​​​​​​​​​",
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "two_pointers/1537_hard/max_score",
+            "label": "1537. Max Score"
+          },
+          {
+            "type": "doc",
+            "id": "two_pointers/1793_hard/good_subarray_score",
+            "label": "1793. Good Subarray Score"
+          }
+        ]
+      }
+    ]
   }
 ],
 };

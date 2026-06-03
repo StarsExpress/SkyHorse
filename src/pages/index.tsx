@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import problems from '../data/problems.json';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import {useLocation} from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -13,6 +13,31 @@ const difficultyColor: Record<string, string> = {
   Medium: '#ffc01e',
   Hard: '#ff375f',
 };
+
+const Pagination = ({ page, totalPages, setPage }: {
+  page: number;
+  totalPages: number;
+  setPage: (n: number) => void;
+}) => (
+  <div style={{display: 'flex', justifyContent: 'center', gap: 8}}>
+    {Array.from({length: totalPages}, (_, i) => i + 1).map(n => (
+      <button
+        key={n}
+        onClick={() => setPage(n)}
+        style={{
+          width: 36, height: 36,
+          borderRadius: 8,
+          border: '1px solid var(--ifm-color-emphasis-300)',
+          background: n === page ? 'var(--ifm-color-primary)' : 'transparent',
+          color: n === page ? 'white' : 'inherit',
+          cursor: 'pointer',
+          fontWeight: n === page ? 600 : 400,
+        }}>
+        {n}
+      </button>
+    ))}
+  </div>
+);
 
 export default function Home() {
   const [page, setPage] = useState(1);
@@ -25,26 +50,8 @@ export default function Home() {
     ? '一年四千次提交的轨迹⌛️'
     : 'Footsteps: 4,699 Submissions in a Year ⌛️';
 
-  const Pagination = () => (
-    <div style={{display: 'flex', justifyContent: 'center', gap: 8}}>
-      {Array.from({length: totalPages}, (_, i) => i + 1).map(n => (
-        <button
-          key={n}
-          onClick={() => setPage(n)}
-          style={{
-            width: 36, height: 36,
-            borderRadius: 8,
-            border: '1px solid var(--ifm-color-emphasis-300)',
-            background: n === page ? 'var(--ifm-color-primary)' : 'transparent',
-            color: n === page ? 'white' : 'inherit',
-            cursor: 'pointer',
-            fontWeight: n === page ? 600 : 400,
-          }}>
-          {n}
-        </button>
-      ))}
-    </div>
-  );
+  // Call useBaseUrl at top level, not inside map.
+  const imgBaseUrl = useBaseUrl('/');
 
   return (
     <Layout title="天码行空 SkyHorse" description="LeetCode 题解">
@@ -59,7 +66,7 @@ export default function Home() {
 
         {/* 分頁：上排 */}
         <div style={{marginBottom: '1.5rem'}}>
-          <Pagination />
+          <Pagination page={page} totalPages={totalPages} setPage={setPage} />
         </div>
 
         <div style={{
@@ -84,7 +91,7 @@ export default function Home() {
 
                 {p.img && (
                   <img
-                    src={useBaseUrl(p.img)}
+                    src={imgBaseUrl.replace(/\/$/, '') + p.img}
                     alt={p.title}
                     style={{width: '100%', height: 160, objectFit: 'cover'}}
                   />
@@ -114,7 +121,7 @@ export default function Home() {
 
         {/* 分頁：下排 */}
         <div style={{marginTop: '2rem'}}>
-          <Pagination />
+          <Pagination page={page} totalPages={totalPages} setPage={setPage} />
         </div>
 
       </main>
