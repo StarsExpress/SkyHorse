@@ -68,6 +68,11 @@ const sidebars: SidebarsConfig = {
           },
           {
             "type": "doc",
+            "id": "dp_tabulation/1510_hard/perfect_stone_game",
+            "label": "1510. Perfect Stone Game"
+          },
+          {
+            "type": "doc",
             "id": "dp_tabulation/1872_hard/merge_stone_game",
             "label": "1872. Merge Stone Game"
           }
@@ -255,6 +260,11 @@ const sidebars: SidebarsConfig = {
             "type": "doc",
             "id": "stack/2454_hard/second_next_greater",
             "label": "2454. Second Next Greater"
+          },
+          {
+            "type": "doc",
+            "id": "stack/3113_hard/max_boundary_subarrays",
+            "label": "3113. Max Boundary Subarrays"
           },
           {
             "type": "doc",

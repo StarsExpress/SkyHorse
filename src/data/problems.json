@@ -16,6 +16,14 @@
     "img": "/img/efficiency/3351_efficiency.png"
   },
   {
+    "number": 3113,
+    "title": "3113. Max Boundary Subarrays",
+    "topic": "Stack",
+    "difficulty": "Hard",
+    "docId": "stack/3113_hard/max_boundary_subarrays",
+    "img": "/img/efficiency/3113_efficiency.png"
+  },
+  {
     "number": 2963,
     "title": "2963. Good Partitions",
     "topic": "Hash",
@@ -126,6 +134,14 @@
     "difficulty": "Hard",
     "docId": "two_pointers/1537_hard/max_score",
     "img": "/img/efficiency/1537_efficiency.png"
+  },
+  {
+    "number": 1510,
+    "title": "1510. Perfect Stone Game",
+    "topic": "DP Tabulation",
+    "difficulty": "Hard",
+    "docId": "dp_tabulation/1510_hard/perfect_stone_game",
+    "img": "/img/efficiency/1510_efficiency.png"
   },
   {
     "number": 1359,
