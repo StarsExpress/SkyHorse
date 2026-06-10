@@ -1,5 +1,7 @@
 # 🏇 SkyHorse (天码行空)
 
+### [🀄️中文版请由此](README_CHN.md)
+
 
 ## Repo's Origin
 ![repo_history.png](static/img/repo_history.png)
@@ -39,5 +41,5 @@ my intuition and thought processes when faced with complex problems.
 A lot of times, these breakthroughs were a product of late realizations
 that only truly appeared after tackling a problem for the tenth time.
 
-Though these growths arrived late, perhaps this is exactly why they possess a
-more matured depth—much like a fine wine that only improves with time 😄.
+Though these growths arrived late, perhaps this is exactly why they are
+much like a fine wine that only grows with time 😄.
