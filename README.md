@@ -1,4 +1,4 @@
-# 🏇 SkyHorse (天码行空)
+# 🏇 天码行空 SkyHorse
 
 ### [🀄️中文版请由此](README_CHN.md)
 
