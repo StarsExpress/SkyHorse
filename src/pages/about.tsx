@@ -71,7 +71,7 @@ export default function About() {
 
             {/* Title. */}
             <h1 className={isChinese ? styles.zhiMangXing : styles.caveat} style={{marginBottom: '0.5rem'}}>
-                {isChinese ? '远在天边' : 'Mr.Faraway'}
+                {isChinese ? '东流' : 'Mr.Faraway'}
             </h1>
 
             {/* Intro. */}

@@ -1,4 +1,6 @@
-# 🏇 天码行空 SkyHorse
+# 🏇天码行空 SkyHorse
+
+### Working harder to be better.
 
 ### [🀄️中文版请由此](README_CHN.md)
 
