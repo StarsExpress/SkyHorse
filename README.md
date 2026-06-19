@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="static/img/logo.jpg" width="80" alt="SkyHorse Logo" style="vertical-align: middle;">
-  <span style="font-size: 48px; font-weight: bold; vertical-align: middle;"> 天码行空 · SkyHorse</span>
+  <img src="static/img/logo.jpg" width="80" valign="middle">
+  &nbsp;&nbsp;
+  <strong style="font-size: 36px;">天码行空 · SkyHorse</strong>
 </p>
 
 
