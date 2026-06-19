@@ -1,6 +1,11 @@
-# 🏇天码行空 SkyHorse
+<p align="center">
+  <img src="static/img/logo.jpg" width="80" alt="SkyHorse Logo" style="vertical-align: middle;">
+  <span style="font-size: 48px; font-weight: bold; vertical-align: middle;"> 天码行空 · SkyHorse</span>
+</p>
 
-### 努力前行 远在天边 积少成多
+
+## 努力前行 远在天边 积少成多
+
 
 ## 仓库的前身
 ![repo_history.png](static/img/repo_history.png)

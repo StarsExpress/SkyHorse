@@ -1,6 +1,10 @@
-# 🏇天码行空 SkyHorse
+<p align="center">
+  <img src="static/img/logo.jpg" width="80" alt="SkyHorse Logo" style="vertical-align: middle;">
+  <span style="font-size: 48px; font-weight: bold; vertical-align: middle;"> 天码行空 · SkyHorse</span>
+</p>
 
-### Working harder to be better.
+
+## Working harder to be better.
 
 ### [🀄️中文版请由此](README_CHN.md)
 
