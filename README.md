@@ -1,9 +1,6 @@
-<p align="center">
-  <strong style="font-size: 50px;">🏇天码行空 · SkyHorse</strong>
-</p>
+# 🏇天码行空 · SkyHorse
 
-
-## Working harder to be better.
+### Working harder to be better.
 
 ### [🀄️中文版请由此](README_CHN.md)
 

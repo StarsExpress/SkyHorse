@@ -1,9 +1,6 @@
-<p align="center">
-  <strong style="font-size: 50px;">🏇天码行空 · SkyHorse</strong>
-</p>
+# 🏇天码行空 · SkyHorse
 
-
-## 努力前行 远在天边 积少成多
+### 努力前行 远在天边 积少成多
 
 
 ## 仓库的前身
