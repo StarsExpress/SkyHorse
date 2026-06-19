@@ -1,7 +1,5 @@
 <p align="center">
-  <img src="static/img/logo.jpg" width="80" valign="middle">
-  &nbsp;&nbsp;
-  <strong style="font-size: 60px;">天码行空 · SkyHorse</strong>
+  <strong style="font-size: 50px;">🏇天码行空 · SkyHorse</strong>
 </p>
 
 
