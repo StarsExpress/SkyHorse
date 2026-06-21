@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="static/img/logo.jpg" width="200">
+</p>
+
 # 🏇天码行空 · SkyHorse
 
 ### 努力前行 远在天边 积少成多

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="static/img/logo.jpg" width="200">
+</p>
+
 # 🏇天码行空 · SkyHorse
 
 ### Working harder to be better.

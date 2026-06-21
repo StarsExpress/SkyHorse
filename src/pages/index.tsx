@@ -54,7 +54,7 @@ export default function Home() {
   const imgBaseUrl = useBaseUrl('/');
 
   return (
-    <Layout title="天码行空 SkyHorse" description="LeetCode 题解">
+    <Layout title="天码行空 · SkyHorse" description="LeetCode 题解">
       <main style={{maxWidth: 1200, margin: '0 auto', padding: '2rem 1rem'}}>
 
         {/* Welcome 文字區 */}

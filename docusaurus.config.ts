@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: '天码行空 SkyHorse',
+  title: '天码行空 · SkyHorse',
   tagline: '天马行空的思路 天天专注想代码',
   favicon: 'img/favicon.ico',
 
@@ -99,9 +99,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: '天码行空 SkyHorse',
+      title: '天码行空 · SkyHorse',
       logo: {
-        alt: '天码行空 SkyHorse Logo',
+        alt: '天码行空 · SkyHorse Logo',
         src: 'img/logo.jpg',
       },
       items: [
@@ -131,7 +131,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} 天码行空 SkyHorse. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} 天码行空 · SkyHorse. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
