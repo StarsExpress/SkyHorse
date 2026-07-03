@@ -7,12 +7,43 @@ const sidebars: SidebarsConfig = {
   tutorialSidebar: [
   {
     "type": "category",
+    "label": "BFS",
+    "collapsed": true,
+    "items": [
+      {
+        "type": "category",
+        "label": "Medium",
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "bfs/1466_medium/reordered_routes",
+            "label": "1466. Reordered Routes"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Hard",
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "bfs/0987_hard/vertical_traversal",
+            "label": "987. Vertical Traversal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
     "label": "DFS",
     "collapsed": true,
     "items": [
       {
         "type": "category",
-        "label": "Hard",
+        "label": "Hard​",
         "collapsed": true,
         "items": [
           {
@@ -41,7 +72,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Medium",
+        "label": "Medium​",
         "collapsed": true,
         "items": [
           {
@@ -53,7 +84,7 @@ const sidebars: SidebarsConfig = {
       },
       {
         "type": "category",
-        "label": "Hard​",
+        "label": "Hard​​",
         "collapsed": true,
         "items": [
           {
@@ -87,7 +118,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​",
+        "label": "Hard​​​",
         "collapsed": true,
         "items": [
           {
@@ -111,7 +142,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​​",
+        "label": "Hard​​​​",
         "collapsed": true,
         "items": [
           {
@@ -135,7 +166,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Medium​",
+        "label": "Medium​​",
         "collapsed": true,
         "items": [
           {
@@ -147,7 +178,7 @@ const sidebars: SidebarsConfig = {
       },
       {
         "type": "category",
-        "label": "Hard​​​​",
+        "label": "Hard​​​​​",
         "collapsed": true,
         "items": [
           {
@@ -166,7 +197,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​​​​",
+        "label": "Hard​​​​​​",
         "collapsed": true,
         "items": [
           {
@@ -190,7 +221,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​​​​​",
+        "label": "Hard​​​​​​​",
         "collapsed": true,
         "items": [
           {
@@ -214,7 +245,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​​​​​​",
+        "label": "Hard​​​​​​​​",
         "collapsed": true,
         "items": [
           {
@@ -238,7 +269,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​​​​​​​",
+        "label": "Hard​​​​​​​​​",
         "collapsed": true,
         "items": [
           {
@@ -282,7 +313,7 @@ const sidebars: SidebarsConfig = {
     "items": [
       {
         "type": "category",
-        "label": "Hard​​​​​​​​​",
+        "label": "Hard​​​​​​​​​​",
         "collapsed": true,
         "items": [
           {

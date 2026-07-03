@@ -144,12 +144,28 @@
     "img": "/img/efficiency/1510_efficiency.png"
   },
   {
+    "number": 1466,
+    "title": "1466. Reordered Routes",
+    "topic": "BFS",
+    "difficulty": "Medium",
+    "docId": "bfs/1466_medium/reordered_routes",
+    "img": "/img/efficiency/1466_efficiency.png"
+  },
+  {
     "number": 1359,
     "title": "1359. Pickup Deliveries",
     "topic": "DP Tabulation",
     "difficulty": "Hard",
     "docId": "dp_tabulation/1359_hard/pickup_deliveries",
     "img": "/img/efficiency/1359_efficiency.png"
+  },
+  {
+    "number": 987,
+    "title": "987. Vertical Traversal",
+    "topic": "BFS",
+    "difficulty": "Hard",
+    "docId": "bfs/0987_hard/vertical_traversal",
+    "img": "/img/efficiency/0987_efficiency.png"
   },
   {
     "number": 918,

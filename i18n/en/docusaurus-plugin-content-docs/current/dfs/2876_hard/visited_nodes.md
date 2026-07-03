@@ -18,7 +18,7 @@ If you haven't fully grasped problem 2360 about the longest cycle detection,
 jumping straight into problem 2876 might leave you __stuck in circles__ with no way out.
 
 
-## [Count Visited Nodes in a Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/description/)
+## [Count Visited Nodes in A Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/description/)
 A directed graph has $n$ nodes and $n$ edges, with nodes labeled $0$ to $n-1$.
 
 All edge information is stored in an array called `edges`,
