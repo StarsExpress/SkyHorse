@@ -6,7 +6,19 @@
 
 ### [🪂 SkyHorse's History 📚](https://starsexpress.github.io/Faraway-s-Way/skyhorse/)
 
+---
+
 ### Working harder to be better 😃
 If you come across any suggestions, including finding bugs, please let me know.
 
 I am willing to talk in the repo's Discussions, so things are traceable~~
+
+---
+
+### 𝓓 [Docusaurus](https://docusaurus.io)
+Is the documentation framework behind SkyHorse~~
+
+I very much like [Docusaurus](https://github.com/facebook/docusaurus) for:
+- Multi-languages support.
+- Natural LaTeX rendering.
+- Tabs to switch different language code snippets.
