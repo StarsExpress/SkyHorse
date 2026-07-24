@@ -1,5 +1,4 @@
-
-def count_max_partitions(nums: list[int], k: int) -> int:  # LeetCode Q.2025.
+def count_max_partitions(nums: list[int], k: int) -> int:
     # Left diff: only consider potential pivot indices at left side.
     # Right diff: only consider potential pivot indices at right side.
     # Dict key: diff = prefix sum - suffix sum.
@@ -23,7 +22,8 @@ def count_max_partitions(nums: list[int], k: int) -> int:  # LeetCode Q.2025.
         right_diff_counts[diff] += 1
 
         # Born as a great partition. No need to change.
-        if prefix_sum == suffix_sum: max_partition_ways += 1
+        if prefix_sum == suffix_sum:
+            max_partition_ways += 1
 
     prefix_sum = 0  # Reset to let next for loop sweep again.
 

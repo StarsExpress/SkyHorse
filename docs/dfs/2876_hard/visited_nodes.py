@@ -1,5 +1,4 @@
-
-class DirectedGraphVisitedNodes:  # LeetCode Q.2876.
+class DirectedGraphVisitedNodes:
     def __init__(self):
         self.graph: list[int] = []
         self.visited_orders: list[int] = []
@@ -18,7 +17,9 @@ class DirectedGraphVisitedNodes:  # LeetCode Q.2876.
 
         # A cycle just forms. Current node and its target node are members.
         if self.visited_orders[target_node] > 0:
-            cycle_size = self.visited_orders[node] + 1 - self.visited_orders[target_node]
+            cycle_size = self.visited_orders[node] + 1
+            cycle_size -= self.visited_orders[target_node]
+
             self.visited_counts[node] = cycle_size
 
             self.visited_orders[node] = -2  # Current node has finalized DFS.

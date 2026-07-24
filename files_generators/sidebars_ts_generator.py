@@ -13,7 +13,8 @@ def get_md_title(md_path: str, fallback: str) -> str:
             if line.startswith("title:"):
                 return line.replace("title:", "").strip().strip('"')
 
-            if line == "---": break
+            if line == "---":
+                break
 
     return fallback
 
@@ -27,18 +28,22 @@ def generate_sidebars() -> None:
 
     for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):  # Sort DSA topics.
         topic_path = os.path.join(DOCS_DIR_PATH, dsa_topic)
-        if not os.path.isdir(topic_path): continue
+        if not os.path.isdir(topic_path):
+            continue
 
         groups = {}
         for problem in sorted(os.listdir(topic_path)):  # Sort w.r.t. problems' numbers.
             problem_path = os.path.join(topic_path, problem)
-            if not os.path.isdir(problem_path): continue
+            if not os.path.isdir(problem_path):
+                continue
 
             parts = problem.split("_")
-            if len(parts) < 2: continue
+            if len(parts) < 2:
+                continue
 
             difficulty = parts[1].lower()
-            if difficulty not in DIFFICULTIES: continue
+            if difficulty not in DIFFICULTIES:
+                continue
 
             number = parts[0]
 
@@ -62,15 +67,17 @@ def generate_sidebars() -> None:
                         }
                     )
 
-        if not groups: continue
+        if not groups:
+            continue
 
         diff_categories = []
         for diff in DIFFICULTIES:
-            if diff not in groups: continue
+            if diff not in groups:
+                continue
 
             base_label = diff.capitalize()
             count = diff_label_counter.get(base_label, 0)
-            unique_label = base_label + "\u200B" * count  # Add zero-width spaces.
+            unique_label = base_label + "\u200b" * count  # Add zero-width spaces.
             diff_label_counter[base_label] = count + 1
 
             diff_categories.append(

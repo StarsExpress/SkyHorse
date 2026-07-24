@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-long long calculateMinRequiredMoney(vector<vector<int>>& transactions) { // LeetCode Q.2412.
+long long calculateMinRequiredMoney(vector<vector<int>>& transactions) {
     long long totalAbsLoss = 0;
 
     int winningTradeMaxCost = -1;

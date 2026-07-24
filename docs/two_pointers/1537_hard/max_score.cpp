@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int findMaxScore(vector<int>& nums1, vector<int>& nums2) { // LeetCode Q.1537.
+int findMaxScore(vector<int>& nums1, vector<int>& nums2) {
     long long maxScore = 0; // Must use long long to prevent overflow.
     long long scoreOne = 0, scoreTwo = 0;
 

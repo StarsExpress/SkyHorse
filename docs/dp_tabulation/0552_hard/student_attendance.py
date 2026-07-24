@@ -1,5 +1,4 @@
-
-def count_possibilities(record_len: int) -> int:  # LeetCode Q.552.
+def count_possibilities(record_len: int) -> int:
     # Possible ends: "P", "L", "LL". Base case: record len = 1.
     no_abs_table = {"p": 1, "l": 1, "ll": 0}
 
@@ -9,10 +8,10 @@ def count_possibilities(record_len: int) -> int:  # LeetCode Q.552.
     # Help each day's tables update values.
     new_no_abs_table, new_one_abs_table = dict(), dict()
 
-    modulo = 10 ** 9 + 7
+    modulo = 10**9 + 7
 
     for _ in range(2, record_len + 1):
-        
+
         no_abs_sum = sum(no_abs_table.values()) % modulo
 
         new_no_abs_table["p"] = no_abs_sum  # No.1: all 0 absence ends are now "P".
@@ -33,9 +32,9 @@ def count_possibilities(record_len: int) -> int:  # LeetCode Q.552.
 
         no_abs_table.update(new_no_abs_table)
         one_abs_table.update(new_one_abs_table)
-        
+
         new_no_abs_table.clear()  # Reset for next day's usage.
         new_one_abs_table.clear()
-        
+
     valid_combinations = sum(no_abs_table.values()) + sum(one_abs_table.values())
     return valid_combinations % modulo

@@ -1,5 +1,4 @@
-
-def count_subarray_scores(nums: list[int], k: int) -> int:  # LeetCode Q.2302.
+def count_subarray_scores(nums: list[int], k: int) -> int:
     total_subarrays = 0
     subarray_sum = 0
 

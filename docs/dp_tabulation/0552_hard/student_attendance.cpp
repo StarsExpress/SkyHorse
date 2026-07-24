@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int countPossibilities(int recordLen) // LeetCode Q.552.
-{
+int countPossibilities(int recordLen) {
     // Possible ends: "P", "L", "LL".
     long long noAbsEndP = 1, noAbsEndL = 1, noAbsEndLL = 0;
 

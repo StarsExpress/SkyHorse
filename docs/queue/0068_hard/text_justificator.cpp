@@ -3,8 +3,7 @@
 #include <vector>
 using namespace std;
 
-class TextJustificator // LeetCode Q.68.
-{
+class TextJustificator {
 private:
     deque<string> queue;
 

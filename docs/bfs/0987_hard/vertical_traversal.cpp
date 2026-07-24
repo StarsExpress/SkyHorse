@@ -23,8 +23,7 @@ struct TreeNode {
         , right(right) {}
 };
 
-vector<vector<int>> findVerticalTraversal(TreeNode* root) // LeetCode Q.987.
-{
+vector<vector<int>> findVerticalTraversal(TreeNode* root) {
     // Each tuple format: {tree node, row, column}.
     deque<tuple<TreeNode*, int, int>> queue = {{root, 0, 0}};
 

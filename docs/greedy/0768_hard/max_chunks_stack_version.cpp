@@ -2,8 +2,7 @@
 using namespace std;
 #include <stack>
 
-int findMaxSortableChunks(vector<int>& nums) // LeetCode Q.768 & 769.
-{
+int findMaxSortableChunks(vector<int>& nums) {
     stack<int> stack;
 
     for (const auto& num : nums) {

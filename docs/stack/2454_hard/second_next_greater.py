@@ -1,5 +1,4 @@
-
-def find_second_next_greater(nums: list[int]) -> list[int]:  # LeetCode Q.2454.
+def find_second_next_greater(nums: list[int]) -> list[int]:
     second_next_greater = [-1] * len(nums)
 
     stack_1: list[tuple[int, int]] = []  # Decreasing monotonic stacks: (num, idx).
@@ -14,7 +13,7 @@ def find_second_next_greater(nums: list[int]) -> list[int]:  # LeetCode Q.2454.
 
         while stack_1 and stack_1[-1][0] < num:
             transporter.append(stack_1.pop(-1))
-        
+
         while transporter:
             stack_2.append(transporter.pop(-1))  # Ensure decreasing monotonicity.
         stack_1.append((num, idx))

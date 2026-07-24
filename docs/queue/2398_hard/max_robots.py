@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def count_max_robots(charge_times: list[int], running_costs: list[int], budget: int):  # LeetCode Q.2398.
+def count_max_robots(charge_times: list[int], running_costs: list[int], budget: int):
     max_robots_count = 0  # Base case.
 
     window_total_cost = 0
@@ -26,10 +26,13 @@ def count_max_robots(charge_times: list[int], running_costs: list[int], budget: 
             robots_count -= 1
             start_idx += 1
 
-            if queue and queue[0][1] < start_idx: queue.popleft()
+            if queue and queue[0][1] < start_idx:
+                queue.popleft()
 
-            if start_idx > end_idx: break  # 0 robots at hand.
+            if start_idx > end_idx:
+                break  # 0 robots at hand.
 
-        if robots_count > max_robots_count: max_robots_count = robots_count
+        if robots_count > max_robots_count:
+            max_robots_count = robots_count
 
     return max_robots_count

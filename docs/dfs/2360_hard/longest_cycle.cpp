@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-class LongestCycle // LeetCode Q.2360.
-{
+class LongestCycle {
 private:
     vector<int> graph, visitedOrders;
     int currentOrder = 1, maxCycle = -1;

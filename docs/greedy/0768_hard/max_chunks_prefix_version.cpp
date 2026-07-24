@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-int findMaxSortableChunks(vector<int>& nums) // LeetCode Q.768 & 769.
-{
+int findMaxSortableChunks(vector<int>& nums) {
     vector<int> prefixMaxs; // Max of each nums[:(i + 1)th idx].
 
     for (const auto& num : nums) {

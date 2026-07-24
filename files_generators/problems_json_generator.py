@@ -7,17 +7,21 @@ problems = []
 
 for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):
     dsa_topic_path = os.path.join(DOCS_DIR_PATH, dsa_topic)
-    if not os.path.isdir(dsa_topic_path): continue
+    if not os.path.isdir(dsa_topic_path):
+        continue
 
     for problem in sorted(os.listdir(dsa_topic_path)):
         problem_path = os.path.join(dsa_topic_path, problem)
-        if not os.path.isdir(problem_path): continue
+        if not os.path.isdir(problem_path):
+            continue
 
         parts = problem.split("_")
-        if len(parts) < 2: continue
+        if len(parts) < 2:
+            continue
 
         difficulty = parts[1].lower()
-        if difficulty not in DIFFICULTIES: continue
+        if difficulty not in DIFFICULTIES:
+            continue
 
         number_str = parts[0]  # Has left padded zeros.
         number = int(parts[0])
@@ -35,13 +39,15 @@ for dsa_topic in sorted(os.listdir(DOCS_DIR_PATH)):
                         if line.startswith("title:"):
                             title = line.replace("title:", "").strip().strip('"')
 
-                        if line == "---": break
+                        if line == "---":
+                            break
 
                 stem = file.rsplit(".", 1)[0]
                 doc_id = f"{dsa_topic}/{problem}/{stem}"
                 break
 
-        if not title or not doc_id: continue
+        if not title or not doc_id:
+            continue
 
         image = None  # Find efficiency png.
 

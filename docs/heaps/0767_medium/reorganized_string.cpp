@@ -3,8 +3,7 @@
 #include <unordered_map>
 using namespace std;
 
-string reorganizeString(string initString) // LeetCode Q.767.
-{
+string reorganizeString(string initString) {
     unordered_map<char, int> charsCounts;
 
     for (const char& character : initString) {

@@ -1,5 +1,4 @@
-
-class MaxRisingPath:  # LeetCode Q.329.
+class MaxRisingPath:
     def __init__(self):
         self.matrix = []
         self.max_rising_path = []
@@ -22,28 +21,39 @@ class MaxRisingPath:  # LeetCode Q.329.
         return self.max_rising_len
 
     def _dfs_rising_path(self, row_idx: int, col_idx: int) -> None:
-        self.max_rising_path[row_idx][col_idx] = 1  # Base case: a path of only current entry.
+        # Base case: a path of only current entry.
+        self.max_rising_path[row_idx][col_idx] = 1
 
         neighbors: list[tuple[int, int]] = [
-            (row_idx + 1, col_idx), (row_idx - 1, col_idx),  # South & North.
-            (row_idx, col_idx + 1), (row_idx, col_idx - 1)  # East & West.
+            (row_idx + 1, col_idx),
+            (row_idx - 1, col_idx),  # South & North.
+            (row_idx, col_idx + 1),
+            (row_idx, col_idx - 1),  # East & West.
         ]
 
         for neighbor_row_idx, neighbor_col_idx in neighbors:
             # Inbound checks on row & col indices.
-            if not (0 <= neighbor_row_idx < len(self.matrix)): continue
+            if not (0 <= neighbor_row_idx < len(self.matrix)):
+                continue
 
-            if not (0 <= neighbor_col_idx < len(self.matrix[0])): continue
+            if not (0 <= neighbor_col_idx < len(self.matrix[0])):
+                continue
 
             # Only consider neighbors that are bigger than current entry.
-            if self.matrix[row_idx][col_idx] < self.matrix[neighbor_row_idx][neighbor_col_idx]:
+            if (
+                self.matrix[row_idx][col_idx]
+                < self.matrix[neighbor_row_idx][neighbor_col_idx]
+            ):
                 # Unsearched neighbor.
                 if self.max_rising_path[neighbor_row_idx][neighbor_col_idx] == -1:
                     self._dfs_rising_path(neighbor_row_idx, neighbor_col_idx)
 
-                rising_len = 1 + self.max_rising_path[neighbor_row_idx][neighbor_col_idx]
+                rising_len = (
+                    1 + self.max_rising_path[neighbor_row_idx][neighbor_col_idx]
+                )
 
                 if rising_len > self.max_rising_path[row_idx][col_idx]:
                     self.max_rising_path[row_idx][col_idx] = rising_len
 
-                if rising_len > self.max_rising_len: self.max_rising_len = rising_len
+                if rising_len > self.max_rising_len:
+                    self.max_rising_len = rising_len

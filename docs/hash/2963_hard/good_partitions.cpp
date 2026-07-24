@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int countGoodPartitions(vector<int>& nums) // LeetCode Q.2963.
-{
+int countGoodPartitions(vector<int>& nums) {
     unordered_map<int, int> numsLastIndices; // Each num's last idx.
 
     for (int idx = 0; idx < nums.size(); idx++)

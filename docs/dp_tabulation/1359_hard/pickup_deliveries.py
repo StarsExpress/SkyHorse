@@ -1,6 +1,5 @@
-
-def count_valid_sequences(total_orders: int) -> int:  # LeetCode Q.1359.
-    modulo = 10 ** 9 + 7
+def count_valid_sequences(total_orders: int) -> int:
+    modulo = 10**9 + 7
 
     # Base case when n is 1: pickup 1 followed by delivery 1.
     valid_sequences = 1

@@ -1,7 +1,7 @@
 import heapq
 
 
-class MedianFinder:  # LeetCode Q.295.
+class MedianFinder:
     def __init__(self):
         # When nums count is odd, median goes to min heap.
         # Max heap needs to negate value to fit default Python min heap.
@@ -16,7 +16,8 @@ class MedianFinder:  # LeetCode Q.295.
             heapq.heappush(self.max_heap, -num)  # Max heap negates.
 
         while self.max_heap and self.min_heap:
-            if -self.max_heap[0] <= self.min_heap[0]: break  # No need to adjust.
+            if -self.max_heap[0] <= self.min_heap[0]:
+                break  # No need to adjust.
 
             # -Max heap top > min heap top: mismatch so must switch.
             former_max_heap_top = -heapq.heappop(self.max_heap)  # Max heap negates.

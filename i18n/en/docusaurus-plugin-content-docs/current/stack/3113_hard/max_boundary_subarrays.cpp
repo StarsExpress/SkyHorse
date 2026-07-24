@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-long long count_subarrays(vector<int>& nums) { // LeetCode Q.3113.
+long long count_subarrays(vector<int>& nums) {
     stack<pair<int, int>> stack; // Format: {num, count}.
 
     long long subarraysCount = 0;

@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-class DirectedGraphVisitedNodes // LeetCode Q.2876.
-{
+class DirectedGraphVisitedNodes {
 private:
     vector<int> graph, visitedOrders, visitedCounts;
     int currentOrder = 1;

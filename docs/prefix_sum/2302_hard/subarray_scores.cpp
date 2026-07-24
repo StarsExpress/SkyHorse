@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-long long countSubarrayScores(vector<int>& nums, long long k) // LeetCode Q.2302.
-{
+long long countSubarrayScores(vector<int>& nums, long long k) {
     long long lessThanKSubarraysCount = 0; // Long long prevents overflow.
 
     long long subarraySum = 0; // Long long prevents overflow.

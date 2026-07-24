@@ -3,8 +3,7 @@
 #include <vector>
 using namespace std;
 
-class TextEditor // LeetCode Q.2296.
-{
+class TextEditor {
 private:
     deque<char> cursorLeftSide, cursorRightSide;
 

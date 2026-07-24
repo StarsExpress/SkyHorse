@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int find_min_reorders(int n, vector<vector<int>>& connections) // LeetCode Q.1466.
-{
+int find_min_reorders(int n, vector<vector<int>>& connections) {
     vector<vector<int>> srcNodes(n, vector<int>()), tgtNodes(n, vector<int>());
     vector<bool> visited(n, false);
 

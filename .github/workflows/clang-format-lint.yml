@@ -1,0 +1,39 @@
+name: clang-format-linter
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - docs/**
+      - i18n/**
+      - '**.c'
+      - '**.cc'
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+  pull_request:
+    branches: [dev]
+    paths:
+      - docs/**
+      - i18n/**
+      - '**.c'
+      - '**.cc'
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run clang-format check
+        uses: jidicula/clang-format-action@v4.13.0
+        with:
+          clang-format-version: '18'
+          check-path: '.'

@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-int findMaxScore(vector<int>& nums, int k) // LeetCode Q.1793.
-{
+int findMaxScore(vector<int>& nums, int k) {
     int maxScore = nums[k], minNum = nums[k]; // Base case.
 
     int leftIdx = k, rightIdx = k;

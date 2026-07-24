@@ -1,5 +1,4 @@
-
-class LongestCycle:  # LeetCode Q.2360.
+class LongestCycle:
     def __init__(self):
         self.edges: list[int] = []
         self.visited_orders: list[int] = []
