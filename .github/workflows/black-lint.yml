@@ -9,7 +9,7 @@ on:
       - files_generators/**
       - '*.py'
   pull_request:
-    branches: [dev]
+    branches: [main]
     paths:
       - docs/**
       - i18n/**
