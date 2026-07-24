@@ -2,8 +2,7 @@
 #include <unordered_map>
 using namespace std;
 
-string findMinWindowSubstring(string sourceString, string targetString) // LeetCode Q.76.
-{
+string findMinWindowSubstring(string sourceString, string targetString) {
     unordered_map<char, int> tgtCharsCounts;
 
     for (const auto& character : targetString)

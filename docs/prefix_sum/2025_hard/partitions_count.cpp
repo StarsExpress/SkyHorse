@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int countMaxPartitions(vector<int>& nums, int k) // LeetCode Q.2025.
-{
+int countMaxPartitions(vector<int>& nums, int k) {
     long long totalSum = 0; // Prevents overflow.
     for (const auto& num : nums)
         totalSum += num;

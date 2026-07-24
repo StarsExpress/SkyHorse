@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-class MaxRisingPath // LeetCode Q.329.
-{
+class MaxRisingPath {
 private:
     // An entry's max rising path value is -1 if this entry is unsearched.
     // Otherwise, max rising path value is the finalized value w.r.t. entry.

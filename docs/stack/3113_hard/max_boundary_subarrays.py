@@ -1,5 +1,4 @@
-
-def count_subarrays(nums: list[int]) -> int:  # LeetCode Q.3113.
+def count_subarrays(nums: list[int]) -> int:
     stack: list[tuple[int, int]] = []  # Format: (num, count).
 
     subarrays_count = 0
@@ -7,7 +6,7 @@ def count_subarrays(nums: list[int]) -> int:  # LeetCode Q.3113.
     for num in nums:
         while stack and stack[-1][0] < num:
             stack.pop(-1)
-        
+
         count = 1  # Base case: current num only.
 
         if stack and stack[-1][0] == num:

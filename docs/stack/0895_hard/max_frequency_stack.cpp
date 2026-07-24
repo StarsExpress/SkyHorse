@@ -3,8 +3,7 @@
 #include <vector>
 using namespace std;
 
-class MaxFrequencyStack // LeetCode Q.895.
-{
+class MaxFrequencyStack {
 private:
     // Each idx contains stack of values with frequency = idx.
     // Pad empty stack to adjust for 0-based indexing.

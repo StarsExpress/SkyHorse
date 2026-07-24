@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int sumGoodSubsequences(vector<int>& nums) // LeetCode Q.3351.
-{
+int sumGoodSubsequences(vector<int>& nums) {
     long long modulo = pow(10, 9) + 7; // Long long prevents overflow.
 
     unordered_map<int, long long> subseqCounts, subseqSums;

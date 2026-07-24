@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def find_min_reorders(n: int, connections: list[list[int]]) -> int:  # LeetCode Q.1466.
+def find_min_reorders(n: int, connections: list[list[int]]) -> int:
     src_nodes: list[list[int]] = [[] for _ in range(n)]  # Each node's source nodes.
     tgt_nodes: list[list[int]] = [[] for _ in range(n)]  # Each node's target nodes.
 

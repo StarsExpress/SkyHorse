@@ -20,7 +20,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
-
 __MACOSX/
-
 __pycache__/

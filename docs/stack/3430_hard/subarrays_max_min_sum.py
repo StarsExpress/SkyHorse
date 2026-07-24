@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def compute_max_min_sum(nums: list[int], k: int) -> int:  # LeetCode Q.3430.
+def compute_max_min_sum(nums: list[int], k: int) -> int:
     subarrays_max_min_sum = 0
 
     max_stack: deque[list[int]] = deque([])  # Format: [idx, num, shares].

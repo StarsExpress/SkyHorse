@@ -1,8 +1,7 @@
 #include <queue>
 using namespace std;
 
-class MedianFinder // LeetCode Q.295.
-{
+class MedianFinder {
 private:
     // When nums count is odd, median goes to min heap.
     // Min heap needs to negate value to fit default C++ max heap.

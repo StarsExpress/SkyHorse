@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> countVisibilities(vector<int>& heights) // LeetCode Q.1944.
-{
+vector<int> countVisibilities(vector<int>& heights) {
     stack<int> stack; // A stack of heights.
 
     vector<int> visibilities(heights.size(), 0);

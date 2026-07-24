@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-bool judgeWinnability(int stonesCount) // LeetCode Q.1510.
-{
+bool judgeWinnability(int stonesCount) {
     vector<int> squaresCounts(stonesCount + 1, 0);
 
     for (int num = 1; num <= stonesCount; num++) {

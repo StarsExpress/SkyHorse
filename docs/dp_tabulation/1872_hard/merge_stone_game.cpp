@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int maximizeScoresDifference(vector<int>& stones) // LeetCode Q.1872.
-{
+int maximizeScoresDifference(vector<int>& stones) {
     int prefixSum = 0;
     for (const auto& stone : stones)
         prefixSum += stone;

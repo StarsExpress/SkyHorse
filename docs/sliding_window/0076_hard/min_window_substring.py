@@ -1,5 +1,4 @@
-
-def find_min_window_substring(source_str: str, target_str: str) -> str:  # LeetCode Q.76.
+def find_min_window_substring(source_str: str, target_str: str) -> str:
     tgt_chars_counts: dict[str, int] = dict()
 
     for char in target_str:
@@ -39,6 +38,7 @@ def find_min_window_substring(source_str: str, target_str: str) -> str:  # LeetC
 
             left_idx += 1
 
-    if min_len == len(source_str) + 1: return ""
+    if min_len == len(source_str) + 1:
+        return ""
 
-    return source_str[min_window_left_idx: min_window_left_idx + min_len]
+    return source_str[min_window_left_idx : min_window_left_idx + min_len]

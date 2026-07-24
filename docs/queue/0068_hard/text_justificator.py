@@ -1,9 +1,10 @@
-
-class TextJustificator:  # LeetCode Q.68.
+class TextJustificator:
     def __init__(self) -> None:
         self.queue: list[str] = []
 
-    def _form_sentence(self, chars_count: int, max_width: int, left_justify: bool) -> str:
+    def _form_sentence(
+        self, chars_count: int, max_width: int, left_justify: bool
+    ) -> str:
         interval_spaces = ""
         intervals_count = len(self.queue) - 1
         modulo = 0

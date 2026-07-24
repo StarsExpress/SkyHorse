@@ -1,5 +1,4 @@
-
-def count_good_partitions(nums: list[int]) -> int:  # LeetCode Q.2963.
+def count_good_partitions(nums: list[int]) -> int:
     nums_last_indices: dict[int, int] = dict()  # Each num's last idx.
 
     for idx, num in enumerate(nums):
@@ -24,7 +23,7 @@ def count_good_partitions(nums: list[int]) -> int:  # LeetCode Q.2963.
     good_partitions = 1
     power = windows_count - 1
     base = 2  # Mod exp method speeds up quite some in Python.
-    modulo = 10 ** 9 + 7
+    modulo = 10**9 + 7
 
     while power > 0:
         if power % 2 == 1:  # Power is odd: product times current base.

@@ -1,8 +1,7 @@
 #include <cmath>
 using namespace std;
 
-int countValidSequences(int totalOrders) // LeetCode Q.1359.
-{
+int countValidSequences(int totalOrders) {
     long long modulo = pow(10, 9) + 7; // Long long prevents overflow.
 
     // Base case when n is 1: pickup 1 followed by delivery 1.

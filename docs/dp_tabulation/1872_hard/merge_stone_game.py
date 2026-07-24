@@ -1,5 +1,4 @@
-
-def maximize_scores_difference(stones: list[int]) -> int:  # LeetCode Q.1872.
+def maximize_scores_difference(stones: list[int]) -> int:
     prefix_sum = sum(stones)
 
     # Base case: Alice merges everything as the only attempt.

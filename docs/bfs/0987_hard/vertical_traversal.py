@@ -8,7 +8,7 @@ class TreeNode:
         self.right = right
 
 
-def find_vertical_traversal(root: TreeNode) -> list[list[int]]:  # LeetCode Q.987.
+def find_vertical_traversal(root: TreeNode) -> list[list[int]]:
     # Each tuple format: (tree node, row, column).
     queue: deque[tuple[TreeNode, int, int]] = deque([(root, 0, 0)])
 

@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-long long computeMaxMinSum(vector<int>& nums, int k) //  LeetCode Q.3430.
-{
+long long computeMaxMinSum(vector<int>& nums, int k) {
     long long totalMaxMinSum = 0;
     long long windowMaxSum = 0, windowMinSum = 0;
 

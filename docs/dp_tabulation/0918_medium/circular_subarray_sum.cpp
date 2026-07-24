@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-int computeMaxCircularSubarraySum(vector<int>& nums) { // LeetCode Q.918.
+int computeMaxCircularSubarraySum(vector<int>& nums) {
     int arrayTotalSum = 0;
     int maxNum = nums.front();
 

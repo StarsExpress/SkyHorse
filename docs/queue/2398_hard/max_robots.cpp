@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-int countMaxRobots(vector<int>& chargeTimes, vector<int>& runningCosts, long long budget) // LeetCode Q.2398.
-{
+int countMaxRobots(vector<int>& chargeTimes, vector<int>& runningCosts, long long budget) {
     int maxRobotsCount = 0; // Base case.
 
     long long windowTotalCost = 0;

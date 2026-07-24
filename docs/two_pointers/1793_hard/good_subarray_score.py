@@ -1,5 +1,4 @@
-
-def find_max_score(nums: list[int], k: int) -> int:  # LeetCode Q.1793.
+def find_max_score(nums: list[int], k: int) -> int:
     max_score = nums[k]  # Base case.
     min_num = nums[k]
 
@@ -9,7 +8,7 @@ def find_max_score(nums: list[int], k: int) -> int:  # LeetCode Q.1793.
         if left_idx == 0:  # Can only go right.
             right_idx += 1
             min_num = min(min_num, nums[right_idx])
-        
+
         elif right_idx == len(nums) - 1:  # Can only go left.
             left_idx -= 1
             min_num = min(min_num, nums[left_idx])

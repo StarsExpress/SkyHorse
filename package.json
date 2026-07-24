@@ -12,7 +12,13 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint:py": "black -S --check --diff docs i18n files_generators *.py",
+    "format:py": "black -S docs i18n files_generators *.py",
+    "lint:cpp": "find docs i18n -type f \\( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \\) -print0 | xargs -0 clang-format --dry-run -Werror",
+    "format:cpp": "find docs i18n -type f \\( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \\) -print0 | xargs -0 clang-format -i",
+    "lint": "npm run lint:py && npm run lint:cpp",
+    "format": "npm run format:py && npm run format:cpp"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",

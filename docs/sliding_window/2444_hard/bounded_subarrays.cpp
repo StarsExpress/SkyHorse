@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-long long countBoundedSubarrays(vector<int>& nums, int minK, int maxK) { // LeetCode Q.2444.
+long long countBoundedSubarrays(vector<int>& nums, int minK, int maxK) {
     long long boundedSubarraysCount = 0;
 
     int prevMinIdx = -1, prevMaxIdx = -1;

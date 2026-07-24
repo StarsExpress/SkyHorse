@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> find_second_next_greater(vector<int>& nums) // LeetCode Q.2454.
-{
+vector<int> find_second_next_greater(vector<int>& nums) {
     vector<int> secondNextGreater(nums.size(), -1);
 
     // Decreasing monotonic stacks: {num, idx}.

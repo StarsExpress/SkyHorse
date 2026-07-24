@@ -1,0 +1,31 @@
+name: black-linter
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - docs/**
+      - i18n/**
+      - files_generators/**
+      - '*.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - docs/**
+      - i18n/**
+      - files_generators/**
+      - '*.py'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jpetrucciani/black-check@master
+        with:
+          black_flags: '-S'
