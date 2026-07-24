@@ -1,6 +1,5 @@
 import os
 
-
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DOCS_DIR_PATH = os.path.join(ROOT, "docs")
 SRC_DIR_PATH = os.path.join(ROOT, "src")
